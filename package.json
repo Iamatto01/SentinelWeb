@@ -1,8 +1,12 @@
 {
   "name": "sentinelweb-render-entry",
   "private": true,
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
-    "postinstall": "npm --prefix server install",
+    "build": "npm ci --prefix server --production",
     "start": "npm --prefix server run start",
     "dev": "npm --prefix server run dev"
   }

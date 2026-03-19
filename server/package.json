@@ -2,9 +2,12 @@
   "name": "iamatto-web-catalog-server",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
-    "dev": "node ./src/server.js",
-    "start": "node ./src/server.js"
+    "dev": "NODE_ENV=development node ./src/server.js",
+    "start": "NODE_ENV=production node ./src/server.js"
   },
   "dependencies": {
     "cookie-parser": "^1.4.6",

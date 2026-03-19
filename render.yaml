@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: sentinelweb
+    env: node
+    buildCommand: npm ci --prefix server --production
+    startCommand: npm start --prefix server
+    envVars:
+      - key: NODE_ENV
+        value: production
+    # Optimize for faster cold starts
+    plan: starter
