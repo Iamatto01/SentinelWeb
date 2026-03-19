@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tea Garden — Elegant Tea House & Lounge</title>
+  <meta name="description" content="An elegant, minimal tea house template with serene design and premium tea collections.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --sage: #B7C4A7;
+      --deep-green: #4A6741;
+      --cream: #FBF8F3;
+      --ivory: #F5F2ED;
+      --taupe: #C8B8A3;
+      --gold-accent: #C19A6B;
+      --charcoal: #2F3E2C;
+      --white: #FFFFFF;
+      --text-dark: #1E1E1E;
+      --text-muted: #6B6B6B;
+      --shadow-soft: 0 4px 20px rgba(47, 62, 44, 0.08);
+      --shadow-hover: 0 8px 30px rgba(47, 62, 44, 0.12);
+      --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--text-dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Subtle texture background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 20% 20%, rgba(183, 196, 167, 0.08) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 80%, rgba(200, 184, 163, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 3rem;
+      background: rgba(251, 248, 243, 0.95);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(74, 103, 65, 0.1);
+      transition: var(--transition);
+    }
+
+    .header-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 3px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-icon {
+      font-size: 1.5rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--deep-green);
+      transition: var(--transition);
+    }
+
+    .nav a:hover {
+      color: var(--deep-green);
+    }
+
+    .nav a:hover::after {
+      width: 100%;
+    }
+
+    .btn-reserve {
+      background: var(--deep-green);
+      color: white;
+      padding: 0.85rem 1.75rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      box-shadow: 0 4px 15px rgba(74, 103, 65, 0.25);
+    }
+
+    .btn-reserve:hover {
+      background: var(--charcoal);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(47, 62, 44, 0.3);
+    }
+
+    /* HERO SECTION */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 120px 3rem 4rem;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--ivory) 100%);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      max-width: 800px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--deep-green);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .hero-badge::before,
+    .hero-badge::after {
+      content: '•';
+      color: var(--sage);
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 400;
+      line-height: 1.1;
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      letter-spacing: 2px;
+    }
+
+    .hero-title span {
+      display: block;
+      font-style: italic;
+      color: var(--deep-green);
+      font-size: 0.65em;
+      margin-top: 0.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      line-height: 1.9;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--charcoal);
+      color: white;
+      padding: 1.1rem 2.25rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-primary:hover {
+      background: var(--deep-green);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--charcoal);
+      padding: 1.1rem 2.25rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border: 1px solid var(--charcoal);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--charcoal);
+      color: white;
+    }
+
+    /* FEATURED TEAS */
+    .featured {
+      padding: 6rem 3rem;
+      background: var(--white);
+    }
+
+    .featured-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      color: var(--deep-green);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: 1px;
+    }
+
+    .teas-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .tea-card {
+      background: var(--cream);
+      border-radius: 20px;
+      padding: 2rem;
+      text-align: center;
+      transition: var(--transition);
+      border: 1px solid transparent;
+    }
+
+    .tea-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--sage);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .tea-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+      display: block;
+    }
+
+    .tea-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--charcoal);
+      margin-bottom: 0.75rem;
+    }
+
+    .tea-origin {
+      font-size: 0.85rem;
+      color: var(--deep-green);
+      margin-bottom: 0.75rem;
+      font-weight: 500;
+    }
+
+    .tea-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* EXPERIENCE SECTION */
+    .experience {
+      padding: 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      background: var(--ivory);
+    }
+
+    .experience-image {
+      background: linear-gradient(135deg, var(--sage), var(--deep-green));
+      min-height: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .experience-image::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+    }
+
+    .experience-content {
+      padding: 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .experience-label {
+      color: var(--deep-green);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--charcoal);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .experience-text {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .experience-features {
+      list-style: none;
+      margin-bottom: 2.5rem;
+    }
+
+    .experience-features li {
+      padding: 0.75rem 0;
+      padding-left: 2rem;
+      position: relative;
+      color: var(--text-dark);
+      font-size: 0.95rem;
+    }
+
+    .experience-features li::before {
+      content: '🍃';
+      position: absolute;
+      left: 0;
+      font-size: 1rem;
+    }
+
+    /* MENU SECTION */
+    .menu {
+      padding: 6rem 3rem;
+      background: var(--charcoal);
+      color: white;
+    }
+
+    .menu-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .menu .section-label {
+      color: var(--sage);
+    }
+
+    .menu .section-title {
+      color: white;
+      margin-bottom: 3rem;
+    }
+
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .menu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(183, 196, 167, 0.2);
+    }
+
+    .menu-item-info { flex: 1; }
+
+    .menu-item-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: var(--sage);
+    }
+
+    .menu-item-desc {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+    }
+
+    .menu-item-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      color: var(--gold-accent);
+      font-weight: 600;
+      margin-left: 1.5rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 6rem 3rem;
+      background: var(--cream);
+    }
+
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .testimonial-stars {
+      color: var(--gold-accent);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 3px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .author-avatar {
+      width: 45px;
+      height: 45px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--sage), var(--deep-green));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+
+    .author-name {
+      font-weight: 600;
+      color: var(--charcoal);
+      font-size: 0.95rem;
+    }
+
+    .author-title {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    /* CTA SECTION */
+    .cta {
+      padding: 6rem 3rem;
+      background: linear-gradient(135deg, var(--deep-green), var(--charcoal));
+      text-align: center;
+      color: white;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.25rem, 4vw, 3.25rem);
+      margin-bottom: 1.25rem;
+      font-weight: 500;
+    }
+
+    .cta-desc {
+      font-size: 1.05rem;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .cta .btn-primary {
+      background: white;
+      color: var(--charcoal);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--cream);
+      transform: translateY(-2px);
+    }
+
+    /* FOOTER */
+    .footer {
+      background: var(--charcoal);
+      color: white;
+      padding: 4rem 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand { }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .footer-desc {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .footer-title {
+      font-size: 0.8rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .footer-links {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+      color: var(--sage);
+    }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      color: rgba(255, 255, 255, 0.5);
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1100px) {
+      .teas-grid { grid-template-columns: repeat(2, 1fr); }
+      .experience { grid-template-columns: 1fr; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 1rem 1.5rem; }
+      .nav { display: none; }
+      .teas-grid { grid-template-columns: 1fr; }
+      .experience-content { padding: 3rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">🍵</span>
+        Tea Garden
+      </a>
+      <nav class="nav">
+        <a href="#teas">Teas</a>
+        <a href="#experience">Experience</a>
+        <a href="#menu">Menu</a>
+        <a href="#testimonials">Reviews</a>
+      </nav>
+      <a href="#visit" class="btn-reserve">Visit Us</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Premium Tea House</div>
+      <h1 class="hero-title">
+        Tea Garden
+        <span>Where Serenity Meets Flavor</span>
+      </h1>
+      <p class="hero-desc">Discover the art of tea in an elegant, tranquil setting. We curate the finest teas from around the world, served with mindfulness and care.</p>
+      <div class="hero-actions">
+        <a href="#teas" class="btn-primary">Explore Collection</a>
+        <a href="#menu" class="btn-secondary">View Menu</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured" id="teas">
+    <div class="featured-inner">
+      <div class="section-header">
+        <div class="section-label">Our Collection</div>
+        <h2 class="section-title">Featured Tea Selection</h2>
+      </div>
+      <div class="teas-grid">
+        <div class="tea-card">
+          <span class="tea-icon">🍃</span>
+          <h3 class="tea-name">Silver Needle White</h3>
+          <div class="tea-origin">Fujian, China</div>
+          <p class="tea-desc">Delicate, sweet notes with a silky texture. Hand-picked spring buds.</p>
+        </div>
+        <div class="tea-card">
+          <span class="tea-icon">🌸</span>
+          <h3 class="tea-name">Jasmine Pearl</h3>
+          <div class="tea-origin">Guangxi, China</div>
+          <p class="tea-desc">Fragrant green tea pearls infused with fresh jasmine flowers.</p>
+        </div>
+        <div class="tea-card">
+          <span class="tea-icon">☕</span>
+          <h3 class="tea-name">Darjeeling First Flush</h3>
+          <div class="tea-origin">Darjeeling, India</div>
+          <p class="tea-desc">Crisp, floral notes with a muscatel character. The champagne of teas.</p>
+        </div>
+        <div class="tea-card">
+          <span class="tea-icon">🌿</span>
+          <h3 class="tea-name">Gyokuro</h3>
+          <div class="tea-origin">Kyoto, Japan</div>
+          <p class="tea-desc">Rich umami flavor from shade-grown leaves. Premium Japanese green tea.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="experience" id="experience">
+    <div class="experience-image">🫖</div>
+    <div class="experience-content">
+      <div class="experience-label">The Tea Garden Way</div>
+      <h2 class="experience-title">An Experience Beyond the Cup</h2>
+      <p class="experience-text">At Tea Garden, we believe tea is more than a beverage—it's a ritual, a moment of peace, a connection to centuries of tradition.</p>
+      <p class="experience-text">Our tea sommeliers guide you through proper brewing techniques, flavor profiles, and the rich history behind each tea we serve.</p>
+      <ul class="experience-features">
+        <li>Traditional Gongfu tea ceremonies</li>
+        <li>Carefully curated tea & pastry pairings</li>
+        <li>Mindfulness meditation sessions</li>
+        <li>Private tea tasting experiences</li>
+        <li>Premium loose-leaf retail selection</li>
+      </ul>
+      <a href="#visit" class="btn-primary">Book a Tea Ceremony</a>
+    </div>
+  </section>
+
+  <section class="menu" id="menu">
+    <div class="menu-inner">
+      <div class="section-header">
+        <div class="section-label">Premium Selections</div>
+        <h2 class="section-title">Tea & Light Fare Menu</h2>
+      </div>
+      <div class="menu-grid">
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 class="menu-item-name">Traditional Tea Service</h4>
+            <p class="menu-item-desc">Choice of premium tea with traditional accompaniments</p>
+          </div>
+          <div class="menu-item-price">$18</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 class="menu-item-name">Gongfu Tea Ceremony</h4>
+            <p class="menu-item-desc">Guided traditional Chinese tea brewing experience</p>
+          </div>
+          <div class="menu-item-price">$35</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 class="menu-item-name">Afternoon Tea Set</h4>
+            <p class="menu-item-desc">Tea selection with pastries, scones, and finger sandwiches</p>
+          </div>
+          <div class="menu-item-price">$45</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 class="menu-item-name">Tea Flight</h4>
+            <p class="menu-item-desc">Curated selection of three premium teas</p>
+          </div>
+          <div class="menu-item-price">$28</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 class="menu-item-name">Matcha Experience</h4>
+            <p class="menu-item-desc">Traditional whisked matcha with seasonal wagashi</p>
+          </div>
+          <div class="menu-item-price">$22</div>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-info">
+            <h4 class="menu-item-name">Tea Pairing Plate</h4>
+            <p class="menu-item-desc">Artisan cheeses, fruits, and nuts paired with tea</p>
+          </div>
+          <div class="menu-item-price">$32</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-inner">
+      <div class="section-header">
+        <div class="section-label">Guest Experiences</div>
+        <h2 class="section-title">What Our Guests Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"A true sanctuary in the city. The tea ceremony was a transformative experience, and the knowledge of the staff is incredible."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">S</div>
+            <div>
+              <div class="author-name">Sarah Chen</div>
+              <div class="author-title">Tea Enthusiast</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"The most elegant tea experience I've had. Every detail is thoughtful, from the tea selection to the serene atmosphere."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">M</div>
+            <div>
+              <div class="author-name">Michael Park</div>
+              <div class="author-title">Regular Guest</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Tea Garden has become my weekly ritual. It's the perfect place to slow down and appreciate the art of tea."</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">L</div>
+            <div>
+              <div class="author-name">Lisa Anderson</div>
+              <div class="author-title">Weekly Visitor</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="visit">
+    <div class="cta-inner">
+      <h2 class="cta-title">Begin Your Tea Journey</h2>
+      <p class="cta-desc">Visit us for an afternoon of tranquility and discover your new favorite tea. Reservations recommended for tea ceremonies.</p>
+      <a href="#" class="btn-primary">Reserve Your Experience</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo">Tea Garden</div>
+          <p class="footer-desc">An elegant tea house dedicated to the art and tradition of premium tea. Mindfully curated, graciously served.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Experience</h4>
+          <ul class="footer-links">
+            <li><a href="#">Tea Collection</a></li>
+            <li><a href="#">Ceremonies</a></li>
+            <li><a href="#">Afternoon Tea</a></li>
+            <li><a href="#">Private Events</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Hours</h4>
+          <ul class="footer-links">
+            <li>Monday - Friday: 10am - 8pm</li>
+            <li>Saturday: 9am - 9pm</li>
+            <li>Sunday: 10am - 7pm</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Visit</h4>
+          <ul class="footer-links">
+            <li>456 Garden Lane</li>
+            <li>Serenity District</li>
+            <li>(555) 789-0123</li>
+            <li>hello@teagarden.co</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Tea Garden. All rights reserved.</span>
+        <span>Crafted with mindfulness</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jordan Hayes PT — Transform Your Body & Mind</title>
+  <meta name="description" content="Personal training with a modern editorial approach. Science-based programming, nutrition coaching, lifestyle transformation.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Work+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #1A1A1A;
+      --dark: #2A2A2A;
+      --white: #FFFFFF;
+      --off-white: #F9F9F9;
+      --gray: #6B6B6B;
+      --light-gray: #E8E8E8;
+      --accent: #2D5F4C;
+      --accent-light: #4A8B6F;
+      --tan: #C9B79C;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Work Sans', sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    .container-wide {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.75rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 0.5px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--accent); }
+
+    .btn-consult {
+      background: var(--accent);
+      color: var(--white);
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: all 0.3s;
+    }
+
+    .btn-consult:hover {
+      background: var(--accent-light);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      padding-bottom: 4rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      letter-spacing: -1px;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 550px;
+      margin-bottom: 3rem;
+      line-height: 1.8;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--black);
+      color: var(--black);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      letter-spacing: 0.5px;
+    }
+
+    .btn-outline:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .hero-image {
+      aspect-ratio: 3/4;
+      background: var(--off-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+    }
+
+    /* APPROACH */
+    .approach {
+      padding: 7rem 0;
+      background: var(--off-white);
+    }
+
+    .section-header {
+      max-width: 700px;
+      margin: 0 auto 4rem;
+      text-align: center;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+    }
+
+    .approach-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .approach-card {
+      background: var(--white);
+      padding: 3rem 2.5rem;
+      transition: all 0.3s;
+    }
+
+    .approach-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .approach-number {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--tan);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .approach-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    .approach-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .service-card {
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      flex-shrink: 0;
+    }
+
+    .service-content { }
+
+    .service-name {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    .service-price {
+      font-weight: 600;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* RESULTS */
+    .results {
+      padding: 7rem 0;
+      background: var(--accent);
+      color: var(--white);
+    }
+
+    .results .section-title {
+      color: var(--white);
+    }
+
+    .results .section-tag {
+      color: var(--tan);
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      text-align: center;
+      margin-top: 4rem;
+    }
+
+    .result-number {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.75rem;
+    }
+
+    .result-label {
+      font-size: 0.95rem;
+      opacity: 0.9;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 7rem 0;
+      background: var(--off-white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 3rem;
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-quote {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      color: var(--dark);
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      background: var(--tan);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+    }
+
+    .testimonial-info { }
+
+    .testimonial-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .testimonial-result {
+      font-size: 0.85rem;
+      color: var(--accent);
+      margin-top: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 7rem 0;
+      background: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.5px;
+    }
+
+    .cta-desc {
+      font-size: 1.15rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Libre Baskerville', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    .footer-text {
+      opacity: 0.7;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .approach-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .results-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .results-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">JORDAN HAYES PT</a>
+      <nav class="nav">
+        <a href="#approach">Approach</a>
+        <a href="#services">Services</a>
+        <a href="#results">Results</a>
+        <a href="#testimonials">Clients</a>
+      </nav>
+      <a href="#contact" class="btn-consult">Book Consultation</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container-wide">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">PERSONAL TRAINING</div>
+          <h1 class="hero-title">Transform Your Body & Mind</h1>
+          <p class="hero-desc">Evidence-based personal training that delivers real, sustainable results. Combining strength training, nutrition coaching, and lifestyle guidance for complete transformation.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Start Your Journey</a>
+            <a href="#approach" class="btn-outline">Learn More</a>
+          </div>
+        </div>
+        <div class="hero-image">💪</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="approach" id="approach">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">MY METHOD</div>
+        <h2 class="section-title">A Holistic Approach to Fitness</h2>
+        <p class="section-desc">Success isn't just about working out—it's about building sustainable habits, understanding your body, and creating lasting change.</p>
+      </div>
+      <div class="approach-grid">
+        <div class="approach-card">
+          <div class="approach-number">01</div>
+          <h3 class="approach-name">Personalized Programming</h3>
+          <p class="approach-desc">Custom training plans designed for your specific goals, fitness level, and lifestyle. No cookie-cutter routines.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-number">02</div>
+          <h3 class="approach-name">Science-Based Training</h3>
+          <p class="approach-desc">Evidence-backed methods that deliver measurable results. Progressive overload, periodization, and smart recovery.</p>
+        </div>
+        <div class="approach-card">
+          <div class="approach-number">03</div>
+          <h3 class="approach-name">Lifestyle Integration</h3>
+          <p class="approach-desc">Sustainable nutrition, sleep optimization, and stress management. Real transformation happens outside the gym too.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">SERVICES</div>
+        <h2 class="section-title">How We Work Together</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏋️</div>
+          <div class="service-content">
+            <h3 class="service-name">1-on-1 Training</h3>
+            <p class="service-desc">Private sessions at my studio or your home. Full attention, real-time coaching, and accountability.</p>
+            <div class="service-price">From $150/session</div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <div class="service-content">
+            <h3 class="service-name">Online Coaching</h3>
+            <p class="service-desc">Custom programs, video check-ins, and daily support. Train anywhere with expert guidance.</p>
+            <div class="service-price">From $400/month</div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🥗</div>
+          <div class="service-content">
+            <h3 class="service-name">Nutrition Coaching</h3>
+            <p class="service-desc">Flexible meal planning and nutrition education. No restrictive diets—sustainable eating for life.</p>
+            <div class="service-price">Included in all programs</div>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <div class="service-content">
+            <h3 class="service-name">Body Composition Analysis</h3>
+            <p class="service-desc">Track progress beyond the scale. DEXA scans, measurements, and performance testing.</p>
+            <div class="service-price">Monthly assessments</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="results" id="results">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">PROVEN RESULTS</div>
+        <h2 class="section-title">Real Transformation</h2>
+      </div>
+      <div class="results-grid">
+        <div class="result-item">
+          <div class="result-number">200+</div>
+          <div class="result-label">Clients Trained</div>
+        </div>
+        <div class="result-item">
+          <div class="result-number">95%</div>
+          <div class="result-label">Goal Achievement</div>
+        </div>
+        <div class="result-item">
+          <div class="result-number">10K+</div>
+          <div class="result-label">Training Sessions</div>
+        </div>
+        <div class="result-item">
+          <div class="result-number">12</div>
+          <div class="result-label">Years Experience</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">CLIENT STORIES</div>
+        <h2 class="section-title">What Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Jordan transformed not just my body but my entire relationship with fitness. Down 35 lbs and stronger than ever. The personalized approach made all the difference."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👨</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Michael Torres</div>
+              <div class="testimonial-result">Lost 35 lbs • Gained strength</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-quote">"Best investment I've made in myself. Jordan's programming is smart, sustainable, and actually works. I'm in the best shape of my life at 45."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">👩</div>
+            <div class="testimonial-info">
+              <div class="testimonial-name">Sarah Peterson</div>
+              <div class="testimonial-result">Body recomposition • Confidence gained</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Ready to Start?</h2>
+      <p class="cta-desc">Book a free consultation to discuss your goals and see if we're a good fit. No pressure, just an honest conversation about your fitness journey.</p>
+      <a href="#" class="btn-primary">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container-wide">
+      <div class="footer-inner">
+        <div class="footer-logo">JORDAN HAYES PT</div>
+        <div class="footer-text">Personal Training • Online Coaching • (555) 432-1098 • jordan@jordanhayes.fit</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

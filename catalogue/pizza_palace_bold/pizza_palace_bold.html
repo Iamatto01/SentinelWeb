@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pizza Palace — Bold Pizzeria Template</title>
+  <meta name="description" content="A bold, modern pizzeria template with strong visuals and appetite appeal.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --fire-red: #E63946;
+      --tomato: #F25C54;
+      --cream: #F4F1DE;
+      --olive: #718355;
+      --charcoal: #1D1D1D;
+      --smoke: #2D2D2D;
+      --white: #FFF;
+      --text-dark: #1A1A1A;
+      --text-muted: #757575;
+      --shadow-bold: 0 10px 40px rgba(230, 57, 70, 0.2);
+      --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--charcoal);
+      color: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Grid background */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(230, 57, 70, 0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(230, 57, 70, 0.02) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    /* HEADER */
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.5rem 2rem;
+      background: rgba(29, 29, 29, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 2px solid var(--fire-red);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2.5rem;
+      color: var(--fire-red);
+      text-decoration: none;
+      letter-spacing: 2px;
+      text-shadow: 0 0 30px rgba(230, 57, 70, 0.5);
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: var(--transition);
+      position: relative;
+    }
+
+    .nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--fire-red);
+      transition: var(--transition);
+    }
+
+    .nav a:hover::after { width: 100%; }
+    .nav a:hover { color: var(--fire-red); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      background: linear-gradient(135deg, var(--charcoal) 0%, var(--smoke) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '🍕';
+      position: absolute;
+      font-size: 40rem;
+      opacity: 0.03;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-15deg);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      color: var(--fire-red);
+      text-shadow: 0 0 60px rgba(230, 57, 70, 0.4);
+      letter-spacing: 3px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.5rem;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      color: var(--cream);
+    }
+
+    .cta-primary {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: var(--fire-red);
+      color: var(--white);
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      box-shadow: var(--shadow-bold);
+      transition: var(--transition);
+    }
+
+    .cta-primary:hover {
+      background: var(--tomato);
+      transform: translateY(-3px);
+      box-shadow: 0 15px 50px rgba(230, 57, 70, 0.3);
+    }
+
+    /* MENU SECTION */
+    .menu {
+      padding: 6rem 2rem;
+      background: var(--smoke);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      color: var(--fire-red);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .section-subtitle {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+    }
+
+    .menu-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+
+    .menu-card {
+      background: var(--charcoal);
+      border-radius: 20px;
+      padding: 2.5rem;
+      border: 2px solid transparent;
+      transition: var(--transition);
+    }
+
+    .menu-card:hover {
+      border-color: var(--fire-red);
+      box-shadow: var(--shadow-bold);
+      transform: translateY(-5px);
+    }
+
+    .menu-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: var(--cream);
+      letter-spacing: 1px;
+    }
+
+    .menu-desc {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .menu-price {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--fire-red);
+    }
+
+    /* SPECIALS */
+    .specials {
+      padding: 6rem 2rem;
+      background: linear-gradient(135deg, var(--fire-red) 0%, var(--tomato) 100%);
+    }
+
+    .specials .section-title,
+    .specials .section-subtitle {
+      color: var(--white);
+    }
+
+    .specials-grid {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .special-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .special-card:hover {
+      background: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
+    }
+
+    .special-emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .special-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+
+    .special-detail {
+      color: var(--cream);
+      font-size: 0.95rem;
+    }
+
+    /* LOCATION */
+    .location {
+      padding: 6rem 2rem;
+      background: var(--charcoal);
+      text-align: center;
+    }
+
+    .location-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .location-details {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .location-item {
+      text-align: center;
+    }
+
+    .location-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .location-label {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: var(--fire-red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-size: 0.9rem;
+    }
+
+    .location-value {
+      color: var(--cream);
+      font-size: 1.1rem;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 2rem;
+      background: var(--smoke);
+      text-align: center;
+      border-top: 2px solid var(--fire-red);
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--fire-red);
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+    }
+
+    .footer-text {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+    }
+
+    .social-link {
+      color: var(--white);
+      font-size: 1.5rem;
+      transition: var(--transition);
+    }
+
+    .social-link:hover {
+      color: var(--fire-red);
+      transform: scale(1.2);
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 6rem 1.5rem 3rem;
+      }
+
+      .menu-grid,
+      .specials-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .location-details {
+        flex-direction: column;
+        gap: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">PIZZA PALACE</a>
+      <nav class="nav">
+        <a href="#menu">Menu</a>
+        <a href="#specials">Specials</a>
+        <a href="#location">Location</a>
+        <a href="#contact">Order Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">Fire-Oven Perfection</h1>
+      <p class="hero-subtitle">Authentic Italian pizza with a bold twist. Handcrafted daily.</p>
+      <a href="#menu" class="cta-primary">Explore Menu</a>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="menu">
+    <div class="section-header">
+      <h2 class="section-title">Signature Pizzas</h2>
+      <p class="section-subtitle">Every pizza is made fresh with premium ingredients</p>
+    </div>
+    <div class="menu-grid">
+      <div class="menu-card">
+        <div class="menu-icon">🍕</div>
+        <h3 class="menu-name">Margherita</h3>
+        <p class="menu-desc">San Marzano tomato, fresh mozzarella, basil, EVOO</p>
+        <div class="menu-price">$14</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🔥</div>
+        <h3 class="menu-name">Diavola</h3>
+        <p class="menu-desc">Spicy salami, chili flakes, mozzarella, oregano</p>
+        <div class="menu-price">$18</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🌿</div>
+        <h3 class="menu-name">Quattro Formaggi</h3>
+        <p class="menu-desc">Mozzarella, gorgonzola, parmesan, ricotta</p>
+        <div class="menu-price">$19</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🍄</div>
+        <h3 class="menu-name">Funghi</h3>
+        <p class="menu-desc">Mushrooms, truffle oil, mozzarella, arugula</p>
+        <div class="menu-price">$20</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🥓</div>
+        <h3 class="menu-name">Carnivore</h3>
+        <p class="menu-desc">Pepperoni, sausage, bacon, ham, mozzarella</p>
+        <div class="menu-price">$22</div>
+      </div>
+      <div class="menu-card">
+        <div class="menu-icon">🌶️</div>
+        <h3 class="menu-name">Palace Special</h3>
+        <p class="menu-desc">Chef's secret recipe with premium toppings</p>
+        <div class="menu-price">$25</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SPECIALS -->
+  <section id="specials" class="specials">
+    <div class="section-header">
+      <h2 class="section-title">Why Choose Us</h2>
+      <p class="section-subtitle">What makes our pizza unforgettable</p>
+    </div>
+    <div class="specials-grid">
+      <div class="special-card">
+        <div class="special-emoji">🔥</div>
+        <h3 class="special-label">Wood-Fired</h3>
+        <p class="special-detail">Authentic 900°F oven for perfect crust</p>
+      </div>
+      <div class="special-card">
+        <div class="special-emoji">🇮🇹</div>
+        <h3 class="special-label">Italian Import</h3>
+        <p class="special-detail">Premium ingredients from Italy</p>
+      </div>
+      <div class="special-card">
+        <div class="special-emoji">👨‍🍳</div>
+        <h3 class="special-label">Master Crafted</h3>
+        <p class="special-detail">15+ years of pizza expertise</p>
+      </div>
+      <div class="special-card">
+        <div class="special-emoji">⚡</div>
+        <h3 class="special-label">Fast Delivery</h3>
+        <p class="special-detail">Hot pizza in 30 mins or less</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOCATION -->
+  <section id="location" class="location">
+    <div class="location-content">
+      <div class="section-header">
+        <h2 class="section-title">Visit Us</h2>
+        <p class="section-subtitle">Come for the pizza, stay for the vibe</p>
+      </div>
+      <div class="location-details">
+        <div class="location-item">
+          <div class="location-icon">📍</div>
+          <div class="location-label">Address</div>
+          <div class="location-value">123 Pizza Street<br>Downtown, NY 10001</div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon">⏰</div>
+          <div class="location-label">Hours</div>
+          <div class="location-value">Mon-Sun<br>11:00 AM - 11:00 PM</div>
+        </div>
+        <div class="location-item">
+          <div class="location-icon">📞</div>
+          <div class="location-label">Phone</div>
+          <div class="location-value">(555) 123-4567</div>
+        </div>
+      </div>
+      <div style="margin-top: 3rem;">
+        <a href="#" class="cta-primary">Order Online</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-logo">PIZZA PALACE</div>
+      <div class="social-links">
+        <a href="#" class="social-link">📘</a>
+        <a href="#" class="social-link">📷</a>
+        <a href="#" class="social-link">🐦</a>
+      </div>
+      <p class="footer-text">© 2026 Pizza Palace. All rights reserved. • Template by YourBrand</p>
+    </div>
+  </footer>
+</body>
+</html>

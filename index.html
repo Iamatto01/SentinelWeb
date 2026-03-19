@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light dark" />
+  <title>SentinalWeb — Small Websites for Sale</title>
+  <meta name="description" content="Browse small, ready-to-customize website templates. 10 categories, 50 products, multiple styles." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='20' font-size='20'>🏪</text></svg>">
+  <link rel="stylesheet" href="./catalogue/store.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar" role="banner">
+    <div class="topbar__inner">
+      <div class="brand" aria-label="Brand">
+        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__text">
+          <div class="brand__name">SentinalWeb</div>
+          <div class="brand__tagline">Small websites people actually want to buy</div>
+        </div>
+      </div>
+
+      <div class="topbar__actions">
+        <button id="themeToggle" class="themeToggleBtn" type="button" aria-label="Toggle theme">
+          <svg class="themeToggleBtn__icon themeToggleBtn__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="themeToggleBtn__icon themeToggleBtn__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+        <a class="adminBtn" href="./admin/" aria-label="Admin login">
+          <svg class="adminBtn__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+        </a>
+        <button id="contactBtn" class="btn btn--primary btn--icon-text" type="button">
+          <span class="btn__label">How to buy</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="topbar__controls" role="navigation" aria-label="Catalogue controls">
+      <div class="controls">
+        <label class="field">
+          <span class="field__label">Search</span>
+          <input id="searchInput" class="field__input" type="search" placeholder="Search templates, niches, styles…" autocomplete="off" />
+        </label>
+
+        <label class="field">
+          <span class="field__label">Category</span>
+          <select id="categorySelect" class="field__input"></select>
+        </label>
+
+        <label class="field">
+          <span class="field__label">Sort</span>
+          <select id="sortSelect" class="field__input">
+            <option value="featured">Featured</option>
+            <option value="newest">Newest</option>
+            <option value="price-asc">Price: Low → High</option>
+            <option value="price-desc">Price: High → Low</option>
+          </select>
+        </label>
+
+        <div class="stylebar" aria-label="Style filters">
+          <div class="stylebar__label">Style</div>
+          <div id="styleChips" class="stylebar__chips" role="list"></div>
+        </div>
+      </div>
+
+      <div class="stats" aria-live="polite">
+        <span id="resultsCount">0</span>
+        <span class="stats__sep">•</span>
+        <span id="resultsHint">Loading…</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="main" role="main">
+    <section class="hero" aria-label="Catalogue introduction">
+      <div class="hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title">Pick a niche. Pick a style. Sell fast.</h1>
+          <p class="hero__subtitle">
+            A curated catalogue of small website templates you can sell online. Each template is designed with a distinct vibe so you can attract more buyers.
+          </p>
+          <div class="hero__badges" aria-label="Highlights">
+            <span class="pill">Responsive</span>
+            <span class="pill">Modern UI</span>
+            <span class="pill">Easy to customize</span>
+            <span class="pill">No backend</span>
+          </div>
+        </div>
+        <div class="hero__card" aria-hidden="true">
+          <div class="hero__cardTop"></div>
+          <div class="hero__cardBody">
+            <div class="skeleton skeleton--title"></div>
+            <div class="skeleton skeleton--line"></div>
+            <div class="skeleton skeleton--line"></div>
+            <div class="skeleton skeleton--chips"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="catalogue" aria-label="Website catalogue">
+      <div class="catalogue__header">
+        <h2 class="catalogue__title">Catalogue</h2>
+        <p class="catalogue__desc">Open any product for details, pages included, and a clean buyer-ready pitch.</p>
+      </div>
+
+      <div id="categoryNav" class="categoryNav" aria-label="Category quick jump"></div>
+
+      <div id="catalogueRoot" class="catalogue__root"></div>
+
+      <div id="emptyState" class="empty" hidden>
+        <div class="empty__title">No matches</div>
+        <div class="empty__desc">Try a different search or clear filters.</div>
+        <button id="resetBtn" class="btn" type="button">Reset filters</button>
+      </div>
+    </section>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__left">
+          <div class="footer__brand">SentinalWeb</div>
+          <div class="footer__muted">Static catalogue demo (no backend). Customize items/prices in <span class="mono">catalogue.js</span>.</div>
+        </div>
+        <div class="footer__right">
+          <a class="link" href="#" id="openContactLink">Buying & delivery</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <dialog id="productDialog" class="dialog" aria-label="Product details">
+    <form method="dialog" class="dialog__panel">
+      <div class="dialog__head">
+        <div>
+          <div id="dlgTitle" class="dialog__title">Template</div>
+          <div id="dlgSubtitle" class="dialog__subtitle">Category • Style</div>
+        </div>
+        <button class="iconBtn" type="submit" value="close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="dialog__body">
+        <div class="dialog__preview" aria-hidden="true">
+          <div id="dlgPreview" class="preview"></div>
+        </div>
+
+        <div class="dialog__content">
+          <div class="priceRow">
+            <div class="priceRow__price">
+              <span id="dlgPrice" class="price">$0</span>
+              <span class="priceRow__note">One-time template</span>
+            </div>
+            <div class="priceRow__actions">
+              <button id="buyBtn" class="btn" type="button">
+                <span class="btn__label">Buy this template</span>
+                <span class="btn__icon" aria-hidden="true">→</span>
+              </button>
+              <button id="copySkuBtn" class="btn btn--ghost" type="button">
+                <span class="btn__label">Copy code</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div class="panel">
+              <div class="panel__title">Pitch</div>
+              <div id="dlgPitch" class="panel__text"></div>
+            </div>
+            <div class="panel">
+              <div class="panel__title">Includes</div>
+              <ul id="dlgIncludes" class="list"></ul>
+            </div>
+          </div>
+
+          <div class="grid2">
+            <div class="panel">
+              <div class="panel__title">Pages</div>
+              <ul id="dlgPages" class="list"></ul>
+            </div>
+            <div class="panel">
+              <div class="panel__title">Best for</div>
+              <ul id="dlgBestFor" class="list"></ul>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel__title">Tags</div>
+            <div id="dlgTags" class="tagRow"></div>
+          </div>
+
+          <div class="panel panel--muted">
+            <div class="panel__title">Delivery note</div>
+            <div class="panel__text">
+              You can deliver as a ZIP file. After purchase you can quickly customize: colors, logo, copy, images, and contact link.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <input type="hidden" id="dlgSku" />
+    </form>
+  </dialog>
+
+  <dialog id="contactDialog" class="dialog" aria-label="Buying and delivery">
+    <form method="dialog" class="dialog__panel dialog__panel--narrow">
+      <div class="dialog__head">
+        <div>
+          <div class="dialog__title">How to buy (no backend)</div>
+          <div class="dialog__subtitle">Simple workflow for your first sales</div>
+        </div>
+        <button class="iconBtn" type="submit" value="close" aria-label="Close">✕</button>
+      </div>
+
+      <div class="dialog__content">
+        <div class="panel">
+          <div class="panel__title">Recommended flow</div>
+          <ol class="ol">
+            <li>Customer picks a template and sends the template code (SKU) via WhatsApp/Email/DM.</li>
+            <li>You confirm price + delivery time (example: 24 hours).</li>
+            <li>Customer pays (bank transfer / e-wallet / PayPal link).</li>
+            <li>You deliver a ZIP file + quick edit guide (logo, colors, text).</li>
+          </ol>
+        </div>
+
+        <div class="panel">
+          <div class="panel__title">Your contact links</div>
+          <p class="panel__text">Edit these in <span class="mono">config.js</span> (search <span class="mono">CONTACT</span>) so the Buy button sends people to you.</p>
+          <div class="contactRow">
+            <button id="copyContactBtn" class="btn" type="button">Copy contact message</button>
+            <button class="btn btn--ghost" value="close" type="submit">Close</button>
+          </div>
+        </div>
+
+        <div class="panel panel--muted">
+          <div class="panel__title">Next step later</div>
+          <div class="panel__text">When you’re ready, we can add checkout + auto delivery (backend) without changing the design much.</div>
+        </div>
+      </div>
+    </form>
+  </dialog>
+
+  <script type="module" src="./catalogue/store.js"></script>
+</body>
+</html>

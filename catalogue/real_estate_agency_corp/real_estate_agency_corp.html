@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Premier Realty Group — Professional Real Estate Services</title>
+  <meta name="description" content="Full-service real estate agency. Residential, commercial, and investment properties.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600;700&family=IBM+Plex+Serif:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #0A2540;
+      --blue: #1A4D8F;
+      --light-blue: #E8F1FA;
+      --white: #FFFFFF;
+      --off-white: #F8FAFB;
+      --gray: #6B7280;
+      --dark-gray: #374151;
+      --gold: #D4A844;
+      --green: #10B981;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--white);
+      color: var(--dark-gray);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.25rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--gold); }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--dark-gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--blue); }
+
+    .btn-contact {
+      background: var(--navy);
+      color: var(--white);
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-contact:hover {
+      background: var(--blue);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: linear-gradient(135deg, var(--light-blue) 0%, var(--white) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--light-blue);
+      color: var(--navy);
+      padding: 0.5rem 1.25rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      border-radius: 20px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: clamp(2.75rem, 6vw, 4.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 550px;
+      margin-bottom: 2.5rem;
+      line-height: 1.7;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--navy);
+      color: var(--white);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(10, 37, 64, 0.2);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--navy);
+      color: var(--navy);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.85rem;
+      color: var(--gray);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 2.75rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--off-white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border: 1px solid #E5E7EB;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+      border-color: var(--blue);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* PROPERTIES */
+    .properties {
+      padding: 6rem 0;
+      background: var(--off-white);
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .property-card {
+      background: var(--white);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s;
+    }
+
+    .property-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+    }
+
+    .property-image {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .property-content {
+      padding: 2rem;
+    }
+
+    .property-status {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      padding: 0.35rem 0.85rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      border-radius: 20px;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .property-name {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .property-location {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .property-features {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .property-price {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    /* TEAM */
+    .team {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+    }
+
+    .agent-card {
+      text-align: center;
+    }
+
+    .agent-image {
+      width: 180px;
+      height: 180px;
+      background: var(--light-blue);
+      border-radius: 50%;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      border: 3px solid var(--gold);
+    }
+
+    .agent-name {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+
+    .agent-title {
+      color: var(--gray);
+      font-size: 0.85rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 5rem 0;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 2.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .cta-desc {
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta .btn-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--white);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-text {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .properties-grid { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .team-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Premier<span>Realty</span></a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#properties">Properties</a>
+        <a href="#team">Team</a>
+      </nav>
+      <a href="#contact" class="btn-contact">Contact Us</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">Trusted Since 1995</div>
+          <h1 class="hero-title">Your Success Is Our Mission</h1>
+          <p class="hero-desc">Full-service real estate agency providing comprehensive solutions for residential, commercial, and investment properties. Professional guidance at every step.</p>
+          <div class="hero-actions">
+            <a href="#properties" class="btn-primary">Browse Listings</a>
+            <a href="#contact" class="btn-outline">Schedule Consultation</a>
+          </div>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">2,500+</div>
+            <div class="stat-label">Properties Sold</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">$2.5B</div>
+            <div class="stat-label">Total Volume</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">98%</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">WHAT WE DO</div>
+        <h2 class="section-title">Comprehensive Real Estate Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3 class="service-name">Residential Sales</h3>
+          <p class="service-desc">Expert guidance for buying and selling homes. Market analysis, pricing strategy, and negotiation support.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3 class="service-name">Commercial Real Estate</h3>
+          <p class="service-desc">Office, retail, and industrial properties. Comprehensive commercial property solutions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3 class="service-name">Investment Properties</h3>
+          <p class="service-desc">Portfolio development and management. ROI analysis and investment strategy consulting.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📊</div>
+          <h3 class="service-name">Property Management</h3>
+          <p class="service-desc">Full-service management for residential and commercial properties. Tenant relations and maintenance.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔍</div>
+          <h3 class="service-name">Market Analysis</h3>
+          <p class="service-desc">In-depth market research and comparative analysis. Data-driven insights for informed decisions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">⚖️</div>
+          <h3 class="service-name">Legal Support</h3>
+          <p class="service-desc">Transaction coordination and documentation. Working with trusted legal partners.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="properties" id="properties">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">FEATURED LISTINGS</div>
+        <h2 class="section-title">Available Properties</h2>
+      </div>
+      <div class="properties-grid">
+        <div class="property-card">
+          <div class="property-image">🏡</div>
+          <div class="property-content">
+            <span class="property-status">For Sale</span>
+            <h3 class="property-name">Modern Family Home</h3>
+            <div class="property-location">📍 Maple Ridge Estates</div>
+            <div class="property-features">
+              <span>🛏️ 4 Bed</span>
+              <span>🚿 3 Bath</span>
+              <span>📏 2,800 sqft</span>
+            </div>
+            <div class="property-price">$825,000</div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-image">🏢</div>
+          <div class="property-content">
+            <span class="property-status">For Lease</span>
+            <h3 class="property-name">Downtown Office Space</h3>
+            <div class="property-location">📍 Financial District</div>
+            <div class="property-features">
+              <span>🏢 5,000 sqft</span>
+              <span>🚗 Parking</span>
+              <span>🔧 Modern</span>
+            </div>
+            <div class="property-price">$18/sqft</div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-image">🏘️</div>
+          <div class="property-content">
+            <span class="property-status">For Sale</span>
+            <h3 class="property-name">Investment Property</h3>
+            <div class="property-location">📍 University District</div>
+            <div class="property-features">
+              <span>🏠 Duplex</span>
+              <span>💰 Tenanted</span>
+              <span>📈 8% ROI</span>
+            </div>
+            <div class="property-price">$695,000</div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-image">🏬</div>
+          <div class="property-content">
+            <span class="property-status">For Sale</span>
+            <h3 class="property-name">Retail Plaza</h3>
+            <div class="property-location">📍 Main Street</div>
+            <div class="property-features">
+              <span>🛍️ 12,000 sqft</span>
+              <span>🚗 100 Spaces</span>
+              <span>⭐ Prime</span>
+            </div>
+            <div class="property-price">$3.2M</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">OUR TEAM</div>
+        <h2 class="section-title">Expert Real Estate Professionals</h2>
+      </div>
+      <div class="team-grid">
+        <div class="agent-card">
+          <div class="agent-image">👨</div>
+          <h3 class="agent-name">David Morrison</h3>
+          <div class="agent-title">Managing Broker</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-image">👩</div>
+          <h3 class="agent-name">Jennifer Liu</h3>
+          <div class="agent-title">Residential Specialist</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-image">👨</div>
+          <h3 class="agent-name">Robert Taylor</h3>
+          <div class="agent-title">Commercial Agent</div>
+        </div>
+        <div class="agent-card">
+          <div class="agent-image">👩</div>
+          <h3 class="agent-name">Patricia Wright</h3>
+          <div class="agent-title">Investment Advisor</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Ready to Make Your Move?</h2>
+      <p class="cta-desc">Let our experienced team guide you through your real estate journey</p>
+      <a href="#" class="btn-primary">Schedule Consultation →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Premier<span>Realty</span></div>
+        <div class="footer-text">Professional Real Estate Services • (555) 123-4567 • contact@premierrealty.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mountain Retreat — Luxury Mountain Properties</title>
+  <meta name="description" content="Discover your perfect mountain escape. Elegant properties with breathtaking alpine views.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pine: #2C4A3E;
+      --forest: #1A3028;
+      --sage: #7A9B8E;
+      --cream: #F7F3EF;
+      --white: #FFFFFF;
+      --sand: #E8DDD0;
+      --copper: #B87A54;
+      --dark: #1F1F1F;
+      --gray: #707070;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.5rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(247, 243, 239, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--sand);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--pine);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--copper); }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--pine); }
+
+    .btn-contact {
+      background: var(--pine);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+
+    .btn-contact:hover {
+      background: var(--forest);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: linear-gradient(135deg, var(--cream) 0%, var(--sand) 100%);
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 7vw, 5rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--pine);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 500px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--pine);
+      color: var(--white);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--forest);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--pine);
+      color: var(--pine);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--pine);
+      color: var(--white);
+    }
+
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-image {
+      background: var(--sage);
+      aspect-ratio: 4/5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12rem;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(44, 74, 62, 0.15);
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 30px;
+      left: -30px;
+      background: var(--copper);
+      color: var(--white);
+      padding: 1.5rem;
+      border-radius: 4px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(184, 122, 84, 0.3);
+    }
+
+    .hero-badge-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.25rem;
+    }
+
+    .hero-badge-text {
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    /* PROPERTIES */
+    .properties {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--copper);
+      margin-bottom: 0.75rem;
+      font-weight: 600;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.75rem;
+      font-weight: 700;
+      color: var(--pine);
+    }
+
+    .properties-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .property-card {
+      background: var(--cream);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .property-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(44, 74, 62, 0.15);
+    }
+
+    .property-image {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: var(--sage);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+    }
+
+    .property-content {
+      padding: 1.75rem;
+    }
+
+    .property-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--pine);
+      margin-bottom: 0.5rem;
+    }
+
+    .property-location {
+      color: var(--copper);
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .property-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+    }
+
+    .property-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--pine);
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      text-align: center;
+    }
+
+    .feature-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .feature-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--pine);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--cream);
+      padding: 2.5rem;
+      border-radius: 4px;
+      border-left: 4px solid var(--copper);
+    }
+
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--pine);
+    }
+
+    .testimonial-location {
+      font-size: 0.9rem;
+      color: var(--copper);
+      margin-top: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: var(--pine);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .cta-desc {
+      font-size: 1.15rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta .btn-primary {
+      background: var(--copper);
+      color: var(--white);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--white);
+      color: var(--pine);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--forest);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .footer-logo span { color: var(--copper); }
+
+    .footer-text {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .hero-visual { max-width: 400px; margin: 0 auto; }
+      .properties-grid { grid-template-columns: repeat(2, 1fr); }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .properties-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Mountain<span>Retreat</span></a>
+      <nav class="nav">
+        <a href="#properties">Properties</a>
+        <a href="#features">Features</a>
+        <a href="#testimonials">Testimonials</a>
+      </nav>
+      <a href="#contact" class="btn-contact">Contact Us</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">LUXURY MOUNTAIN LIVING</div>
+          <h1 class="hero-title">Your Perfect Alpine Escape Awaits</h1>
+          <p class="hero-desc">Discover exquisite mountain properties with breathtaking views. From cozy cabins to elegant chalets, find your sanctuary in the peaks.</p>
+          <div class="hero-actions">
+            <a href="#properties" class="btn-primary">Browse Properties</a>
+            <a href="#contact" class="btn-outline">Schedule Viewing</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <div class="hero-image">🏔️</div>
+          <div class="hero-badge">
+            <div class="hero-badge-number">25+</div>
+            <div class="hero-badge-text">Premium Properties</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="properties" id="properties">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">FEATURED LISTINGS</div>
+        <h2 class="section-title">Mountain Properties</h2>
+      </div>
+      <div class="properties-grid">
+        <div class="property-card">
+          <div class="property-image">🏡</div>
+          <div class="property-content">
+            <h3 class="property-name">Alpine Chalet</h3>
+            <div class="property-location">📍 Aspen Valley</div>
+            <p class="property-desc">Stunning 4-bed chalet with panoramic mountain views, ski-in access, and luxury amenities.</p>
+            <div class="property-price">$2.8M</div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-image">🏠</div>
+          <div class="property-content">
+            <h3 class="property-name">Cedar Lodge</h3>
+            <div class="property-location">📍 Pine Summit</div>
+            <p class="property-desc">Rustic elegance meets modern comfort. 3-bed with stone fireplace and mountain terrace.</p>
+            <div class="property-price">$1.9M</div>
+          </div>
+        </div>
+        <div class="property-card">
+          <div class="property-image">🏘️</div>
+          <div class="property-content">
+            <h3 class="property-name">Peak Residence</h3>
+            <div class="property-location">📍 Highland Ridge</div>
+            <p class="property-desc">Contemporary 5-bed estate with floor-to-ceiling windows overlooking pristine valleys.</p>
+            <div class="property-price">$3.5M</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">WHY CHOOSE US</div>
+        <h2 class="section-title">Premium Mountain Living</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">🎿</div>
+          <h3 class="feature-name">Ski Access</h3>
+          <p class="feature-desc">Direct access to premier ski resorts and mountain trails</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌲</div>
+          <h3 class="feature-name">Nature Immersion</h3>
+          <p class="feature-desc">Surrounded by pristine forests and natural beauty</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏗️</div>
+          <h3 class="feature-name">Quality Build</h3>
+          <p class="feature-desc">Premium materials and expert craftsmanship</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3 class="feature-name">Privacy & Security</h3>
+          <p class="feature-desc">Exclusive gated communities with 24/7 security</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">CLIENT STORIES</div>
+        <h2 class="section-title">What Our Buyers Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Working with Mountain Retreat was exceptional. They helped us find our dream chalet with incredible views. The entire process was smooth and professional."</p>
+          <div class="testimonial-author">Sarah & Michael Chen</div>
+          <div class="testimonial-location">Alpine Chalet Owners</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The best decision we ever made. Our mountain home is our sanctuary. The team understood exactly what we needed and delivered beyond expectations."</p>
+          <div class="testimonial-author">Robert Davidson</div>
+          <div class="testimonial-location">Peak Residence Owner</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Ready to Find Your Mountain Home?</h2>
+      <p class="cta-desc">Schedule a private viewing of our exclusive properties today</p>
+      <a href="#" class="btn-primary">Contact Our Team →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Mountain<span>Retreat</span></div>
+        <div class="footer-text">Luxury Mountain Properties • (555) 789-0123 • info@mountainretreat.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

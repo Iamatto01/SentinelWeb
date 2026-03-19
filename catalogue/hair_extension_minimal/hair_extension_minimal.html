@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXE Extensions — Premium Hair Extensions</title>
+  <meta name="description" content="Minimal, elegant hair extension studio. Expert installation, premium quality, natural results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #FFFFFF;
+      --off-white: #FAFAFA;
+      --cream: #F7F5F2;
+      --beige: #E8E4DF;
+      --taupe: #B8AFA5;
+      --charcoal: #3A3A3A;
+      --black: #1A1A1A;
+      --gold: #C9A870;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--white);
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 2rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--beige);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--black);
+      text-decoration: none;
+      letter-spacing: 3px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .nav a {
+      color: var(--charcoal);
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 1px;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--gold); }
+
+    .btn-consult {
+      background: var(--black);
+      color: var(--white);
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+    }
+
+    .btn-consult:hover {
+      background: var(--gold);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 140px;
+      background: var(--white);
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Cinzel', serif;
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-weight: 500;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      color: var(--black);
+      letter-spacing: 1px;
+    }
+
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--charcoal);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-weight: 400;
+      line-height: 1.9;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+      padding: 1.15rem 2.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      transition: all 0.3s;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 7rem 0;
+      background: var(--cream);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      font-weight: 500;
+      color: var(--black);
+      letter-spacing: 1px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      padding: 3rem;
+      text-align: center;
+      transition: all 0.3s;
+      border: 1px solid var(--beige);
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+
+    .service-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .service-desc {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-price {
+      font-weight: 600;
+      color: var(--gold);
+    }
+
+    /* METHODS */
+    .methods {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .methods-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .method-card {
+      text-align: center;
+    }
+
+    .method-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .method-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.25rem;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      color: var(--black);
+    }
+
+    .method-desc {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      line-height: 1.8;
+    }
+
+    /* CARE */
+    .care {
+      padding: 7rem 0;
+      background: var(--off-white);
+    }
+
+    .care-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .care-item {
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+
+    .care-number {
+      width: 40px;
+      height: 40px;
+      background: var(--black);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      font-size: 0.9rem;
+      flex-shrink: 0;
+    }
+
+    .care-content { }
+
+    .care-name {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--black);
+    }
+
+    .care-desc {
+      color: var(--charcoal);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      text-align: center;
+      padding: 3rem;
+      background: var(--cream);
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      line-height: 1.9;
+      color: var(--charcoal);
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--black);
+    }
+
+    .testimonial-info {
+      font-size: 0.8rem;
+      color: var(--gold);
+      margin-top: 0.5rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 7rem 0;
+      background: var(--black);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Cinzel', serif;
+      font-size: 3rem;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .cta-desc {
+      font-size: 1.05rem;
+      margin-bottom: 3rem;
+      opacity: 0.9;
+    }
+
+    .cta .btn-primary {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--white);
+      border-top: 1px solid var(--beige);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: var(--black);
+    }
+
+    .footer-text {
+      color: var(--charcoal);
+      font-size: 0.8rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .methods-grid { grid-template-columns: 1fr; }
+      .care-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">LUXE</a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#methods">Methods</a>
+        <a href="#care">Care</a>
+      </nav>
+      <a href="#contact" class="btn-consult">Consult</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">PREMIUM EXTENSIONS</div>
+        <h1 class="hero-title">Natural Beauty, Extended</h1>
+        <p class="hero-desc">Expert hair extension services using only premium quality hair. Seamless installation, natural results, and personalized care for stunning, long-lasting extensions.</p>
+        <a href="#contact" class="btn-primary">Book Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">SERVICES</div>
+        <h2 class="section-title">Extension Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💇</div>
+          <h3 class="service-name">Full Installation</h3>
+          <p class="service-desc">Complete extension installation with consultation, color matching, and styling. Premium Remy human hair.</p>
+          <div class="service-price">From $1,200</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3 class="service-name">Maintenance</h3>
+          <p class="service-desc">Move-up appointments to maintain your extensions. Includes tightening and repositioning every 6-8 weeks.</p>
+          <div class="service-price">From $350</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-name">Color & Cut</h3>
+          <p class="service-desc">Professional coloring and cutting services for your extensions. Seamless blending with natural hair.</p>
+          <div class="service-price">From $200</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3 class="service-name">Removal</h3>
+          <p class="service-desc">Safe, gentle removal process that protects your natural hair. Includes conditioning treatment.</p>
+          <div class="service-price">$150</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="methods" id="methods">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">METHODS</div>
+        <h2 class="section-title">Installation Options</h2>
+      </div>
+      <div class="methods-grid">
+        <div class="method-card">
+          <div class="method-icon">🔗</div>
+          <h3 class="method-name">Tape-In</h3>
+          <p class="method-desc">Quick application, reusable, and gentle on natural hair. Perfect for fine to medium hair types.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">⭕</div>
+          <h3 class="method-name">Beaded Weft</h3>
+          <p class="method-desc">No heat or glue. Long-lasting and damage-free. Ideal for thicker hair looking for volume.</p>
+        </div>
+        <div class="method-card">
+          <div class="method-icon">✂️</div>
+          <h3 class="method-name">Keratin Bond</h3>
+          <p class="method-desc">Individual strand application for maximum customization. Natural movement and long-lasting results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="care" id="care">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">AFTERCARE</div>
+        <h2 class="section-title">Extension Care Guide</h2>
+      </div>
+      <div class="care-grid">
+        <div class="care-item">
+          <div class="care-number">1</div>
+          <div class="care-content">
+            <h3 class="care-name">Gentle Washing</h3>
+            <p class="care-desc">Use sulfate-free shampoo and conditioner. Wash 2-3 times per week, avoiding the bonds.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-number">2</div>
+          <div class="care-content">
+            <h3 class="care-name">Brush Daily</h3>
+            <p class="care-desc">Use an extension-safe brush. Start from the ends and work your way up gently.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-number">3</div>
+          <div class="care-content">
+            <h3 class="care-name">Heat Protection</h3>
+            <p class="care-desc">Always use heat protectant spray before styling. Keep heat tools below 350°F.</p>
+          </div>
+        </div>
+        <div class="care-item">
+          <div class="care-number">4</div>
+          <div class="care-content">
+            <h3 class="care-name">Regular Maintenance</h3>
+            <p class="care-desc">Schedule move-up appointments every 6-8 weeks to keep extensions looking fresh.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">CLIENT LOVE</div>
+        <h2 class="section-title">What Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"The quality of the hair and the expert installation exceeded all my expectations. My extensions look completely natural and have given me so much confidence. Worth every penny!"</p>
+          <div class="testimonial-author">Amanda Richardson</div>
+          <div class="testimonial-info">Tape-In Extensions</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Professional, knowledgeable, and incredibly skilled. My extensions have completely transformed my look while still feeling like my own hair. Could not be happier with the results."</p>
+          <div class="testimonial-author">Jessica Williams</div>
+          <div class="testimonial-info">Beaded Weft Extensions</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Ready for Beautiful Hair?</h2>
+      <p class="cta-desc">Schedule your complimentary consultation to discuss your extension goals</p>
+      <a href="#" class="btn-primary">Book Free Consultation</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">LUXE EXTENSIONS</div>
+        <div class="footer-text">Premium Hair Extensions • By Appointment • (555) 789-0123 • hello@luxeextensions.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

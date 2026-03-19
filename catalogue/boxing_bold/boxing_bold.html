@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iron Fist Boxing — Train Like a Champion</title>
+  <meta name="description" content="Bold boxing gym for serious athletes. Professional training, elite coaching, championship results.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto+Condensed:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0D0D0D;
+      --red: #E63946;
+      --dark-red: #B82838;
+      --white: #FFFFFF;
+      --gray: #A8A8A8;
+      --dark-gray: #2A2A2A;
+      --light-gray: #F5F5F5;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto Condensed', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.25rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(13, 13, 13, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 3px solid var(--red);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 3px;
+    }
+
+    .logo span { color: var(--red); }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--red); }
+
+    .btn-join {
+      background: var(--red);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-join:hover {
+      background: var(--dark-red);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: linear-gradient(135deg, var(--black) 0%, var(--dark-gray) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '🥊';
+      position: absolute;
+      font-size: 30rem;
+      right: -5rem;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 0.05;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      padding: 0.5rem 1.5rem;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 10vw, 8rem);
+      line-height: 0.9;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--red);
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: var(--white);
+      padding: 1.25rem 3rem;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--white);
+      color: var(--black);
+      transform: translateX(5px);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--white);
+      color: var(--white);
+      padding: 1.25rem 3rem;
+      text-decoration: none;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--white);
+      color: var(--black);
+    }
+
+    /* CLASSES */
+    .classes {
+      padding: 6rem 0;
+      background: var(--dark-gray);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      color: var(--red);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      letter-spacing: 2px;
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .class-card {
+      background: var(--black);
+      padding: 2.5rem;
+      border: 2px solid var(--dark-gray);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .class-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--red);
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .class-card:hover {
+      border-color: var(--red);
+      transform: translateY(-8px);
+    }
+
+    .class-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .class-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .class-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.75rem;
+    }
+
+    .class-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.6;
+    }
+
+    .class-time {
+      font-weight: 700;
+      color: var(--red);
+      font-size: 0.9rem;
+    }
+
+    /* COACHES */
+    .coaches {
+      padding: 6rem 0;
+      background: var(--black);
+    }
+
+    .coaches-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .coach-card {
+      text-align: center;
+    }
+
+    .coach-image {
+      width: 200px;
+      height: 200px;
+      background: var(--dark-gray);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      border: 4px solid var(--red);
+      clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    }
+
+    .coach-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      letter-spacing: 2px;
+      margin-bottom: 0.25rem;
+    }
+
+    .coach-title {
+      color: var(--red);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .coach-bio {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* STATS */
+    .stats {
+      padding: 5rem 0;
+      background: var(--red);
+      color: var(--white);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--dark-gray);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+    }
+
+    .testimonial-card {
+      background: var(--black);
+      padding: 2.5rem;
+      border-left: 4px solid var(--red);
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      color: var(--gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.25rem;
+      letter-spacing: 1px;
+    }
+
+    .testimonial-role {
+      color: var(--red);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: var(--black);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 4rem;
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-desc {
+      font-size: 1.25rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .cta .btn-primary {
+      background: var(--red);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--black);
+      border-top: 3px solid var(--red);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.75rem;
+      letter-spacing: 3px;
+    }
+
+    .footer-logo span { color: var(--red); }
+
+    .footer-text {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .classes-grid { grid-template-columns: 1fr; }
+      .coaches-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">IRON<span>FIST</span></a>
+      <nav class="nav">
+        <a href="#classes">Classes</a>
+        <a href="#coaches">Coaches</a>
+        <a href="#testimonials">Reviews</a>
+      </nav>
+      <a href="#contact" class="btn-join">Join Now</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">ELITE BOXING GYM</div>
+        <h1 class="hero-title">TRAIN LIKE<span>A CHAMPION</span></h1>
+        <p class="hero-desc">Professional boxing training for all levels. From beginners to competitors. Build strength, technique, and confidence in the ring.</p>
+        <div class="hero-actions">
+          <a href="#classes" class="btn-primary">START TRAINING →</a>
+          <a href="#contact" class="btn-outline">FREE TRIAL</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="classes" id="classes">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">WHAT WE OFFER</div>
+        <h2 class="section-title">Training Programs</h2>
+      </div>
+      <div class="classes-grid">
+        <div class="class-card">
+          <div class="class-icon">🥊</div>
+          <h3 class="class-name">Beginner Boxing</h3>
+          <p class="class-desc">Learn fundamentals, footwork, and basic combinations. Perfect for newcomers to the sport.</p>
+          <div class="class-time">Mon/Wed/Fri • 6:00 PM</div>
+        </div>
+        <div class="class-card">
+          <div class="class-icon">💪</div>
+          <h3 class="class-name">Advanced Training</h3>
+          <p class="class-desc">Intensive sessions for experienced boxers. Sparring, conditioning, and fight preparation.</p>
+          <div class="class-time">Tue/Thu • 7:00 PM</div>
+        </div>
+        <div class="class-card">
+          <div class="class-icon">🔥</div>
+          <h3 class="class-name">Boxing Fitness</h3>
+          <p class="class-desc">High-energy workout combining boxing techniques with cardio and strength training.</p>
+          <div class="class-time">Daily • 5:30 AM & 6:30 PM</div>
+        </div>
+        <div class="class-card">
+          <div class="class-icon">🎯</div>
+          <h3 class="class-name">Technique Focus</h3>
+          <p class="class-desc">Master proper form, combinations, and defensive skills with detailed coaching.</p>
+          <div class="class-time">Sat • 10:00 AM</div>
+        </div>
+        <div class="class-card">
+          <div class="class-icon">👊</div>
+          <h3 class="class-name">Sparring Sessions</h3>
+          <p class="class-desc">Controlled sparring for all skill levels. Develop timing, strategy, and ring awareness.</p>
+          <div class="class-time">Fri • 7:00 PM</div>
+        </div>
+        <div class="class-card">
+          <div class="class-icon">⚡</div>
+          <h3 class="class-name">Private Training</h3>
+          <p class="class-desc">One-on-one sessions tailored to your goals. Personalized attention and rapid progress.</p>
+          <div class="class-time">By Appointment</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coaches" id="coaches">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">OUR TEAM</div>
+        <h2 class="section-title">Professional Coaches</h2>
+      </div>
+      <div class="coaches-grid">
+        <div class="coach-card">
+          <div class="coach-image">🥊</div>
+          <h3 class="coach-name">Marcus "Steel" Johnson</h3>
+          <div class="coach-title">Head Coach</div>
+          <p class="coach-bio">Former heavyweight champion with 15 years coaching experience. Trained multiple title holders.</p>
+        </div>
+        <div class="coach-card">
+          <div class="coach-image">👊</div>
+          <h3 class="coach-name">Sofia Rodriguez</h3>
+          <div class="coach-title">Technique Specialist</div>
+          <p class="coach-bio">Olympic bronze medalist. Expert in footwork and defensive tactics. 10+ years coaching.</p>
+        </div>
+        <div class="coach-card">
+          <div class="coach-image">💪</div>
+          <h3 class="coach-name">Derek "Thunder" Williams</h3>
+          <div class="coach-title">Conditioning Coach</div>
+          <p class="coach-bio">Strength & conditioning specialist. Former professional boxer with championship pedigree.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">15</div>
+          <div class="stat-label">Pro Fighters</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">8</div>
+          <div class="stat-label">Champions Trained</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">10</div>
+          <div class="stat-label">Years Operating</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">SUCCESS STORIES</div>
+        <h2 class="section-title">Member Testimonials</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Iron Fist transformed my life. Lost 40 lbs, gained confidence, and learned real boxing skills. The coaches push you to be your best. This gym is the real deal."</p>
+          <div class="testimonial-author">Jason Mitchell</div>
+          <div class="testimonial-role">Member Since 2022</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Best boxing gym in the city. Professional coaching, great equipment, and amazing community. Took my skills to the next level and competed in my first amateur fight."</p>
+          <div class="testimonial-author">Amanda Chen</div>
+          <div class="testimonial-role">Amateur Boxer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Ready to Step in the Ring?</h2>
+      <p class="cta-desc">Start your boxing journey today. First class is free!</p>
+      <a href="#" class="btn-primary">CLAIM YOUR FREE CLASS →</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">IRON<span>FIST</span></div>
+        <div class="footer-text">Elite Boxing Gym • 456 Fighter Street • (555) 987-6543</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

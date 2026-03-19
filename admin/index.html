@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <title>Admin — SentinalWeb</title>
+  <link rel="stylesheet" href="./admin.css" />
+</head>
+<body>
+  <header class="top">
+    <div class="top__inner">
+      <a class="brand" href="../index.html">
+        <span class="brand__icon">⚙️</span>
+        <span>SentinalWeb Admin</span>
+      </a>
+      <div class="top__actions">
+        <button id="logoutBtn" class="btn btn--ghost" type="button" hidden>Logout</button>
+        <a class="btn" href="../index.html">← Back to site</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="card card--highlight">
+      <h1 class="h1">🚀 Admin Dashboard</h1>
+      <p class="muted">Manage your website content and settings for clients.</p>
+
+      <div id="authBox" class="auth">
+        <label class="field">
+          <span class="field__label">Admin email</span>
+          <input id="emailInput" class="field__input" type="email" placeholder="you@example.com" />
+        </label>
+        <button id="loginBtn" class="btn btn--primary" type="button">Send login link</button>
+        <div id="authMsg" class="muted auth__msg"></div>
+      </div>
+
+      <div id="meBox" class="me" hidden>
+        <div class="pill pill--success">✓ Logged in as <span id="meEmail" class="me__email"></span></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <section class="card">
+        <div class="row">
+          <div>
+            <h2 class="h2">📦 Catalogue Items</h2>
+            <p class="muted-small">Edit website templates, prices, and descriptions</p>
+          </div>
+          <div class="row__actions">
+            <button id="reloadBtn" class="btn btn--ghost" type="button" disabled>Reload</button>
+            <button id="saveBtn" class="btn btn--primary" type="button" disabled>Save Changes</button>
+          </div>
+        </div>
+        <textarea id="catalogueJson" class="textarea" spellcheck="false" disabled></textarea>
+        <p class="help-text">Edit JSON directly. Make changes to items, prices, categories, and styles.</p>
+      </section>
+
+      <section class="card">
+        <div class="row">
+          <div>
+            <h2 class="h2">⚙️ Website Config</h2>
+            <p class="muted-small">Contact info, branding, and settings</p>
+          </div>
+          <div class="row__actions">
+            <button id="reloadCfgBtn" class="btn btn--ghost" type="button" disabled>Reload</button>
+            <button id="saveCfgBtn" class="btn btn--primary" type="button" disabled>Save Changes</button>
+          </div>
+        </div>
+        <textarea id="configJson" class="textarea" spellcheck="false" disabled></textarea>
+        <p class="help-text">Update backend config like contact info, WhatsApp numbers, email addresses.</p>
+      </section>
+    </section>
+
+    <section class="card card--info">
+      <h2 class="h2">📋 First-time Setup</h2>
+      <ol class="setup-steps">
+        <li><strong>Start backend:</strong> <code>cd server</code> → <code>npm install</code> → <code>npm run dev</code></li>
+        <li><strong>Open this page via:</strong> <code>http://localhost:5174/admin/</code></li>
+        <li><strong>Request login link</strong> with your admin email</li>
+        <li><strong>Check backend console</strong> for the magic link (dev mode)</li>
+        <li><strong>Edit & save</strong> catalogue items and config</li>
+      </ol>
+    </section>
+
+    <section class="card card--info">
+      <h2 class="h2">💡 Quick Tips</h2>
+      <ul class="tips">
+        <li><strong>Catalogue structure:</strong> Each item needs id, name, category, price, and other fields</li>
+        <li><strong>Config structure:</strong> Add contact URLs, WhatsApp links, email addresses</li>
+        <li><strong>Validation:</strong> Check browser console for JSON errors</li>
+        <li><strong>Backup:</strong> Save your JSON changes locally before committing</li>
+      </ul>
+    </section>
+  </main>
+
+  <script type="module" src="./admin.js"></script>
+</body>
+</html>

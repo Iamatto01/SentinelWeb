@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arch Brow Bar — Perfect Brows, Playful Vibes</title>
+  <meta name="description" content="Fun, modern brow bar specializing in shaping, tinting, and lamination. Expert brow artistry in a playful atmosphere.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Comfortaa:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --pink: #FF69B4;
+      --coral: #FF7F7F;
+      --mint: #98D8C8;
+      --yellow: #FFD93D;
+      --purple: #B794F6;
+      --white: #FFFFFF;
+      --cream: #FFF9F5;
+      --dark: #2D3748;
+      --gray: #718096;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.25rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 249, 245, 0.98);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--pink);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--dark);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--pink); }
+
+    .btn-book {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    }
+
+    .btn-book:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(255, 105, 180, 0.4);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      background: linear-gradient(135deg, var(--cream) 0%, #FFE5EC 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '✨';
+      position: absolute;
+      font-size: 20rem;
+      right: -3rem;
+      top: 20%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-30px); }
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--dark);
+      padding: 0.5rem 1.5rem;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+    }
+
+    .hero-title {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin-bottom: 3rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--coral) 100%);
+      color: var(--white);
+      padding: 1.25rem 2.75rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+      box-shadow: 0 5px 20px rgba(255, 105, 180, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+    }
+
+    .btn-outline {
+      border: 3px solid var(--pink);
+      color: var(--pink);
+      padding: 1.25rem 2.75rem;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      border-radius: 50px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--pink);
+      color: var(--white);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 2.5rem;
+      border-radius: 20px;
+      text-align: center;
+      transition: all 0.3s;
+      border: 3px solid transparent;
+    }
+
+    .service-card:nth-child(1) { border-color: var(--pink); }
+    .service-card:nth-child(2) { border-color: var(--mint); }
+    .service-card:nth-child(3) { border-color: var(--purple); }
+    .service-card:nth-child(4) { border-color: var(--coral); }
+    .service-card:nth-child(5) { border-color: var(--yellow); }
+    .service-card:nth-child(6) { border-color: var(--mint); }
+
+    .service-card:hover {
+      transform: translateY(-10px) rotate(-2deg);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+
+    .service-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.7;
+    }
+
+    .service-price {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: var(--pink);
+    }
+
+    /* PROCESS */
+    .process {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, #FFE5EC 0%, var(--cream) 100%);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 2rem;
+      background: var(--white);
+      border-radius: 20px;
+    }
+
+    .process-number {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+      box-shadow: 0 5px 15px rgba(255, 105, 180, 0.3);
+    }
+
+    .process-name {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 0.75rem;
+    }
+
+    .process-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* GALLERY */
+    .gallery {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .gallery-item {
+      aspect-ratio: 1;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.05) rotate(5deg);
+      box-shadow: 0 10px 30px rgba(255, 105, 180, 0.3);
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 20px;
+      border-left: 5px solid var(--pink);
+    }
+
+    .testimonial-stars {
+      color: var(--yellow);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-family: 'Comfortaa', sans-serif;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .testimonial-service {
+      color: var(--pink);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, var(--pink) 0%, var(--purple) 100%);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-desc {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      opacity: 0.95;
+    }
+
+    .cta .btn-primary {
+      background: var(--white);
+      color: var(--pink);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Comfortaa', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--pink);
+    }
+
+    .footer-text {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .services-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Arch 🎯</a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#gallery">Gallery</a>
+      </nav>
+      <a href="#contact" class="btn-book">Book Now!</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">✨ Brow Experts</div>
+        <h1 class="hero-title">Brows on Fleek!</h1>
+        <p class="hero-desc">Your brows, but better! Expert shaping, tinting, and lamination in a fun, welcoming space. Let's create your perfect arch! 😍</p>
+        <div class="hero-actions">
+          <a href="#services" class="btn-primary">See Services ✨</a>
+          <a href="#contact" class="btn-outline">Book Appointment</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💖 WHAT WE DO</div>
+        <h2 class="section-title">Brow Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3 class="service-name">Brow Shaping</h3>
+          <p class="service-desc">Expert waxing and tweezing to create your perfect arch. Customized to your face shape!</p>
+          <div class="service-price">$35</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎨</div>
+          <h3 class="service-name">Tinting</h3>
+          <p class="service-desc">Semi-permanent color to enhance and define. Lasts 4-6 weeks of gorgeous brows!</p>
+          <div class="service-price">$25</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💫</div>
+          <h3 class="service-name">Brow Lamination</h3>
+          <p class="service-desc">Fluffy, feathered brows that stay in place! The ultimate brow lift treatment.</p>
+          <div class="service-price">$75</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🌟</div>
+          <h3 class="service-name">Shape + Tint</h3>
+          <p class="service-desc">Our most popular combo! Perfect shaping plus color for defined, bold brows.</p>
+          <div class="service-price">$55</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3 class="service-name">Full Brow Makeover</h3>
+          <p class="service-desc">Lamination, shape, and tint combo. Complete brow transformation in one session!</p>
+          <div class="service-price">$130</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎯</div>
+          <h3 class="service-name">Consultation</h3>
+          <p class="service-desc">Not sure what you need? Let's chat about your brow goals and create a plan!</p>
+          <div class="service-price">Free</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💖 HOW IT WORKS</div>
+        <h2 class="section-title">The Brow Process</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-number">1</div>
+          <h3 class="process-name">Consult</h3>
+          <p class="process-desc">We discuss your brow goals and assess your natural shape. Let's plan your perfect brows!</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">2</div>
+          <h3 class="process-name">Shape</h3>
+          <p class="process-desc">Expert waxing and tweezing to create beautiful symmetry and your ideal arch.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">3</div>
+          <h3 class="process-name">Perfect</h3>
+          <p class="process-desc">Final touches, aftercare tips, and you're ready to show off those gorgeous brows!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💖 OUR WORK</div>
+        <h2 class="section-title">Brow Transformations</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item">👁️</div>
+        <div class="gallery-item">✨</div>
+        <div class="gallery-item">💖</div>
+        <div class="gallery-item">🌟</div>
+        <div class="gallery-item">💫</div>
+        <div class="gallery-item">🎨</div>
+        <div class="gallery-item">✨</div>
+        <div class="gallery-item">💝</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">💖 CLIENT LOVE</div>
+        <h2 class="section-title">What They Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Obsessed with my brows! The lamination is perfect and the shape is exactly what I wanted. Plus the studio is so cute and welcoming. Best brow experience ever!"</p>
+          <div class="testimonial-author">Sophia Martinez</div>
+          <div class="testimonial-service">Brow Lamination + Shape</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Finally found my brow person! The attention to detail and expertise is amazing. My brows have never looked better. I get compliments all the time now!"</p>
+          <div class="testimonial-author">Emma Johnson</div>
+          <div class="testimonial-service">Shape + Tint Regular Client</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Ready for Perfect Brows? ✨</h2>
+      <p class="cta-desc">Book your appointment today and let's create your dream brows!</p>
+      <a href="#" class="btn-primary">Book Now! 💖</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Arch Brow Bar 🎯</div>
+        <div class="footer-text">Perfect Brows • 123 Beauty Lane • (555) 890-1234 • hello@archbrowbar.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
