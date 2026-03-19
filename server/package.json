@@ -1,0 +1,17 @@
+{
+  "name": "iamatto-web-catalog-server",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node ./src/server.js",
+    "start": "node ./src/server.js"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jose": "^5.9.6",
+    "nodemailer": "^6.9.15"
+  }
+}

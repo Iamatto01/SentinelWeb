@@ -108,3 +108,26 @@ SMTP_FROM=SentinalWeb <yourgmail@gmail.com>
 ```
 
 If SMTP is not set, the backend prints the login link to the console (dev mode).
+
+## Deploy on Render
+
+This repository now supports running from the repo root on Render.
+
+Recommended Render Web Service settings:
+
+- Runtime: `Node`
+- Build Command: `npm install`
+- Start Command: `npm start`
+
+Why this works:
+
+- Root `package.json` runs `npm --prefix server install` during `postinstall`
+- Root `start` script runs the backend from `server/src/server.js`
+- The backend serves both API routes and static files from the project root
+
+Environment variables to set in Render:
+
+- `PORT` (Render provides this automatically)
+- `PUBLIC_BASE_URL` (your Render service URL)
+- `CORS_ORIGIN` or `CORS_ORIGINS` (comma-separated)
+- `SMTP_HOST`, `SMTP_PORT`, `SMTP_SECURE`, `SMTP_USER`, `SMTP_PASS`, `SMTP_FROM` (if using email login)

@@ -1,0 +1,9 @@
+{
+  "name": "sentinelweb-render-entry",
+  "private": true,
+  "scripts": {
+    "postinstall": "npm --prefix server install",
+    "start": "npm --prefix server run start",
+    "dev": "npm --prefix server run dev"
+  }
+}

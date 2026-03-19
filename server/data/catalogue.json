@@ -1,0 +1,2371 @@
+{
+  "CATEGORIES": [
+    {
+      "id": "food",
+      "name": "Restaurant & Cafe",
+      "blurb": "Menus, bookings, promos, delivery CTA."
+    },
+    {
+      "id": "realestate",
+      "name": "Real Estate",
+      "blurb": "Listings, agents, lead capture, trust."
+    },
+    {
+      "id": "fitness",
+      "name": "Fitness & Wellness",
+      "blurb": "Programs, schedules, memberships, results."
+    },
+    {
+      "id": "beauty",
+      "name": "Beauty Salon & Spa",
+      "blurb": "Services, pricing, appointments, gallery."
+    },
+    {
+      "id": "services",
+      "name": "Local Services",
+      "blurb": "Handyman, cleaning, HVAC, quick quotes."
+    },
+    {
+      "id": "education",
+      "name": "Education & Tutoring",
+      "blurb": "Courses, enrollment, credibility, FAQs."
+    },
+    {
+      "id": "portfolio",
+      "name": "Portfolio & Creative",
+      "blurb": "Show work, win clients, look premium."
+    },
+    {
+      "id": "events",
+      "name": "Events & Wedding",
+      "blurb": "RSVP, schedules, vendors, locations."
+    },
+    {
+      "id": "shop",
+      "name": "Mini Shop",
+      "blurb": "Product catalog, bundles, socials, CTA."
+    },
+    {
+      "id": "tech",
+      "name": "Tech & Startup",
+      "blurb": "SaaS landing, waitlists, pricing, demos."
+    }
+  ],
+  "STYLES": [
+    "Modern",
+    "Minimal",
+    "Bold",
+    "Elegant",
+    "Playful",
+    "Corporate",
+    "Luxury",
+    "Editorial",
+    "Neon",
+    "Warm"
+  ],
+  "ITEMS": [
+    {
+      "sku": "FOOD-001",
+      "categoryId": "food",
+      "name": "Bistro Bloom",
+      "style": [
+        "Warm",
+        "Elegant"
+      ],
+      "price": 79,
+      "short": "Cozy cafe vibe with menu highlights and reservation CTA.",
+      "pitch": "Perfect for cafes and bistros that want a premium feel. Hero + signature dishes + simple reservation section so customers take action fast.",
+      "pages": [
+        "Home",
+        "Menu",
+        "Reservations",
+        "Gallery",
+        "Contact"
+      ],
+      "bestFor": [
+        "Cafes",
+        "Bistros",
+        "Brunch spots"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Menu layout section",
+        "Reservation CTA block"
+      ],
+      "tags": [
+        "cafe",
+        "menu",
+        "reservation",
+        "warm",
+        "elegant"
+      ],
+      "accent": {
+        "a": "#f97316",
+        "b": "#f43f5e",
+        "c": "#facc15"
+      },
+      "featuredRank": 2,
+      "addedAt": "2026-01-05"
+    },
+    {
+      "sku": "FOOD-002",
+      "categoryId": "food",
+      "name": "Sushi Neon",
+      "style": [
+        "Neon",
+        "Bold"
+      ],
+      "price": 89,
+      "short": "High-contrast dark theme with neon accents and promo blocks.",
+      "pitch": "Built for modern restaurants that run weekly promos. Strong visuals, bold typographic hierarchy, and a clean CTA to order/reserve.",
+      "pages": [
+        "Home",
+        "Menu",
+        "Promos",
+        "Locations",
+        "Contact"
+      ],
+      "bestFor": [
+        "Sushi",
+        "Ramen",
+        "Night eateries"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Promo banner system",
+        "Location cards"
+      ],
+      "tags": [
+        "neon",
+        "restaurant",
+        "promo",
+        "dark",
+        "bold"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#06b6d4",
+        "c": "#a855f7"
+      },
+      "featuredRank": 6,
+      "addedAt": "2026-01-10"
+    },
+    {
+      "sku": "FOOD-003",
+      "categoryId": "food",
+      "name": "Pasta Minimal",
+      "style": [
+        "Minimal",
+        "Editorial"
+      ],
+      "price": 69,
+      "short": "Clean editorial layout with menu story and chef section.",
+      "pitch": "A calm, premium minimal template for Italian restaurants. Focuses on story, ingredients, and a menu that’s easy to scan.",
+      "pages": [
+        "Home",
+        "Menu",
+        "Our Story",
+        "Chef",
+        "Contact"
+      ],
+      "bestFor": [
+        "Italian",
+        "Fine casual",
+        "New openings"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Editorial typography",
+        "Chef profile section"
+      ],
+      "tags": [
+        "minimal",
+        "editorial",
+        "menu",
+        "chef"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#1f2937",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 9,
+      "addedAt": "2025-12-28"
+    },
+    {
+      "sku": "FOOD-004",
+      "categoryId": "food",
+      "name": "Street Food Pop",
+      "style": [
+        "Playful",
+        "Bold"
+      ],
+      "price": 59,
+      "short": "Energetic layout for food trucks with social proof.",
+      "pitch": "Built for quick decisions: what you sell, where you are today, and how to order. Includes a fun testimonial strip and IG-ready gallery.",
+      "pages": [
+        "Home",
+        "Today’s Location",
+        "Menu",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Food trucks",
+        "Street snacks",
+        "Pop-up stalls"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Daily location section",
+        "Testimonial strip"
+      ],
+      "tags": [
+        "playful",
+        "food-truck",
+        "bold",
+        "social"
+      ],
+      "accent": {
+        "a": "#fb7185",
+        "b": "#22c55e",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 12,
+      "addedAt": "2026-01-12"
+    },
+    {
+      "sku": "FOOD-005",
+      "categoryId": "food",
+      "name": "Bakery Luxe",
+      "style": [
+        "Luxury",
+        "Elegant"
+      ],
+      "price": 99,
+      "short": "Soft luxury look for bakeries and dessert brands.",
+      "pitch": "A premium bakery template: hero, best-sellers, seasonal box, and a strong order CTA. Perfect for brands that sell gift boxes.",
+      "pages": [
+        "Home",
+        "Best Sellers",
+        "Seasonal",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Bakeries",
+        "Desserts",
+        "Gift boxes"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Best-seller cards",
+        "FAQ accordion (static)"
+      ],
+      "tags": [
+        "luxury",
+        "bakery",
+        "elegant",
+        "gift"
+      ],
+      "accent": {
+        "a": "#f472b6",
+        "b": "#a78bfa",
+        "c": "#fde68a"
+      },
+      "featuredRank": 1,
+      "addedAt": "2026-01-14"
+    },
+    {
+      "sku": "RE-001",
+      "categoryId": "realestate",
+      "name": "Skyline Realtor",
+      "style": [
+        "Corporate",
+        "Modern"
+      ],
+      "price": 109,
+      "short": "Trust-focused agent site with lead form and listings grid.",
+      "pitch": "Made for realtors: credibility first. Hero + featured listings + reviews + lead form that converts.",
+      "pages": [
+        "Home",
+        "Listings",
+        "About Agent",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Independent agents",
+        "Small agencies",
+        "New agents"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Listings grid layout",
+        "Lead capture section"
+      ],
+      "tags": [
+        "real-estate",
+        "agent",
+        "lead",
+        "corporate"
+      ],
+      "accent": {
+        "a": "#2563eb",
+        "b": "#06b6d4",
+        "c": "#0f172a"
+      },
+      "featuredRank": 3,
+      "addedAt": "2026-01-09"
+    },
+    {
+      "sku": "RE-002",
+      "categoryId": "realestate",
+      "name": "Palm Villa",
+      "style": [
+        "Luxury",
+        "Warm"
+      ],
+      "price": 129,
+      "short": "Luxury property landing with gallery and amenities section.",
+      "pitch": "High-end vibe for premium listings. Focused on images, amenities, and strong CTA to schedule a viewing.",
+      "pages": [
+        "Home",
+        "Gallery",
+        "Amenities",
+        "Neighborhood",
+        "Contact"
+      ],
+      "bestFor": [
+        "Luxury listings",
+        "Villas",
+        "High-end rentals"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Amenities icons",
+        "Neighborhood highlights"
+      ],
+      "tags": [
+        "luxury",
+        "villa",
+        "gallery",
+        "warm"
+      ],
+      "accent": {
+        "a": "#f59e0b",
+        "b": "#14b8a6",
+        "c": "#0f172a"
+      },
+      "featuredRank": 5,
+      "addedAt": "2026-01-03"
+    },
+    {
+      "sku": "RE-003",
+      "categoryId": "realestate",
+      "name": "Loft Minimal",
+      "style": [
+        "Minimal",
+        "Editorial"
+      ],
+      "price": 99,
+      "short": "Editorial listing template with clean typography.",
+      "pitch": "Minimal and premium—great for modern apartments. Clean grid sections and a straightforward inquiry CTA.",
+      "pages": [
+        "Home",
+        "Property",
+        "Floor Plan",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Apartments",
+        "Lofts",
+        "Modern condos"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Floor plan section",
+        "FAQ accordion (static)"
+      ],
+      "tags": [
+        "minimal",
+        "editorial",
+        "apartment",
+        "listing"
+      ],
+      "accent": {
+        "a": "#111827",
+        "b": "#06b6d4",
+        "c": "#9ca3af"
+      },
+      "featuredRank": 10,
+      "addedAt": "2025-12-30"
+    },
+    {
+      "sku": "RE-004",
+      "categoryId": "realestate",
+      "name": "Suburb Starter",
+      "style": [
+        "Warm",
+        "Modern"
+      ],
+      "price": 79,
+      "short": "Friendly family-home vibe with quick contact options.",
+      "pitch": "For agents selling family homes: clear benefits, trust signals, and simple call-to-action blocks for fast inquiries.",
+      "pages": [
+        "Home",
+        "Listings",
+        "Buying Tips",
+        "Selling Tips",
+        "Contact"
+      ],
+      "bestFor": [
+        "Family homes",
+        "Local brokers",
+        "First-time buyers"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Tips sections",
+        "Quick contact CTA"
+      ],
+      "tags": [
+        "family",
+        "warm",
+        "realtor",
+        "tips"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#f97316",
+        "c": "#0ea5e9"
+      },
+      "featuredRank": 14,
+      "addedAt": "2026-01-01"
+    },
+    {
+      "sku": "RE-005",
+      "categoryId": "realestate",
+      "name": "Investor Deck",
+      "style": [
+        "Corporate",
+        "Bold"
+      ],
+      "price": 119,
+      "short": "Data-forward template for property investors and rentals.",
+      "pitch": "A serious look for investors: metrics blocks, portfolio grid, and a CTA for partnership/inquiries.",
+      "pages": [
+        "Home",
+        "Portfolio",
+        "Metrics",
+        "Case Studies",
+        "Contact"
+      ],
+      "bestFor": [
+        "Investors",
+        "Rental managers",
+        "Small funds"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Metrics strip",
+        "Case study layout"
+      ],
+      "tags": [
+        "investor",
+        "metrics",
+        "corporate",
+        "bold"
+      ],
+      "accent": {
+        "a": "#a855f7",
+        "b": "#0ea5e9",
+        "c": "#0f172a"
+      },
+      "featuredRank": 7,
+      "addedAt": "2026-01-11"
+    },
+    {
+      "sku": "FIT-001",
+      "categoryId": "fitness",
+      "name": "Lift Lab",
+      "style": [
+        "Bold",
+        "Modern"
+      ],
+      "price": 89,
+      "short": "Gym landing with programs, schedule, and transformation section.",
+      "pitch": "A high-energy gym template focused on programs and results. Includes transformation spotlight and membership CTA.",
+      "pages": [
+        "Home",
+        "Programs",
+        "Schedule",
+        "Trainers",
+        "Contact"
+      ],
+      "bestFor": [
+        "Gyms",
+        "Strength coaching",
+        "Cross training"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Schedule section",
+        "Results spotlight"
+      ],
+      "tags": [
+        "gym",
+        "bold",
+        "programs",
+        "results"
+      ],
+      "accent": {
+        "a": "#ef4444",
+        "b": "#f59e0b",
+        "c": "#22c55e"
+      },
+      "featuredRank": 4,
+      "addedAt": "2026-01-08"
+    },
+    {
+      "sku": "FIT-002",
+      "categoryId": "fitness",
+      "name": "Yoga Calm",
+      "style": [
+        "Minimal",
+        "Warm"
+      ],
+      "price": 69,
+      "short": "Soft calm layout for yoga studios and instructors.",
+      "pitch": "A peaceful, friendly layout with class schedule, instructor bio, and a simple ‘Book a class’ CTA.",
+      "pages": [
+        "Home",
+        "Classes",
+        "Instructor",
+        "Pricing",
+        "Contact"
+      ],
+      "bestFor": [
+        "Yoga",
+        "Pilates",
+        "Wellness coaches"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Class cards",
+        "Pricing layout"
+      ],
+      "tags": [
+        "yoga",
+        "calm",
+        "minimal",
+        "wellness"
+      ],
+      "accent": {
+        "a": "#14b8a6",
+        "b": "#a78bfa",
+        "c": "#fde68a"
+      },
+      "featuredRank": 11,
+      "addedAt": "2025-12-26"
+    },
+    {
+      "sku": "FIT-003",
+      "categoryId": "fitness",
+      "name": "Run Club Neon",
+      "style": [
+        "Neon",
+        "Playful"
+      ],
+      "price": 59,
+      "short": "Energetic community vibe for running clubs and events.",
+      "pitch": "Designed for communities: upcoming runs, route info, and a strong join CTA. Great for local clubs.",
+      "pages": [
+        "Home",
+        "Upcoming Runs",
+        "Routes",
+        "Community",
+        "Contact"
+      ],
+      "bestFor": [
+        "Run clubs",
+        "Community events",
+        "Fitness groups"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Event list section",
+        "Route highlight blocks"
+      ],
+      "tags": [
+        "community",
+        "neon",
+        "events",
+        "playful"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#06b6d4",
+        "c": "#f472b6"
+      },
+      "featuredRank": 15,
+      "addedAt": "2026-01-13"
+    },
+    {
+      "sku": "FIT-004",
+      "categoryId": "fitness",
+      "name": "Nutrition Studio",
+      "style": [
+        "Editorial",
+        "Modern"
+      ],
+      "price": 79,
+      "short": "Nutrition coach site with services, packages, and FAQ.",
+      "pitch": "A credibility-first template: clear service packages, testimonial highlights, and an FAQ to reduce buyer questions.",
+      "pages": [
+        "Home",
+        "Services",
+        "Packages",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Nutritionists",
+        "Health coaches",
+        "Online coaching"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Package cards",
+        "FAQ accordion (static)"
+      ],
+      "tags": [
+        "nutrition",
+        "editorial",
+        "packages",
+        "trust"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#22c55e",
+        "c": "#111827"
+      },
+      "featuredRank": 13,
+      "addedAt": "2026-01-06"
+    },
+    {
+      "sku": "FIT-005",
+      "categoryId": "fitness",
+      "name": "Spa Reset",
+      "style": [
+        "Luxury",
+        "Elegant"
+      ],
+      "price": 99,
+      "short": "Luxury wellness spa feel with services and booking CTA.",
+      "pitch": "A high-end wellness layout with premium spacing and soft gradients. Ideal for spas or wellness retreats.",
+      "pages": [
+        "Home",
+        "Treatments",
+        "Packages",
+        "Gallery",
+        "Contact"
+      ],
+      "bestFor": [
+        "Spas",
+        "Retreats",
+        "Wellness studios"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Treatment cards",
+        "Package layout"
+      ],
+      "tags": [
+        "luxury",
+        "spa",
+        "elegant",
+        "booking"
+      ],
+      "accent": {
+        "a": "#f472b6",
+        "b": "#06b6d4",
+        "c": "#a78bfa"
+      },
+      "featuredRank": 8,
+      "addedAt": "2026-01-02"
+    },
+    {
+      "sku": "BEAUTY-001",
+      "categoryId": "beauty",
+      "name": "Salon Glow",
+      "style": [
+        "Elegant",
+        "Warm"
+      ],
+      "price": 79,
+      "short": "Service menu + stylist profiles + booking CTA.",
+      "pitch": "A friendly premium salon template with a clean services grid, stylist spotlight, and simple appointment CTA.",
+      "pages": [
+        "Home",
+        "Services",
+        "Stylists",
+        "Gallery",
+        "Contact"
+      ],
+      "bestFor": [
+        "Hair salons",
+        "Barbers",
+        "Nail studios"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Services grid",
+        "Team profiles"
+      ],
+      "tags": [
+        "salon",
+        "beauty",
+        "elegant",
+        "booking"
+      ],
+      "accent": {
+        "a": "#fb7185",
+        "b": "#a78bfa",
+        "c": "#fde68a"
+      },
+      "featuredRank": 16,
+      "addedAt": "2026-01-04"
+    },
+    {
+      "sku": "BEAUTY-002",
+      "categoryId": "beauty",
+      "name": "Barber Bold",
+      "style": [
+        "Bold",
+        "Modern"
+      ],
+      "price": 69,
+      "short": "Strong typography for barbers with pricing and hours.",
+      "pitch": "A clean barber landing with clear pricing cards, opening hours, and a big call-to-action to book.",
+      "pages": [
+        "Home",
+        "Services",
+        "Pricing",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Barbers",
+        "Men’s grooming",
+        "Modern salons"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Pricing cards",
+        "Review strip"
+      ],
+      "tags": [
+        "barber",
+        "bold",
+        "pricing",
+        "modern"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#111827",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 18,
+      "addedAt": "2025-12-29"
+    },
+    {
+      "sku": "BEAUTY-003",
+      "categoryId": "beauty",
+      "name": "Skincare Minimal",
+      "style": [
+        "Minimal",
+        "Luxury"
+      ],
+      "price": 99,
+      "short": "Premium skincare clinic style with trust sections.",
+      "pitch": "Made for skincare clinics: clean minimal layout, treatment packages, and trust sections (certifications, reviews).",
+      "pages": [
+        "Home",
+        "Treatments",
+        "Packages",
+        "Before & After",
+        "Contact"
+      ],
+      "bestFor": [
+        "Skincare clinics",
+        "Aesthetics",
+        "Dermal therapy"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Before/after layout",
+        "Certification strip"
+      ],
+      "tags": [
+        "skincare",
+        "minimal",
+        "luxury",
+        "clinic"
+      ],
+      "accent": {
+        "a": "#a78bfa",
+        "b": "#06b6d4",
+        "c": "#f1f5f9"
+      },
+      "featuredRank": 17,
+      "addedAt": "2026-01-07"
+    },
+    {
+      "sku": "BEAUTY-004",
+      "categoryId": "beauty",
+      "name": "Nail Pop",
+      "style": [
+        "Playful",
+        "Neon"
+      ],
+      "price": 59,
+      "short": "Fun color-forward template for nail artists.",
+      "pitch": "A high-energy vibe for nail studios: gallery first, packages, and social proof. Designed to look great on phones.",
+      "pages": [
+        "Home",
+        "Gallery",
+        "Packages",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Nail salons",
+        "Nail artists",
+        "Beauty freelancers"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Gallery grid",
+        "Package cards"
+      ],
+      "tags": [
+        "nails",
+        "playful",
+        "neon",
+        "gallery"
+      ],
+      "accent": {
+        "a": "#f472b6",
+        "b": "#22c55e",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 19,
+      "addedAt": "2026-01-12"
+    },
+    {
+      "sku": "BEAUTY-005",
+      "categoryId": "beauty",
+      "name": "Spa Serenity",
+      "style": [
+        "Elegant",
+        "Editorial"
+      ],
+      "price": 89,
+      "short": "Editorial spa layout with calm sections and packages.",
+      "pitch": "A calm premium spa template: package tiers, treatment list, and subtle luxury feel to justify higher pricing.",
+      "pages": [
+        "Home",
+        "Treatments",
+        "Packages",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Spas",
+        "Massage",
+        "Wellness"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Package tiers",
+        "FAQ accordion (static)"
+      ],
+      "tags": [
+        "spa",
+        "elegant",
+        "editorial",
+        "packages"
+      ],
+      "accent": {
+        "a": "#14b8a6",
+        "b": "#a78bfa",
+        "c": "#fde68a"
+      },
+      "featuredRank": 20,
+      "addedAt": "2025-12-27"
+    },
+    {
+      "sku": "SERV-001",
+      "categoryId": "services",
+      "name": "Handy Hero",
+      "style": [
+        "Bold",
+        "Corporate"
+      ],
+      "price": 79,
+      "short": "Handyman template with services list and quote CTA.",
+      "pitch": "Built to convert: services, areas served, before/after gallery, and a clear ‘Get a quote’ section.",
+      "pages": [
+        "Home",
+        "Home",
+        "About",
+        "Services",
+        "Contact",
+        "Get a Quote"
+      ],
+      "bestFor": [
+        "Handyman",
+        "Repairs",
+        "Home services"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Quote CTA section",
+        "Areas served list"
+      ],
+      "tags": [
+        "handyman",
+        "quote",
+        "local",
+        "services"
+      ],
+      "accent": {
+        "a": "#f59e0b",
+        "b": "#0ea5e9",
+        "c": "#111827"
+      },
+      "featuredRank": 21,
+      "addedAt": "2026-01-06"
+    },
+    {
+      "sku": "SERV-002",
+      "categoryId": "services",
+      "name": "Clean Sweep",
+      "style": [
+        "Minimal",
+        "Warm"
+      ],
+      "price": 69,
+      "short": "Cleaning service website with packages and reviews.",
+      "pitch": "Great for cleaning businesses: package tiers, reviews, and a strong scheduling CTA.",
+      "pages": [
+        "Home",
+        "Services",
+        "Packages",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Home cleaning",
+        "Office cleaning",
+        "Deep cleaning"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Package tiers",
+        "Review strip"
+      ],
+      "tags": [
+        "cleaning",
+        "packages",
+        "warm",
+        "minimal"
+      ],
+      "accent": {
+        "a": "#06b6d4",
+        "b": "#22c55e",
+        "c": "#0ea5e9"
+      },
+      "featuredRank": 23,
+      "addedAt": "2025-12-31"
+    },
+    {
+      "sku": "SERV-003",
+      "categoryId": "services",
+      "name": "HVAC Pro",
+      "style": [
+        "Corporate",
+        "Modern"
+      ],
+      "price": 89,
+      "short": "HVAC/AC repair template with emergency callouts.",
+      "pitch": "A trustworthy, professional look with emergency callouts, service details, and quick contact blocks.",
+      "pages": [
+        "Home",
+        "Services",
+        "Emergency",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "AC repair",
+        "HVAC",
+        "Emergency services"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Emergency banner",
+        "Service cards"
+      ],
+      "tags": [
+        "hvac",
+        "repair",
+        "corporate",
+        "trust"
+      ],
+      "accent": {
+        "a": "#2563eb",
+        "b": "#22c55e",
+        "c": "#0f172a"
+      },
+      "featuredRank": 22,
+      "addedAt": "2026-01-02"
+    },
+    {
+      "sku": "SERV-004",
+      "categoryId": "services",
+      "name": "Painter Pop",
+      "style": [
+        "Playful",
+        "Modern"
+      ],
+      "price": 59,
+      "short": "Color-focused painter template with project gallery.",
+      "pitch": "For painting services: show projects, offer packages, and collect leads with a friendly CTA.",
+      "pages": [
+        "Home",
+        "Projects",
+        "Services",
+        "Pricing",
+        "Contact"
+      ],
+      "bestFor": [
+        "Painters",
+        "Renovation",
+        "Decor services"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Project gallery layout",
+        "Pricing cards"
+      ],
+      "tags": [
+        "painter",
+        "projects",
+        "playful",
+        "gallery"
+      ],
+      "accent": {
+        "a": "#f97316",
+        "b": "#a855f7",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 24,
+      "addedAt": "2026-01-13"
+    },
+    {
+      "sku": "SERV-005",
+      "categoryId": "services",
+      "name": "Law Office Minimal",
+      "style": [
+        "Minimal",
+        "Corporate"
+      ],
+      "price": 119,
+      "short": "Clean attorney website with practice areas and credibility.",
+      "pitch": "A clean, credible layout with practice areas, trust badges, and an easy consultation CTA.",
+      "pages": [
+        "Home",
+        "Practice Areas",
+        "Attorney",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Lawyers",
+        "Consultants",
+        "Professional services"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Practice areas grid",
+        "Trust badge strip"
+      ],
+      "tags": [
+        "law",
+        "minimal",
+        "corporate",
+        "credibility"
+      ],
+      "accent": {
+        "a": "#111827",
+        "b": "#2563eb",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 25,
+      "addedAt": "2026-01-09"
+    },
+    {
+      "sku": "EDU-001",
+      "categoryId": "education",
+      "name": "Tutor Track",
+      "style": [
+        "Modern",
+        "Warm"
+      ],
+      "price": 69,
+      "short": "Tutoring site with subjects, packages, and testimonials.",
+      "pitch": "Built for tutors: show subjects, package tiers, and parent/student testimonials to build trust.",
+      "pages": [
+        "Home",
+        "Subjects",
+        "Packages",
+        "Results",
+        "Contact"
+      ],
+      "bestFor": [
+        "Tutors",
+        "Coaching",
+        "After-school"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Subject cards",
+        "Package tiers"
+      ],
+      "tags": [
+        "tutoring",
+        "packages",
+        "warm",
+        "trust"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#0ea5e9",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 26,
+      "addedAt": "2026-01-05"
+    },
+    {
+      "sku": "EDU-002",
+      "categoryId": "education",
+      "name": "Course Canvas",
+      "style": [
+        "Editorial",
+        "Modern"
+      ],
+      "price": 89,
+      "short": "Course landing with modules, outcomes, and enrollment CTA.",
+      "pitch": "Great for selling a single course. Includes outcomes, module preview, and a CTA designed to convert.",
+      "pages": [
+        "Home",
+        "Curriculum",
+        "Outcomes",
+        "Pricing",
+        "Contact"
+      ],
+      "bestFor": [
+        "Online courses",
+        "Bootcamps",
+        "Workshops"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Curriculum sections",
+        "Outcome blocks"
+      ],
+      "tags": [
+        "course",
+        "editorial",
+        "curriculum",
+        "enroll"
+      ],
+      "accent": {
+        "a": "#a855f7",
+        "b": "#06b6d4",
+        "c": "#111827"
+      },
+      "featuredRank": 27,
+      "addedAt": "2026-01-10"
+    },
+    {
+      "sku": "EDU-003",
+      "categoryId": "education",
+      "name": "Kids Learn Pop",
+      "style": [
+        "Playful",
+        "Bold"
+      ],
+      "price": 59,
+      "short": "Fun bright layout for kids classes and learning centers.",
+      "pitch": "Playful and colorful with clear sections for age groups, class schedule, and parent FAQs.",
+      "pages": [
+        "Home",
+        "Programs",
+        "Schedule",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Kids classes",
+        "Learning centers",
+        "After-school"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Age group cards",
+        "Schedule section"
+      ],
+      "tags": [
+        "kids",
+        "playful",
+        "bold",
+        "schedule"
+      ],
+      "accent": {
+        "a": "#f97316",
+        "b": "#22c55e",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 28,
+      "addedAt": "2026-01-01"
+    },
+    {
+      "sku": "EDU-004",
+      "categoryId": "education",
+      "name": "Language Studio",
+      "style": [
+        "Minimal",
+        "Elegant"
+      ],
+      "price": 79,
+      "short": "Language school template with levels and enrollment.",
+      "pitch": "A calm, premium look: levels, placement info, and a clear enrollment CTA.",
+      "pages": [
+        "Home",
+        "Levels",
+        "Teachers",
+        "Pricing",
+        "Contact"
+      ],
+      "bestFor": [
+        "Language schools",
+        "Private tutors",
+        "Small academies"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Level comparison table",
+        "Teacher profiles"
+      ],
+      "tags": [
+        "language",
+        "minimal",
+        "elegant",
+        "enroll"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#a78bfa",
+        "c": "#111827"
+      },
+      "featuredRank": 29,
+      "addedAt": "2025-12-25"
+    },
+    {
+      "sku": "EDU-005",
+      "categoryId": "education",
+      "name": "STEM Bootcamp",
+      "style": [
+        "Neon",
+        "Bold"
+      ],
+      "price": 99,
+      "short": "High-tech look for STEM programs with countdown CTA.",
+      "pitch": "For bootcamps: modern tech visuals, outcomes, and enrollment CTA. Great for coding and STEM programs.",
+      "pages": [
+        "Home",
+        "Curriculum",
+        "Outcomes",
+        "Mentors",
+        "Contact"
+      ],
+      "bestFor": [
+        "Bootcamps",
+        "STEM programs",
+        "Coding schools"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Mentor profiles",
+        "Outcome sections"
+      ],
+      "tags": [
+        "stem",
+        "neon",
+        "bold",
+        "bootcamp"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#a855f7",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 30,
+      "addedAt": "2026-01-14"
+    },
+    {
+      "sku": "PORT-001",
+      "categoryId": "portfolio",
+      "name": "Studio Noir",
+      "style": [
+        "Luxury",
+        "Editorial"
+      ],
+      "price": 99,
+      "short": "Editorial portfolio with case studies and bold imagery.",
+      "pitch": "Premium studio portfolio: case studies, services, and a CTA that feels high-end.",
+      "pages": [
+        "Home",
+        "Work",
+        "Case Study",
+        "Services",
+        "Contact"
+      ],
+      "bestFor": [
+        "Designers",
+        "Studios",
+        "Branding"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Case study layout",
+        "Project grid"
+      ],
+      "tags": [
+        "portfolio",
+        "editorial",
+        "luxury",
+        "case-study"
+      ],
+      "accent": {
+        "a": "#111827",
+        "b": "#a855f7",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 31,
+      "addedAt": "2026-01-08"
+    },
+    {
+      "sku": "PORT-002",
+      "categoryId": "portfolio",
+      "name": "Photographer Minimal",
+      "style": [
+        "Minimal",
+        "Elegant"
+      ],
+      "price": 79,
+      "short": "Photo-first layout with clean grid gallery.",
+      "pitch": "A minimal photo-first website with a clean gallery and inquiry CTA for clients.",
+      "pages": [
+        "Home",
+        "Portfolio",
+        "Packages",
+        "About",
+        "Contact"
+      ],
+      "bestFor": [
+        "Photographers",
+        "Videographers",
+        "Creators"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Gallery grid",
+        "Package tiers"
+      ],
+      "tags": [
+        "photo",
+        "minimal",
+        "gallery",
+        "packages"
+      ],
+      "accent": {
+        "a": "#06b6d4",
+        "b": "#a78bfa",
+        "c": "#f1f5f9"
+      },
+      "featuredRank": 32,
+      "addedAt": "2025-12-28"
+    },
+    {
+      "sku": "PORT-003",
+      "categoryId": "portfolio",
+      "name": "Illustration Pop",
+      "style": [
+        "Playful",
+        "Bold"
+      ],
+      "price": 59,
+      "short": "Bright playful layout for illustrators and artists.",
+      "pitch": "Made to stand out: bold colors, project cards, and a friendly commission CTA.",
+      "pages": [
+        "Home",
+        "Work",
+        "Commissions",
+        "About",
+        "Contact"
+      ],
+      "bestFor": [
+        "Illustrators",
+        "Artists",
+        "Commission work"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Commission section",
+        "Project cards"
+      ],
+      "tags": [
+        "illustration",
+        "playful",
+        "bold",
+        "commission"
+      ],
+      "accent": {
+        "a": "#f472b6",
+        "b": "#22c55e",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 33,
+      "addedAt": "2026-01-02"
+    },
+    {
+      "sku": "PORT-004",
+      "categoryId": "portfolio",
+      "name": "Motion Neon",
+      "style": [
+        "Neon",
+        "Modern"
+      ],
+      "price": 69,
+      "short": "Neon creative vibe for motion designers.",
+      "pitch": "A modern neon template for motion design portfolios—great for reels, services, and client inquiries.",
+      "pages": [
+        "Home",
+        "Reel",
+        "Projects",
+        "Services",
+        "Contact"
+      ],
+      "bestFor": [
+        "Motion designers",
+        "Video editors",
+        "Studios"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Reel highlight section",
+        "Service cards"
+      ],
+      "tags": [
+        "motion",
+        "neon",
+        "portfolio",
+        "reel"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#06b6d4",
+        "c": "#a855f7"
+      },
+      "featuredRank": 34,
+      "addedAt": "2026-01-12"
+    },
+    {
+      "sku": "PORT-005",
+      "categoryId": "portfolio",
+      "name": "Writer Editorial",
+      "style": [
+        "Editorial",
+        "Minimal"
+      ],
+      "price": 49,
+      "short": "Editorial blog/portfolio for writers and consultants.",
+      "pitch": "Simple but premium editorial layout for writers: articles list, services, and contact CTA.",
+      "pages": [
+        "Home",
+        "Articles",
+        "Services",
+        "About",
+        "Contact"
+      ],
+      "bestFor": [
+        "Writers",
+        "Consultants",
+        "Personal brands"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Article list layout",
+        "Bio section"
+      ],
+      "tags": [
+        "writer",
+        "editorial",
+        "minimal",
+        "personal"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#111827",
+        "c": "#9ca3af"
+      },
+      "featuredRank": 35,
+      "addedAt": "2025-12-24"
+    },
+    {
+      "sku": "EVT-001",
+      "categoryId": "events",
+      "name": "Wedding Ivory",
+      "style": [
+        "Elegant",
+        "Luxury"
+      ],
+      "price": 79,
+      "short": "Wedding invite microsite with RSVP section.",
+      "pitch": "A classy wedding microsite: schedule, venue map links, dress code, and RSVP CTA (static placeholder).",
+      "pages": [
+        "Home",
+        "Our Story",
+        "Schedule",
+        "Venue",
+        "RSVP"
+      ],
+      "bestFor": [
+        "Weddings",
+        "Engagement parties",
+        "Private events"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Schedule section",
+        "RSVP section (static)"
+      ],
+      "tags": [
+        "wedding",
+        "elegant",
+        "rsvp",
+        "luxury"
+      ],
+      "accent": {
+        "a": "#fde68a",
+        "b": "#f472b6",
+        "c": "#a78bfa"
+      },
+      "featuredRank": 36,
+      "addedAt": "2026-01-03"
+    },
+    {
+      "sku": "EVT-002",
+      "categoryId": "events",
+      "name": "Conference Pro",
+      "style": [
+        "Corporate",
+        "Modern"
+      ],
+      "price": 109,
+      "short": "Event landing with speakers, agenda, and tickets CTA.",
+      "pitch": "A professional event landing: speakers, agenda blocks, and a ticket CTA. Perfect for conferences and seminars.",
+      "pages": [
+        "Home",
+        "Speakers",
+        "Agenda",
+        "Sponsors",
+        "Tickets"
+      ],
+      "bestFor": [
+        "Conferences",
+        "Seminars",
+        "Business events"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Speaker cards",
+        "Agenda layout"
+      ],
+      "tags": [
+        "conference",
+        "agenda",
+        "speakers",
+        "tickets"
+      ],
+      "accent": {
+        "a": "#2563eb",
+        "b": "#06b6d4",
+        "c": "#111827"
+      },
+      "featuredRank": 37,
+      "addedAt": "2026-01-10"
+    },
+    {
+      "sku": "EVT-003",
+      "categoryId": "events",
+      "name": "Birthday Pop",
+      "style": [
+        "Playful",
+        "Bold"
+      ],
+      "price": 49,
+      "short": "Fun party invite page with countdown and location.",
+      "pitch": "A playful party invite page. Includes countdown (static look), location info, and a big RSVP CTA.",
+      "pages": [
+        "Home",
+        "Details",
+        "Gallery",
+        "FAQ",
+        "RSVP"
+      ],
+      "bestFor": [
+        "Birthdays",
+        "Celebrations",
+        "Private invites"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Countdown section (static)",
+        "FAQ section"
+      ],
+      "tags": [
+        "birthday",
+        "party",
+        "playful",
+        "rsvp"
+      ],
+      "accent": {
+        "a": "#f97316",
+        "b": "#22c55e",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 38,
+      "addedAt": "2025-12-30"
+    },
+    {
+      "sku": "EVT-004",
+      "categoryId": "events",
+      "name": "DJ Night Neon",
+      "style": [
+        "Neon",
+        "Bold"
+      ],
+      "price": 59,
+      "short": "Nightlife flyer site with lineup and tickets CTA.",
+      "pitch": "A neon nightlife landing: lineup, venue, and ticket CTA. Great for DJs and club nights.",
+      "pages": [
+        "Home",
+        "Lineup",
+        "Venue",
+        "Gallery",
+        "Tickets"
+      ],
+      "bestFor": [
+        "DJ events",
+        "Clubs",
+        "Promoters"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Lineup blocks",
+        "Ticket CTA"
+      ],
+      "tags": [
+        "dj",
+        "neon",
+        "nightlife",
+        "tickets"
+      ],
+      "accent": {
+        "a": "#a855f7",
+        "b": "#06b6d4",
+        "c": "#22c55e"
+      },
+      "featuredRank": 39,
+      "addedAt": "2026-01-13"
+    },
+    {
+      "sku": "EVT-005",
+      "categoryId": "events",
+      "name": "Festival Warm",
+      "style": [
+        "Warm",
+        "Modern"
+      ],
+      "price": 79,
+      "short": "Festival landing with schedule blocks and vendor section.",
+      "pitch": "A friendly modern festival page with schedule, map links, and vendor highlights.",
+      "pages": [
+        "Home",
+        "Schedule",
+        "Vendors",
+        "Map",
+        "Tickets"
+      ],
+      "bestFor": [
+        "Festivals",
+        "Markets",
+        "Community events"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Vendor cards",
+        "Schedule section"
+      ],
+      "tags": [
+        "festival",
+        "warm",
+        "vendors",
+        "tickets"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#f59e0b",
+        "c": "#0ea5e9"
+      },
+      "featuredRank": 40,
+      "addedAt": "2026-01-06"
+    },
+    {
+      "sku": "SHOP-001",
+      "categoryId": "shop",
+      "name": "Micro Shop Minimal",
+      "style": [
+        "Minimal",
+        "Modern"
+      ],
+      "price": 89,
+      "short": "Simple mini shop catalogue with featured items and CTA.",
+      "pitch": "A clean mini shop template: featured products, bundles, and social proof. Great for small sellers.",
+      "pages": [
+        "Home",
+        "Catalog",
+        "Bundles",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Small shops",
+        "Instagram sellers",
+        "Handmade goods"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Product card layouts",
+        "Bundle section"
+      ],
+      "tags": [
+        "shop",
+        "minimal",
+        "catalog",
+        "bundles"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#22c55e",
+        "c": "#111827"
+      },
+      "featuredRank": 41,
+      "addedAt": "2026-01-04"
+    },
+    {
+      "sku": "SHOP-002",
+      "categoryId": "shop",
+      "name": "Beauty Shop Luxe",
+      "style": [
+        "Luxury",
+        "Elegant"
+      ],
+      "price": 109,
+      "short": "Premium cosmetic shop landing with product highlights.",
+      "pitch": "High-end cosmetic shop feel with premium spacing, product highlights, and a clean CTA to buy via DM.",
+      "pages": [
+        "Home",
+        "Products",
+        "Bundles",
+        "Reviews",
+        "Contact"
+      ],
+      "bestFor": [
+        "Cosmetics",
+        "Skincare",
+        "Beauty brands"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Review strip",
+        "Product highlight sections"
+      ],
+      "tags": [
+        "cosmetics",
+        "luxury",
+        "shop",
+        "reviews"
+      ],
+      "accent": {
+        "a": "#f472b6",
+        "b": "#a78bfa",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 42,
+      "addedAt": "2026-01-11"
+    },
+    {
+      "sku": "SHOP-003",
+      "categoryId": "shop",
+      "name": "Streetwear Neon",
+      "style": [
+        "Neon",
+        "Bold"
+      ],
+      "price": 99,
+      "short": "Streetwear look with drops, sizes, and social CTAs.",
+      "pitch": "Built for drops: featured collection, size guide, and a buy CTA designed for WhatsApp/DM ordering.",
+      "pages": [
+        "Home",
+        "Drops",
+        "Lookbook",
+        "Size Guide",
+        "Contact"
+      ],
+      "bestFor": [
+        "Streetwear",
+        "Merch",
+        "Limited drops"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Size guide section",
+        "Lookbook layout"
+      ],
+      "tags": [
+        "streetwear",
+        "neon",
+        "drops",
+        "bold"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#a855f7",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 43,
+      "addedAt": "2026-01-13"
+    },
+    {
+      "sku": "SHOP-004",
+      "categoryId": "shop",
+      "name": "Coffee Gear Warm",
+      "style": [
+        "Warm",
+        "Editorial"
+      ],
+      "price": 79,
+      "short": "Warm editorial shop landing for small products.",
+      "pitch": "A warm product catalogue style: bundles, shipping info section (static), and product features.",
+      "pages": [
+        "Home",
+        "Catalog",
+        "Bundles",
+        "Shipping",
+        "Contact"
+      ],
+      "bestFor": [
+        "Coffee gear",
+        "Accessories",
+        "Small product brands"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Shipping info block",
+        "Feature list sections"
+      ],
+      "tags": [
+        "coffee",
+        "warm",
+        "editorial",
+        "shop"
+      ],
+      "accent": {
+        "a": "#f59e0b",
+        "b": "#f97316",
+        "c": "#0ea5e9"
+      },
+      "featuredRank": 44,
+      "addedAt": "2025-12-29"
+    },
+    {
+      "sku": "SHOP-005",
+      "categoryId": "shop",
+      "name": "Craft Market Pop",
+      "style": [
+        "Playful",
+        "Warm"
+      ],
+      "price": 59,
+      "short": "Friendly craft seller site with bundles and story.",
+      "pitch": "A friendly layout for handmade sellers with product cards, bundle offers, and a story section that builds trust.",
+      "pages": [
+        "Home",
+        "Catalog",
+        "Bundles",
+        "Our Story",
+        "Contact"
+      ],
+      "bestFor": [
+        "Handmade",
+        "Crafts",
+        "Small sellers"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Bundle offers",
+        "Story section"
+      ],
+      "tags": [
+        "craft",
+        "handmade",
+        "warm",
+        "playful"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#fb7185",
+        "c": "#f59e0b"
+      },
+      "featuredRank": 45,
+      "addedAt": "2026-01-02"
+    },
+    {
+      "sku": "TECH-001",
+      "categoryId": "tech",
+      "name": "Midnight SaaS",
+      "style": [
+        "Modern",
+        "Neon"
+      ],
+      "price": 119,
+      "short": "SaaS landing with features, pricing, and waitlist CTA.",
+      "pitch": "A strong SaaS landing: feature highlights, pricing tiers, and a waitlist CTA. Great for MVP launches.",
+      "pages": [
+        "Home",
+        "Features",
+        "Pricing",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "SaaS",
+        "Startups",
+        "MVP launches"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Pricing tiers",
+        "Feature sections"
+      ],
+      "tags": [
+        "saas",
+        "neon",
+        "pricing",
+        "waitlist"
+      ],
+      "accent": {
+        "a": "#a855f7",
+        "b": "#06b6d4",
+        "c": "#22c55e"
+      },
+      "featuredRank": 46,
+      "addedAt": "2026-01-14"
+    },
+    {
+      "sku": "TECH-002",
+      "categoryId": "tech",
+      "name": "Startup Minimal",
+      "style": [
+        "Minimal",
+        "Corporate"
+      ],
+      "price": 99,
+      "short": "Clean corporate landing with credibility blocks.",
+      "pitch": "A clean, investor-friendly landing: problem/solution, metrics, and a clear CTA for demos.",
+      "pages": [
+        "Home",
+        "Solution",
+        "Metrics",
+        "Pricing",
+        "Contact"
+      ],
+      "bestFor": [
+        "B2B startups",
+        "Consulting",
+        "SaaS"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Metrics strip",
+        "Demo CTA"
+      ],
+      "tags": [
+        "startup",
+        "minimal",
+        "b2b",
+        "metrics"
+      ],
+      "accent": {
+        "a": "#2563eb",
+        "b": "#111827",
+        "c": "#06b6d4"
+      },
+      "featuredRank": 47,
+      "addedAt": "2026-01-08"
+    },
+    {
+      "sku": "TECH-003",
+      "categoryId": "tech",
+      "name": "App Launch Pop",
+      "style": [
+        "Playful",
+        "Modern"
+      ],
+      "price": 79,
+      "short": "App landing with screenshots strip (mock) and CTA.",
+      "pitch": "Made for mobile apps: highlights, mock screenshot strip, and a ‘Get early access’ CTA.",
+      "pages": [
+        "Home",
+        "Features",
+        "Screens",
+        "FAQ",
+        "Contact"
+      ],
+      "bestFor": [
+        "Mobile apps",
+        "Side projects",
+        "Waitlists"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Screenshot strip (mock)",
+        "Waitlist CTA"
+      ],
+      "tags": [
+        "app",
+        "playful",
+        "modern",
+        "launch"
+      ],
+      "accent": {
+        "a": "#f97316",
+        "b": "#06b6d4",
+        "c": "#a78bfa"
+      },
+      "featuredRank": 48,
+      "addedAt": "2026-01-03"
+    },
+    {
+      "sku": "TECH-004",
+      "categoryId": "tech",
+      "name": "Agency Deck",
+      "style": [
+        "Corporate",
+        "Editorial"
+      ],
+      "price": 109,
+      "short": "Agency website with case studies and service packages.",
+      "pitch": "A premium agency layout: service packages, case studies, and a CTA for booking a call.",
+      "pages": [
+        "Home",
+        "Services",
+        "Case Studies",
+        "Process",
+        "Contact"
+      ],
+      "bestFor": [
+        "Agencies",
+        "Freelancers",
+        "Studios"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Process timeline",
+        "Case study layout"
+      ],
+      "tags": [
+        "agency",
+        "corporate",
+        "case-study",
+        "process"
+      ],
+      "accent": {
+        "a": "#0ea5e9",
+        "b": "#a855f7",
+        "c": "#111827"
+      },
+      "featuredRank": 49,
+      "addedAt": "2026-01-10"
+    },
+    {
+      "sku": "TECH-005",
+      "categoryId": "tech",
+      "name": "Crypto Neon Onepager",
+      "style": [
+        "Neon",
+        "Bold"
+      ],
+      "price": 59,
+      "short": "Neon one-page landing for crypto/web3 projects.",
+      "pitch": "A punchy neon one-pager with sections for benefits, token utility (generic), and community CTA.",
+      "pages": [
+        "Home",
+        "Utility",
+        "Roadmap",
+        "Community",
+        "Contact"
+      ],
+      "bestFor": [
+        "Web3",
+        "Communities",
+        "Token projects"
+      ],
+      "includes": [
+        "Responsive layout (mobile-first)",
+        "Modern sections & spacing",
+        "SEO-friendly structure",
+        "Fast load (no backend)",
+        "Easy color + font swap",
+        "Roadmap section",
+        "Community CTA"
+      ],
+      "tags": [
+        "crypto",
+        "neon",
+        "bold",
+        "community"
+      ],
+      "accent": {
+        "a": "#22c55e",
+        "b": "#06b6d4",
+        "c": "#a855f7"
+      },
+      "featuredRank": 50,
+      "addedAt": "2025-12-26"
+    }
+  ]
+}

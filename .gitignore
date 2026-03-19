@@ -1,0 +1,13 @@
+.vscode/
+
+# Node dependencies
+node_modules/
+server/node_modules/
+
+# Local environment files
+.env
+server/.env
+
+# Nested repository metadata inside server folder
+server/.git/
+server/.git_backup_local/
