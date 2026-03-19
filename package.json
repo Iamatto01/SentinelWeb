@@ -6,7 +6,8 @@
     "npm": ">=8.0.0"
   },
   "scripts": {
-    "build": "npm ci --prefix server --production",
+    "postinstall": "npm ci --prefix server --omit=dev",
+    "build": "npm ci --prefix server --omit=dev",
     "start": "npm --prefix server run start",
     "dev": "npm --prefix server run dev"
   }
