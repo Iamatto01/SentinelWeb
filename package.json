@@ -6,7 +6,7 @@
     "npm": ">=8.0.0"
   },
   "scripts": {
-    "build": "npm ci --prefix server --production",
+    "build": "npm --prefix server install --production",
     "start": "npm --prefix server run start",
     "dev": "npm --prefix server run dev"
   }
