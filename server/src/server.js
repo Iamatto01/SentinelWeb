@@ -51,6 +51,11 @@ app.use("/api/config", createConfigRouter());
 const root = path.resolve(__dirname, "../../");
 app.use(express.static(root));
 
+// Serve index.html for the root route
+app.get("/", (_req, res) => {
+  res.sendFile(path.join(root, "index.html"));
+});
+
 app.get("/health", (_req, res) => res.json({ ok: true }));
 
 app.listen(PORT, () => {
