@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VOLT CrossFit — Push Your Limits</title>
+  <meta name="description" content="High-intensity CrossFit gym with neon energy. Elite coaching, competitive atmosphere, results-driven.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&family=Rajdhani:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #000000;
+      --dark: #0A0A0A;
+      --dark-2: #1A1A1A;
+      --neon-cyan: #00FFFF;
+      --neon-pink: #FF10F0;
+      --neon-yellow: #FFFF00;
+      --white: #FFFFFF;
+      --gray: #999999;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: var(--black);
+      color: var(--white);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.25rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+    }
+
+    .header-inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--neon-cyan);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      text-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    .nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+    }
+
+    .nav a:hover {
+      color: var(--neon-cyan);
+      text-shadow: 0 0 10px var(--neon-cyan);
+    }
+
+    .btn-join {
+      background: var(--neon-cyan);
+      color: var(--black);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    .btn-join:hover {
+      background: var(--neon-pink);
+      box-shadow: 0 0 30px var(--neon-pink);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: linear-gradient(135deg, var(--black) 0%, var(--dark) 50%, var(--black) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 255, 0.03) 2px, rgba(0, 255, 255, 0.03) 4px);
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--neon-pink);
+      color: var(--black);
+      padding: 0.5rem 1.5rem;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      box-shadow: 0 0 20px var(--neon-pink);
+    }
+
+    .hero-title {
+      font-family: 'Teko', sans-serif;
+      font-size: clamp(5rem, 12vw, 10rem);
+      font-weight: 700;
+      line-height: 0.85;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      color: var(--neon-cyan);
+      text-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan);
+    }
+
+    .hero-title span {
+      display: block;
+      color: var(--neon-pink);
+      text-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-pink);
+    }
+
+    .hero-desc {
+      font-size: 1.35rem;
+      color: var(--gray);
+      max-width: 650px;
+      margin-bottom: 3rem;
+      font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--neon-cyan);
+      color: var(--black);
+      padding: 1.35rem 3rem;
+      text-decoration: none;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+      box-shadow: 0 0 30px var(--neon-cyan);
+    }
+
+    .btn-primary:hover {
+      background: var(--neon-pink);
+      box-shadow: 0 0 40px var(--neon-pink);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      border: 3px solid var(--neon-cyan);
+      color: var(--neon-cyan);
+      padding: 1.35rem 3rem;
+      text-decoration: none;
+      font-family: 'Teko', sans-serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      transition: all 0.3s;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .btn-outline:hover {
+      background: var(--neon-cyan);
+      color: var(--black);
+      box-shadow: 0 0 30px var(--neon-cyan);
+    }
+
+    /* WORKOUTS */
+    .workouts {
+      padding: 6rem 0;
+      background: var(--dark);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-family: 'Teko', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--neon-pink);
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px var(--neon-pink);
+    }
+
+    .section-title {
+      font-family: 'Teko', sans-serif;
+      font-size: 4.5rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      text-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    .workouts-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .workout-card {
+      background: var(--black);
+      padding: 2.5rem;
+      border: 2px solid var(--dark-2);
+      transition: all 0.3s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .workout-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--neon-cyan), var(--neon-pink));
+      transform: scaleX(0);
+      transition: transform 0.3s;
+    }
+
+    .workout-card:hover {
+      border-color: var(--neon-cyan);
+      box-shadow: 0 0 30px rgba(0, 255, 255, 0.3);
+      transform: translateY(-8px);
+    }
+
+    .workout-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .workout-icon {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .workout-name {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.25rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      margin-bottom: 1rem;
+    }
+
+    .workout-desc {
+      color: var(--gray);
+      font-size: 1.05rem;
+      line-height: 1.6;
+      font-weight: 500;
+    }
+
+    /* STATS */
+    .stats {
+      padding: 5rem 0;
+      background: var(--black);
+      border-top: 2px solid var(--neon-cyan);
+      border-bottom: 2px solid var(--neon-pink);
+    }
+
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .stat-number {
+      font-family: 'Teko', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, var(--neon-cyan), var(--neon-pink));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* SCHEDULE */
+    .schedule {
+      padding: 6rem 0;
+      background: var(--dark);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .schedule-card {
+      background: var(--black);
+      padding: 2.5rem;
+      border: 2px solid var(--neon-cyan);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    }
+
+    .schedule-time {
+      font-family: 'Teko', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--neon-pink);
+      text-shadow: 0 0 15px var(--neon-pink);
+      margin-bottom: 1rem;
+    }
+
+    .schedule-class {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .schedule-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* COACHES */
+    .coaches {
+      padding: 6rem 0;
+      background: var(--black);
+    }
+
+    .coaches-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .coach-card {
+      text-align: center;
+      padding: 2rem;
+      background: var(--dark);
+      border: 2px solid var(--dark-2);
+      transition: all 0.3s;
+    }
+
+    .coach-card:hover {
+      border-color: var(--neon-pink);
+      box-shadow: 0 0 30px rgba(255, 16, 240, 0.3);
+    }
+
+    .coach-image {
+      width: 180px;
+      height: 180px;
+      background: var(--dark-2);
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      border: 3px solid var(--neon-cyan);
+      clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+      box-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    .coach-name {
+      font-family: 'Teko', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--neon-cyan);
+      margin-bottom: 0.5rem;
+    }
+
+    .coach-title {
+      color: var(--neon-pink);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 1rem;
+    }
+
+    .coach-bio {
+      color: var(--gray);
+      font-size: 0.95rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, var(--dark) 0%, var(--black) 100%);
+      text-align: center;
+      border-top: 2px solid var(--neon-cyan);
+      border-bottom: 2px solid var(--neon-pink);
+    }
+
+    .cta-title {
+      font-family: 'Teko', sans-serif;
+      font-size: 5rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+      color: var(--neon-cyan);
+      text-shadow: 0 0 30px var(--neon-cyan);
+    }
+
+    .cta-desc {
+      font-size: 1.35rem;
+      color: var(--gray);
+      margin-bottom: 3rem;
+      font-weight: 600;
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--black);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Teko', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      color: var(--neon-cyan);
+      text-shadow: 0 0 20px var(--neon-cyan);
+    }
+
+    .footer-text {
+      color: var(--gray);
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .workouts-grid { grid-template-columns: 1fr; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .schedule-grid { grid-template-columns: 1fr; }
+      .coaches-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .stats-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">⚡VOLT⚡</a>
+      <nav class="nav">
+        <a href="#workouts">Workouts</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#coaches">Coaches</a>
+      </nav>
+      <a href="#contact" class="btn-join">Join Now</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">CROSSFIT ELITE</div>
+        <h1 class="hero-title">PUSH YOUR<span>LIMITS</span></h1>
+        <p class="hero-desc">High-intensity functional fitness for serious athletes. Build strength, speed, and endurance in the most electric training environment in the city.</p>
+        <div class="hero-actions">
+          <a href="#workouts" class="btn-primary">START TRAINING</a>
+          <a href="#contact" class="btn-outline">FREE WOD</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="workouts" id="workouts">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">WHAT WE DO</div>
+        <h2 class="section-title">TRAINING PROGRAMS</h2>
+      </div>
+      <div class="workouts-grid">
+        <div class="workout-card">
+          <div class="workout-icon">🏋️</div>
+          <h3 class="workout-name">OLYMPIC LIFTING</h3>
+          <p class="workout-desc">Master snatch, clean & jerk. Build explosive power and technical precision with expert coaching.</p>
+        </div>
+        <div class="workout-card">
+          <div class="workout-icon">💪</div>
+          <h3 class="workout-name">METCONS</h3>
+          <p class="workout-desc">High-intensity metabolic conditioning. Burn fat, build endurance, push your cardiovascular limits.</p>
+        </div>
+        <div class="workout-card">
+          <div class="workout-icon">⚡</div>
+          <h3 class="workout-name">STRENGTH CYCLE</h3>
+          <p class="workout-desc">Progressive strength programming. Squat, deadlift, press. Build raw power and muscle mass.</p>
+        </div>
+        <div class="workout-card">
+          <div class="workout-icon">🔥</div>
+          <h3 class="workout-name">COMPETITION PREP</h3>
+          <p class="workout-desc">Train for CrossFit competitions. Advanced programming for serious competitors and athletes.</p>
+        </div>
+        <div class="workout-card">
+          <div class="workout-icon">🎯</div>
+          <h3 class="workout-name">GYMNASTICS</h3>
+          <p class="workout-desc">Bodyweight mastery. Muscle-ups, handstands, rope climbs. Build control and coordination.</p>
+        </div>
+        <div class="workout-card">
+          <div class="workout-icon">⏱️</div>
+          <h3 class="workout-name">PERSONAL TRAINING</h3>
+          <p class="workout-desc">One-on-one coaching tailored to your goals. Accelerate progress with personalized attention.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="stat-number">400+</div>
+          <div class="stat-label">Members</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">25</div>
+          <div class="stat-label">WODs/Week</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Elite Coaches</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">24/7</div>
+          <div class="stat-label">Open Access</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="schedule" id="schedule">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">DAILY SCHEDULE</div>
+        <h2 class="section-title">CLASS TIMES</h2>
+      </div>
+      <div class="schedule-grid">
+        <div class="schedule-card">
+          <div class="schedule-time">5:00 AM</div>
+          <div class="schedule-class">MORNING GRIND</div>
+          <p class="schedule-desc">Start your day with intensity. Full-body WOD before sunrise.</p>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-time">6:30 AM</div>
+          <div class="schedule-class">STRENGTH FOCUS</div>
+          <p class="schedule-desc">Heavy lifting session. Build max strength and power.</p>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-time">12:00 PM</div>
+          <div class="schedule-class">LUNCH BURNER</div>
+          <p class="schedule-desc">Quick 45-minute high-intensity workout for busy schedules.</p>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-time">5:30 PM</div>
+          <div class="schedule-class">PRIME TIME WOD</div>
+          <p class="schedule-desc">Main evening class. Full workout with Olympic lifting component.</p>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-time">6:45 PM</div>
+          <div class="schedule-class">COMPETITOR CLASS</div>
+          <p class="schedule-desc">Advanced athletes only. Competition-level programming and intensity.</p>
+        </div>
+        <div class="schedule-card">
+          <div class="schedule-time">SAT 9:00 AM</div>
+          <div class="schedule-class">WEEKEND WARRIOR</div>
+          <p class="schedule-desc">Extended Saturday session with partner WODs and team challenges.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="coaches" id="coaches">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">THE TEAM</div>
+        <h2 class="section-title">ELITE COACHES</h2>
+      </div>
+      <div class="coaches-grid">
+        <div class="coach-card">
+          <div class="coach-image">💪</div>
+          <h3 class="coach-name">JAKE THUNDER</h3>
+          <div class="coach-title">Head Coach</div>
+          <p class="coach-bio">Regional competitor, CF-L3, 12 years experience. Former Marine Corps conditioning coach.</p>
+        </div>
+        <div class="coach-card">
+          <div class="coach-image">⚡</div>
+          <h3 class="coach-name">MAYA STORM</h3>
+          <div class="coach-title">Olympic Lifting</div>
+          <p class="coach-bio">National weightlifting champion. USAW Level 2 coach. Technical precision specialist.</p>
+        </div>
+        <div class="coach-card">
+          <div class="coach-image">🔥</div>
+          <h3 class="coach-name">TYLER BLAZE</h3>
+          <div class="coach-title">Competition Coach</div>
+          <p class="coach-bio">5x Games qualifier. Mobility and gymnastics expert. CF-L2 certified.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">READY TO TRAIN?</h2>
+      <p class="cta-desc">Join the most intense CrossFit community in the city. First week is FREE!</p>
+      <a href="#" class="btn-primary">CLAIM FREE WEEK ⚡</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">⚡VOLT CROSSFIT⚡</div>
+        <div class="footer-text">Elite Training Facility • 999 Power Street • (555) 777-VOLT</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

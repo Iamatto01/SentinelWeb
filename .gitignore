@@ -12,5 +12,3 @@ server/.env
 server/.git/
 server/.git_backup_local/
 
-# Catalogue templates (generated from data)
-/catalogue

@@ -8,6 +8,7 @@ import cors from "cors";
 import { createAuthRouter } from "./web/auth.js";
 import { createCatalogueRouter } from "./web/catalogue-api.js";
 import { createConfigRouter } from "./web/config-api.js";
+import { createTemplateRouter } from "./web/template-api.js";
 import { ensureSeedData } from "./web/storage.js";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -46,6 +47,7 @@ app.use(cookieParser());
 app.use("/api/auth", createAuthRouter());
 app.use("/api/catalogue", createCatalogueRouter());
 app.use("/api/config", createConfigRouter());
+app.use("/api/templates", createTemplateRouter());
 
 // Static site (serve project root)
 const root = path.resolve(__dirname, "../../");

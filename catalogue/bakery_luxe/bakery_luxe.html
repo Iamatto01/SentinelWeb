@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maison Crumb - Bakery Luxe</title>
+    <meta name="description" content="A luxury bakery website template with an elegant editorial layout, signature pastries, gift boxes, and online ordering call-to-action.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,600;9..144,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #27150f;
+            --ink-soft: #5e4338;
+            --cream: #f8f1e8;
+            --vanilla: #fff8f0;
+            --caramel: #b77952;
+            --cocoa: #7a4e37;
+            --berry: #b1465a;
+            --gold: #cda05b;
+            --white: #ffffff;
+            --line: rgba(39, 21, 15, 0.14);
+            --shadow-soft: 0 16px 40px rgba(77, 47, 33, 0.12);
+            --shadow-strong: 0 26px 60px rgba(77, 47, 33, 0.2);
+            --radius-lg: 28px;
+            --radius-md: 16px;
+            --transition: 300ms cubic-bezier(0.2, 0.7, 0.2, 1);
+        }   
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 8% 10%, rgba(205, 160, 91, 0.2), transparent 32%),
+                radial-gradient(circle at 84% 22%, rgba(177, 70, 90, 0.18), transparent 34%),
+                linear-gradient(180deg, var(--vanilla), var(--cream));
+            min-height: 100vh;
+            line-height: 1.65;
+            overflow-x: hidden;
+        }
+
+        .grain {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.12;
+            z-index: -1;
+            background-image: radial-gradient(rgba(39, 21, 15, 0.35) 0.6px, transparent 0.6px);
+            background-size: 4px 4px;
+        }
+
+        .container {
+            width: min(1180px, calc(100% - 2.5rem));
+            margin: 0 auto;
+        }
+
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 90;
+            border-bottom: 1px solid transparent;
+            transition: var(--transition);
+            -webkit-backdrop-filter: blur(12px);
+            backdrop-filter: blur(12px);
+        }
+
+        .header.scrolled {
+            background: rgba(255, 248, 240, 0.9);
+            border-bottom-color: var(--line);
+        }
+
+        .header-inner {
+            min-height: 78px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+
+        .brand {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 0.55rem;
+            text-decoration: none;
+            color: var(--ink);
+        }
+
+        .brand-mark {
+            font-size: 1.45rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-family: 'Fraunces', serif;
+            font-weight: 700;
+        }
+
+        .brand-sub {
+            font-size: 0.72rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            font-weight: 500;
+        }
+
+        .nav-toggle {
+            display: none;
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.68);
+            color: var(--ink);
+            border-radius: 999px;
+            width: 42px;
+            height: 42px;
+            font-size: 1.15rem;
+            cursor: pointer;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 1.6rem;
+        }
+
+        .nav a {
+            color: var(--ink-soft);
+            text-decoration: none;
+            font-size: 0.86rem;
+            text-transform: uppercase;
+            letter-spacing: 1.7px;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav a:hover {
+            color: var(--cocoa);
+        }
+
+        .btn-order {
+            border: none;
+            background: linear-gradient(120deg, var(--cocoa), var(--caramel));
+            color: var(--white);
+            padding: 0.82rem 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1.3px;
+            border-radius: 999px;
+            font-weight: 600;
+            font-size: 0.76rem;
+            text-decoration: none;
+            box-shadow: 0 10px 20px rgba(122, 78, 55, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn-order:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 24px rgba(122, 78, 55, 0.38);
+        }
+
+        .hero {
+            padding: 4.2rem 0 3.2rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 2rem;
+            align-items: stretch;
+        }
+
+        .hero-copy {
+            background: rgba(255, 255, 255, 0.72);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            padding: clamp(1.8rem, 3vw, 3.2rem);
+            box-shadow: var(--shadow-soft);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-copy::before {
+            content: '';
+            position: absolute;
+            width: 320px;
+            height: 320px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(205, 160, 91, 0.26), transparent 65%);
+            top: -130px;
+            right: -80px;
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            font-size: 0.78rem;
+            text-transform: uppercase;
+            letter-spacing: 2.4px;
+            color: var(--berry);
+            font-weight: 600;
+            margin-bottom: 1.1rem;
+        }
+
+        .eyebrow-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--berry);
+            display: inline-block;
+        }
+
+        .hero h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(2.2rem, 6.4vw, 4.8rem);
+            line-height: 1.02;
+            margin-bottom: 1.1rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero p {
+            max-width: 62ch;
+            color: var(--ink-soft);
+            font-size: 1.03rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.85rem;
+            margin-bottom: 1.6rem;
+        }
+
+        .btn-primary,
+        .btn-secondary {
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 1.4px;
+            font-size: 0.77rem;
+            font-weight: 600;
+            border-radius: 999px;
+            padding: 0.86rem 1.5rem;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--ink);
+            color: var(--white);
+            border: 1px solid var(--ink);
+        }
+
+        .btn-primary:hover {
+            background: var(--cocoa);
+            border-color: var(--cocoa);
+        }
+
+        .btn-secondary {
+            color: var(--ink);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            border-color: rgba(39, 21, 15, 0.28);
+        }
+
+        .hero-meta {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 0.65rem;
+        }
+
+        .meta-item {
+            border: 1px dashed rgba(39, 21, 15, 0.18);
+            border-radius: 12px;
+            padding: 0.72rem 0.8rem;
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        .meta-kpi {
+            font-family: 'Fraunces', serif;
+            font-size: 1.28rem;
+            color: var(--ink);
+            line-height: 1.2;
+        }
+
+        .meta-label {
+            text-transform: uppercase;
+            letter-spacing: 1.1px;
+            font-size: 0.66rem;
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+
+        .hero-visual {
+            position: relative;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-strong);
+            border: 1px solid rgba(39, 21, 15, 0.12);
+            background:
+                linear-gradient(160deg, rgba(255, 255, 255, 0.12), rgba(39, 21, 15, 0.5)),
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.4), transparent 45%),
+                linear-gradient(130deg, #7a4e37, #3f251b 52%, #b77952);
+            min-height: 540px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-start;
+            padding: 1.6rem;
+        }
+
+        .visual-card {
+            max-width: 300px;
+            background: rgba(255, 248, 240, 0.9);
+            border-radius: 14px;
+            border: 1px solid rgba(39, 21, 15, 0.12);
+            padding: 1rem;
+        }
+
+        .visual-label {
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-size: 0.67rem;
+            color: var(--berry);
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .visual-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+        }
+
+        .visual-copy {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+        }
+
+        .ticker {
+            margin: 1.6rem 0 0.6rem;
+            border-block: 1px solid var(--line);
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.52);
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: ticker 26s linear infinite;
+        }
+
+        .ticker-item {
+            padding: 0.7rem 1.45rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.72rem;
+            color: var(--ink-soft);
+            white-space: nowrap;
+            font-weight: 600;
+        }
+
+        .section {
+            padding: 4.8rem 0;
+        }
+
+        .section-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            margin-bottom: 1.8rem;
+        }
+
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.1;
+        }
+
+        .section-note {
+            color: var(--ink-soft);
+            max-width: 46ch;
+            font-size: 0.97rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1.15rem;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.74);
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: var(--transition);
+            box-shadow: 0 12px 22px rgba(77, 47, 33, 0.07);
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px rgba(77, 47, 33, 0.12);
+        }
+
+        .card-art {
+            height: 180px;
+            border-bottom: 1px solid var(--line);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .art-1 {
+            background:
+                radial-gradient(circle at 20% 25%, rgba(255, 248, 240, 0.85), transparent 25%),
+                linear-gradient(140deg, #7a4e37, #cda05b);
+        }
+
+        .art-2 {
+            background:
+                radial-gradient(circle at 75% 10%, rgba(255, 255, 255, 0.8), transparent 22%),
+                linear-gradient(145deg, #b1465a, #7a4e37);
+        }
+
+        .art-3 {
+            background:
+                radial-gradient(circle at 18% 80%, rgba(255, 248, 240, 0.8), transparent 24%),
+                linear-gradient(130deg, #cda05b, #8d5f47);
+        }
+
+        .card-body {
+            padding: 1.1rem 1.1rem 1.2rem;
+        }
+
+        .card-title {
+            font-family: 'Fraunces', serif;
+            font-size: 1.35rem;
+            margin-bottom: 0.35rem;
+            line-height: 1.2;
+        }
+
+        .card-copy {
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+            margin-bottom: 0.8rem;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+            padding-top: 0.7rem;
+            border-top: 1px dashed rgba(39, 21, 15, 0.18);
+        }
+
+        .price {
+            font-family: 'Fraunces', serif;
+            font-size: 1.2rem;
+            color: var(--cocoa);
+        }
+
+        .small-tag {
+            font-size: 0.68rem;
+            letter-spacing: 1.3px;
+            text-transform: uppercase;
+            color: var(--berry);
+            font-weight: 700;
+            border: 1px solid rgba(177, 70, 90, 0.3);
+            border-radius: 999px;
+            padding: 0.3rem 0.6rem;
+            background: rgba(177, 70, 90, 0.08);
+        }
+
+        .story-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem;
+            align-items: stretch;
+        }
+
+        .story-copy,
+        .story-photo {
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.72);
+            padding: clamp(1.2rem, 3vw, 2rem);
+            box-shadow: var(--shadow-soft);
+        }
+
+        .story-copy p {
+            color: var(--ink-soft);
+            margin-top: 0.9rem;
+            max-width: 60ch;
+        }
+
+        .story-bullets {
+            margin-top: 1rem;
+            display: grid;
+            gap: 0.65rem;
+        }
+
+        .story-bullets li {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.55rem;
+            font-size: 0.92rem;
+            color: var(--ink-soft);
+        }
+
+        .story-bullets li::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--caramel);
+            flex-shrink: 0;
+        }
+
+        .story-photo {
+            display: grid;
+            gap: 0.8rem;
+            padding: 0.9rem;
+            background: rgba(255, 255, 255, 0.55);
+        }
+
+        .photo-big,
+        .photo-small {
+            border-radius: 14px;
+            border: 1px solid rgba(39, 21, 15, 0.12);
+            background-size: cover;
+            background-position: center;
+        }
+
+        .photo-big {
+            min-height: 215px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(39, 21, 15, 0.35)),
+                linear-gradient(160deg, #b77952, #7a4e37);
+        }
+
+        .photo-small-wrap {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8rem;
+        }
+
+        .photo-small {
+            min-height: 112px;
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(39, 21, 15, 0.35)),
+                linear-gradient(150deg, #cda05b, #8d5f47);
+        }
+
+        .photo-small.alt {
+            background:
+                linear-gradient(145deg, rgba(255, 255, 255, 0.2), rgba(39, 21, 15, 0.35)),
+                linear-gradient(130deg, #b1465a, #7a4e37);
+        }
+
+        .gift-panel {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-lg);
+            background:
+                radial-gradient(circle at 15% 15%, rgba(205, 160, 91, 0.2), transparent 36%),
+                linear-gradient(145deg, rgba(255, 255, 255, 0.78), rgba(255, 248, 240, 0.85));
+            box-shadow: var(--shadow-soft);
+            padding: clamp(1.3rem, 3vw, 2.2rem);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .gift-title {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.55rem, 4vw, 2.3rem);
+            margin-bottom: 0.45rem;
+            line-height: 1.1;
+        }
+
+        .gift-copy {
+            color: var(--ink-soft);
+            max-width: 56ch;
+            font-size: 0.95rem;
+        }
+
+        .gift-pricing {
+            border: 1px dashed rgba(39, 21, 15, 0.25);
+            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.8);
+            text-align: center;
+            min-width: 170px;
+            padding: 0.85rem;
+        }
+
+        .gift-from {
+            font-size: 0.73rem;
+            letter-spacing: 1.6px;
+            text-transform: uppercase;
+            color: var(--ink-soft);
+            font-weight: 600;
+        }
+
+        .gift-price {
+            font-family: 'Fraunces', serif;
+            font-size: 2rem;
+            line-height: 1;
+            margin: 0.32rem 0;
+            color: var(--cocoa);
+        }
+
+        .gift-note {
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+        }
+
+        .reviews {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 1rem;
+        }
+
+        .review {
+            border: 1px solid var(--line);
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, 0.74);
+            padding: 1.15rem;
+            box-shadow: 0 12px 20px rgba(77, 47, 33, 0.07);
+        }
+
+        .review-stars {
+            letter-spacing: 3px;
+            color: var(--gold);
+            font-size: 0.8rem;
+            margin-bottom: 0.6rem;
+        }
+
+        .review p {
+            color: var(--ink-soft);
+            font-size: 0.94rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .review strong {
+            font-size: 0.88rem;
+            letter-spacing: 0.3px;
+        }
+
+        .cta {
+            padding: 5rem 0;
+        }
+
+        .cta-panel {
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: var(--radius-lg);
+            background:
+                radial-gradient(circle at 85% 12%, rgba(255, 255, 255, 0.2), transparent 34%),
+                linear-gradient(130deg, #41231a, #7a4e37 52%, #b77952);
+            color: var(--white);
+            padding: clamp(1.5rem, 4vw, 2.8rem);
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 1rem;
+            align-items: center;
+            box-shadow: var(--shadow-strong);
+        }
+
+        .cta h3 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(1.9rem, 5vw, 3rem);
+            line-height: 1.05;
+            margin-bottom: 0.6rem;
+        }
+
+        .cta p {
+            max-width: 56ch;
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 0.98rem;
+        }
+
+        .cta-actions {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            gap: 0.7rem;
+        }
+
+        .cta .btn-primary {
+            background: var(--white);
+            color: var(--ink);
+            border-color: transparent;
+        }
+
+        .cta .btn-secondary {
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.5);
+            background: transparent;
+        }
+
+        .footer {
+            padding: 1.8rem 0 2.2rem;
+            border-top: 1px solid var(--line);
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        .footer-inner {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.7rem;
+            align-items: center;
+            flex-wrap: wrap;
+            color: var(--ink-soft);
+            font-size: 0.85rem;
+        }
+
+        .footer a {
+            color: var(--cocoa);
+            text-decoration: none;
+            font-weight: 600;
+            letter-spacing: 0.2px;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(24px);
+            transition: opacity 650ms ease, transform 650ms ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .delay-1 { transition-delay: 90ms; }
+        .delay-2 { transition-delay: 170ms; }
+        .delay-3 { transition-delay: 250ms; }
+
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        @media (max-width: 1024px) {
+            .hero-grid,
+            .story-grid,
+            .cta-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .cards,
+            .reviews {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            .cta-actions {
+                justify-content: flex-start;
+            }
+
+            .hero-visual {
+                min-height: 380px;
+            }
+        }
+
+        @media (max-width: 760px) {
+            .container {
+                width: min(1180px, calc(100% - 1.2rem));
+            }
+
+            .header-inner {
+                min-height: 72px;
+            }
+
+            .nav-toggle {
+                display: inline-grid;
+                place-items: center;
+            }
+
+            .nav {
+                position: absolute;
+                right: 0.6rem;
+                top: 74px;
+                width: min(300px, calc(100% - 1.2rem));
+                border: 1px solid var(--line);
+                border-radius: 16px;
+                background: rgba(255, 248, 240, 0.96);
+                box-shadow: 0 20px 26px rgba(77, 47, 33, 0.15);
+                display: grid;
+                gap: 0;
+                transform: translateY(-14px);
+                opacity: 0;
+                pointer-events: none;
+                transition: var(--transition);
+                overflow: hidden;
+            }
+
+            .nav.open {
+                transform: translateY(0);
+                opacity: 1;
+                pointer-events: auto;
+            }
+
+            .nav a,
+            .nav .btn-order {
+                border-bottom: 1px solid rgba(39, 21, 15, 0.08);
+                padding: 0.92rem 1rem;
+            }
+
+            .nav .btn-order {
+                border-radius: 0;
+                box-shadow: none;
+                text-align: center;
+            }
+
+            .hero {
+                padding-top: 2.4rem;
+            }
+
+            .hero-meta {
+                grid-template-columns: 1fr;
+            }
+
+            .cards,
+            .reviews,
+            .photo-small-wrap {
+                grid-template-columns: 1fr;
+            }
+
+            .section-head {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .gift-panel {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-inner {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="grain" aria-hidden="true"></div>
+
+    <header class="header" id="top">
+        <div class="container header-inner">
+            <a class="brand" href="#top">
+                <span class="brand-mark">Maison Crumb</span>
+                <span class="brand-sub">Bakery Luxe</span>
+            </a>
+
+            <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">+</button>
+
+            <nav class="nav" id="navMenu">
+                <a href="#collection">Collection</a>
+                <a href="#story">Story</a>
+                <a href="#gifts">Gift Boxes</a>
+                <a href="#reviews">Reviews</a>
+                <a class="btn-order" href="#order">Order Online</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container hero-grid">
+                <article class="hero-copy reveal">
+                    <div class="eyebrow"><span class="eyebrow-dot"></span> Handcrafted Daily Since 2012</div>
+                    <h1>Paris-level pastry.<br>Warm neighborhood soul.</h1>
+                    <p>Maison Crumb is a boutique bakery built around cultured butter lamination, single-origin chocolate, and slow overnight fermentation. From morning croissants to evening celebration cakes, every bite is made in small batches.</p>
+                    <div class="hero-actions">
+                        <a class="btn-primary" href="#collection">Browse Signature Bakes</a>
+                        <a class="btn-secondary" href="#order">Pre-order for Pickup</a>
+                    </div>
+                    <div class="hero-meta">
+                        <div class="meta-item">
+                            <div class="meta-kpi">4.9/5</div>
+                            <div class="meta-label">Average Rating</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-kpi">120+</div>
+                            <div class="meta-label">Daily Fresh Batches</div>
+                        </div>
+                        <div class="meta-item">
+                            <div class="meta-kpi">18</div>
+                            <div class="meta-label">Seasonal Creations</div>
+                        </div>
+                    </div>
+                </article>
+
+                <aside class="hero-visual reveal delay-1" aria-label="Featured creation">
+                    <div class="visual-card">
+                        <div class="visual-label">Chef's pick</div>
+                        <h2 class="visual-title">Rose Pistachio Mille-feuille</h2>
+                        <p class="visual-copy">Layers of crisp pastry, cardamom cream, and roasted pistachio praline finished with edible petals.</p>
+                    </div>
+                </aside>
+            </div>
+
+            <div class="ticker" aria-hidden="true">
+                <div class="ticker-track">
+                    <span class="ticker-item">Butter from Normandy style cultures</span>
+                    <span class="ticker-item">Single-origin cacao from Ecuador</span>
+                    <span class="ticker-item">Local berries and orchard fruits</span>
+                    <span class="ticker-item">No artificial colors or flavors</span>
+                    <span class="ticker-item">Butter from Normandy style cultures</span>
+                    <span class="ticker-item">Single-origin cacao from Ecuador</span>
+                    <span class="ticker-item">Local berries and orchard fruits</span>
+                    <span class="ticker-item">No artificial colors or flavors</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="collection">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">Signature Collection</h2>
+                    <p class="section-note">Designed for indulgent mornings, elegant events, and memorable gifting. Rotate items weekly based on fruit seasonality and chef specials.</p>
+                </div>
+
+                <div class="cards">
+                    <article class="card reveal delay-1">
+                        <div class="card-art art-1"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Golden Croissant Set</h3>
+                            <p class="card-copy">Twelve laminated croissants: classic butter, dark chocolate, almond cream, and citrus vanilla glaze.</p>
+                            <div class="price-row">
+                                <span class="price">$32</span>
+                                <span class="small-tag">Best seller</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card reveal delay-2">
+                        <div class="card-art art-2"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Berry Velvet Entremet</h3>
+                            <p class="card-copy">A mousse cake with almond sponge, berry compote center, and mirror finish for premium celebrations.</p>
+                            <div class="price-row">
+                                <span class="price">$54</span>
+                                <span class="small-tag">Weekend only</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card reveal delay-3">
+                        <div class="card-art art-3"></div>
+                        <div class="card-body">
+                            <h3 class="card-title">Caramel Brioche Loaf</h3>
+                            <p class="card-copy">Pillow-soft pull-apart brioche with slow-cooked caramel ribbons and sea-salt crunch.</p>
+                            <div class="price-row">
+                                <span class="price">$18</span>
+                                <span class="small-tag">Morning drop</span>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="story">
+            <div class="container story-grid">
+                <article class="story-copy reveal">
+                    <h2 class="section-title">A bakery built on precision and comfort</h2>
+                    <p>Every item starts with measured fermentation and careful temperature control. We blend classical European pastry methods with ingredients sourced from local farms and specialty mills.</p>
+                    <ul class="story-bullets">
+                        <li>Fermented dough program refreshed every 24 hours</li>
+                        <li>Custom cake consultations with digital flavor board</li>
+                        <li>Corporate breakfast and wedding dessert service</li>
+                        <li>Subscription pastry box available each Friday</li>
+                    </ul>
+                </article>
+
+                <aside class="story-photo reveal delay-1" aria-label="Bakery moments">
+                    <div class="photo-big"></div>
+                    <div class="photo-small-wrap">
+                        <div class="photo-small"></div>
+                        <div class="photo-small alt"></div>
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section class="section" id="gifts">
+            <div class="container">
+                <div class="gift-panel reveal">
+                    <div>
+                        <h2 class="gift-title">Seasonal gift boxes for client teams and family tables</h2>
+                        <p class="gift-copy">Choose curated pastry assortments, tea pairings, handwritten message cards, and satin wrap finishes. Delivery available city-wide with timed windows.</p>
+                    </div>
+                    <div class="gift-pricing">
+                        <div class="gift-from">Boxes from</div>
+                        <div class="gift-price">$39</div>
+                        <div class="gift-note">minimum 4 boxes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="reviews">
+            <div class="container">
+                <div class="section-head reveal">
+                    <h2 class="section-title">What regulars say</h2>
+                    <p class="section-note">Loved by neighborhood morning lines, private event planners, and office teams ordering weekly pastry sets.</p>
+                </div>
+
+                <div class="reviews">
+                    <article class="review reveal delay-1">
+                        <div class="review-stars">★★★★★</div>
+                        <p>The texture of their croissants is unreal. Flaky top, cloud-soft center, and never greasy. Our office now orders every Friday.</p>
+                        <strong>Monica R. - Brand Manager</strong>
+                    </article>
+
+                    <article class="review reveal delay-2">
+                        <div class="review-stars">★★★★★</div>
+                        <p>Our wedding dessert table looked and tasted incredible. The tasting process was smooth and every flavor was balanced perfectly.</p>
+                        <strong>Isaac + Leona - Wedding Clients</strong>
+                    </article>
+
+                    <article class="review reveal delay-3">
+                        <div class="review-stars">★★★★★</div>
+                        <p>Gift boxes felt truly premium, right down to the packaging details. Clients immediately asked where they came from.</p>
+                        <strong>Rina P. - Operations Director</strong>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta" id="order">
+            <div class="container">
+                <div class="cta-panel reveal">
+                    <div>
+                        <h3>Place your next bakery order in under 2 minutes.</h3>
+                        <p>Enable same-day pickup slots, event catering requests, and custom cake consultations directly from this section.</p>
+                    </div>
+                    <div class="cta-actions">
+                        <a href="#top" class="btn-primary">Start Order</a>
+                        <a href="tel:+11234567890" class="btn-secondary">Call Bakery</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>Maison Crumb Bakery Luxe Template - crafted for premium pastry brands.</span>
+            <a href="/catalogue/">Back to Template Catalogue</a>
+        </div>
+    </footer>
+
+    <script>
+        const header = document.querySelector('.header');
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        const revealItems = document.querySelectorAll('.reveal');
+
+        const onScroll = () => {
+            if (window.scrollY > 12) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        };
+
+        onScroll();
+        window.addEventListener('scroll', onScroll, { passive: true });
+
+        navToggle.addEventListener('click', () => {
+            const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+            navToggle.setAttribute('aria-expanded', String(!expanded));
+            navToggle.textContent = expanded ? '+' : 'x';
+            navMenu.classList.toggle('open');
+        });
+
+        navMenu.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                navToggle.setAttribute('aria-expanded', 'false');
+                navToggle.textContent = '+';
+            });
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.16 });
+
+        revealItems.forEach((item) => observer.observe(item));
+    </script>
+</body>
+</html>

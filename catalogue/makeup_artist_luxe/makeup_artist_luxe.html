@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atelier Makeup — Luxury Makeup Artistry</title>
+  <meta name="description" content="Elite makeup artist for weddings, events, and editorial. Luxury beauty experience with premium products.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:wght@400;500;600;700&family=Lato:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ivory: #FFF9F5;
+      --blush: #F2D7D9;
+      --rose-gold: #D4A5A5;
+      --burgundy: #7C3E3E;
+      --charcoal: #2C2C2C;
+      --white: #FFFFFF;
+      --gray: #878787;
+      --champagne: #F5E6D3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: var(--ivory);
+      color: var(--charcoal);
+      line-height: 1.7;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.75rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 249, 245, 0.98);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--blush);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      text-decoration: none;
+      letter-spacing: 2px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 3rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--rose-gold); }
+
+    .btn-book {
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 0.85rem 2rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 600;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-book:hover {
+      background: var(--rose-gold);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      background: linear-gradient(135deg, var(--ivory) 0%, var(--champagne) 100%);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: clamp(3.5rem, 7vw, 5.5rem);
+      font-weight: 600;
+      line-height: 1.05;
+      color: var(--burgundy);
+      margin-bottom: 2rem;
+    }
+
+    .hero-desc {
+      font-size: 1.15rem;
+      color: var(--gray);
+      max-width: 550px;
+      margin-bottom: 3rem;
+      line-height: 1.9;
+      font-weight: 400;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--burgundy);
+      color: var(--white);
+      padding: 1.25rem 2.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--rose-gold);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 165, 165, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--burgundy);
+      color: var(--burgundy);
+      padding: 1.25rem 2.75rem;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--burgundy);
+      color: var(--white);
+    }
+
+    .hero-image {
+      aspect-ratio: 3/4;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10rem;
+      border-radius: 2px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 5rem;
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--rose-gold);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--burgundy);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+    }
+
+    .service-card {
+      background: var(--ivory);
+      padding: 3rem;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+    }
+
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+    }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-price {
+      font-weight: 600;
+      color: var(--rose-gold);
+      font-size: 1.1rem;
+    }
+
+    /* PORTFOLIO */
+    .portfolio {
+      padding: 7rem 0;
+      background: var(--ivory);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.5rem;
+      margin-top: 4rem;
+    }
+
+    .portfolio-item {
+      aspect-ratio: 1;
+      background: var(--blush);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .portfolio-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    /* PROCESS */
+    .process {
+      padding: 7rem 0;
+      background: var(--white);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .process-step {
+      text-align: center;
+      padding: 2.5rem;
+    }
+
+    .process-number {
+      width: 70px;
+      height: 70px;
+      background: var(--burgundy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      margin: 0 auto 1.5rem;
+    }
+
+    .process-name {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--burgundy);
+      margin-bottom: 1rem;
+    }
+
+    .process-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 7rem 0;
+      background: var(--champagne);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 4rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 3rem;
+      border-radius: 2px;
+      border-left: 4px solid var(--rose-gold);
+    }
+
+    .testimonial-stars {
+      color: var(--rose-gold);
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+      letter-spacing: 3px;
+    }
+
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.9;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--burgundy);
+    }
+
+    .testimonial-event {
+      font-size: 0.85rem;
+      color: var(--rose-gold);
+      margin-top: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 7rem 0;
+      background: var(--burgundy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-desc {
+      font-size: 1.15rem;
+      margin-bottom: 3rem;
+      opacity: 0.95;
+    }
+
+    .cta .btn-primary {
+      background: var(--rose-gold);
+      color: var(--white);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--white);
+      color: var(--burgundy);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--charcoal);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Bodoni Moda', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+    }
+
+    .footer-text {
+      opacity: 0.8;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .hero-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-grid { grid-template-columns: 1fr; }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">ATELIER</a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#process">Process</a>
+      </nav>
+      <a href="#contact" class="btn-book">Book Appointment</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-content">
+          <div class="hero-tag">LUXURY MAKEUP ARTISTRY</div>
+          <h1 class="hero-title">Artistry That Transforms</h1>
+          <p class="hero-desc">Elite makeup artist specializing in bridal, editorial, and special events. Premium products, refined technique, and flawless execution for your most important moments.</p>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">Book Consultation</a>
+            <a href="#portfolio" class="btn-outline">View Portfolio</a>
+          </div>
+        </div>
+        <div class="hero-image">💄</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">SERVICES</div>
+        <h2 class="section-title">Luxury Beauty Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">💍</div>
+          <h3 class="service-name">Bridal Makeup</h3>
+          <p class="service-desc">Complete bridal beauty experience including trial session, wedding day application, and touch-up kit. Flawless, long-lasting perfection.</p>
+          <div class="service-price">From $650</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">✨</div>
+          <h3 class="service-name">Special Events</h3>
+          <p class="service-desc">Glamorous makeup for galas, red carpets, photo shoots, and celebrations. Camera-ready beauty that lasts all night.</p>
+          <div class="service-price">From $250</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📸</div>
+          <h3 class="service-name">Editorial & Fashion</h3>
+          <p class="service-desc">Creative makeup for editorial shoots, fashion shows, and artistic projects. Bold vision and technical precision.</p>
+          <div class="service-price">From $400</div>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🎓</div>
+          <h3 class="service-name">Private Lessons</h3>
+          <p class="service-desc">One-on-one makeup instruction tailored to your skill level and goals. Learn professional techniques and product recommendations.</p>
+          <div class="service-price">$350/session</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">PORTFOLIO</div>
+        <h2 class="section-title">Recent Work</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-item">👰</div>
+        <div class="portfolio-item">💋</div>
+        <div class="portfolio-item">✨</div>
+        <div class="portfolio-item">🌟</div>
+        <div class="portfolio-item">💅</div>
+        <div class="portfolio-item">👁️</div>
+        <div class="portfolio-item">💄</div>
+        <div class="portfolio-item">🌹</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">THE PROCESS</div>
+        <h2 class="section-title">How We Work</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <div class="process-number">1</div>
+          <h3 class="process-name">Consultation</h3>
+          <p class="process-desc">Discuss your vision, skin type, preferences, and event details. Review inspiration and product options.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">2</div>
+          <h3 class="process-name">Trial Session</h3>
+          <p class="process-desc">Complete makeup application to perfect your look. Test products, make adjustments, take photos.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-number">3</div>
+          <h3 class="process-name">Event Day</h3>
+          <p class="process-desc">Flawless application using premium products. Professional technique for long-lasting, camera-ready beauty.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">CLIENT LOVE</div>
+        <h2 class="section-title">What Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"Absolutely flawless! My bridal makeup was perfection. It lasted through tears, dancing, and endless photos. Every detail was beautiful. Cannot recommend highly enough!"</p>
+          <div class="testimonial-author">Jennifer Williams</div>
+          <div class="testimonial-event">Bridal Client, June 2025</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">⭐⭐⭐⭐⭐</div>
+          <p class="testimonial-text">"True artistry! The makeup for my fashion shoot was incredible. Creative, precise, and exactly what we needed. Professional, talented, and a joy to work with."</p>
+          <div class="testimonial-author">Michelle Chen</div>
+          <div class="testimonial-event">Editorial Client, May 2025</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Book Your Experience</h2>
+      <p class="cta-desc">Limited availability. Schedule your consultation today to secure your date.</p>
+      <a href="#" class="btn-primary">Schedule Consultation</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">ATELIER MAKEUP</div>
+        <div class="footer-text">Luxury Makeup Artistry • By Appointment Only • (555) 567-8901 • hello@ateliermakeup.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

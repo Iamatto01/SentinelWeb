@@ -3,8 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
-  <title>Admin — SentinalWeb</title>
+  <title>Admin Dashboard - SentinelWeb</title>
   <link rel="stylesheet" href="./admin.css" />
 </head>
 <body>
@@ -23,8 +22,8 @@
 
   <main class="main">
     <section class="card card--highlight">
-      <h1 class="h1">🚀 Admin Dashboard</h1>
-      <p class="muted">Manage your website content and settings for clients.</p>
+      <h1 class="h1">Admin Dashboard</h1>
+      <p class="muted">Manage catalogue data and visually edit live template HTML with click-to-edit controls.</p>
 
       <div id="authBox" class="auth">
         <label class="field">
@@ -36,60 +35,124 @@
       </div>
 
       <div id="meBox" class="me" hidden>
-        <div class="pill pill--success">✓ Logged in as <span id="meEmail" class="me__email"></span></div>
+        <div class="pill pill--success">Logged in as <span id="meEmail" class="me__email"></span></div>
       </div>
+    </section>
+
+    <section class="workspace-grid">
+      <section class="card template-library">
+        <div class="row">
+          <div>
+            <h2 class="h2">Template Library</h2>
+            <p class="muted-small">Open and edit any catalogue template file.</p>
+          </div>
+          <button id="reloadTemplatesBtn" class="btn btn--ghost" type="button" disabled>Reload Templates</button>
+        </div>
+
+        <div class="meta-pills">
+          <span id="templateCountBadge" class="pill">0 templates found</span>
+          <span id="templateTargetBadge" class="pill">Target: 30 templates</span>
+        </div>
+
+        <label class="field field--full">
+          <span class="field__label">Search template</span>
+          <input id="templateSearchInput" class="field__input" type="text" placeholder="Type template name or slug" disabled />
+        </label>
+
+        <div id="templateList" class="template-list" aria-live="polite"></div>
+      </section>
+
+      <section class="card visual-editor">
+        <div class="row">
+          <div>
+            <h2 class="h2">Visual WYSIWYG Editor</h2>
+            <p class="muted-small">Click text inside preview to edit directly.</p>
+          </div>
+          <a id="openPreviewLink" class="btn btn--ghost" href="#" target="_blank" rel="noopener" aria-disabled="true">Open Template</a>
+        </div>
+
+        <div id="activeTemplateName" class="editor-title">No template selected</div>
+
+        <div class="editor-toolbar">
+          <button id="addHeroBoxBtn" class="btn btn--ghost" type="button" disabled>Add Hero Box</button>
+          <button id="addFeatureBoxBtn" class="btn btn--ghost" type="button" disabled>Add Feature Box</button>
+          <button id="addCardsBoxBtn" class="btn btn--ghost" type="button" disabled>Add 3 Cards Box</button>
+        </div>
+
+        <div class="image-tools">
+          <label class="field field--full">
+            <span class="field__label">Image URL</span>
+            <input id="imageUrlInput" class="field__input" type="url" placeholder="https://images.example.com/photo.jpg" disabled />
+          </label>
+          <button id="insertImageBtn" class="btn" type="button" disabled>Insert / Replace Image</button>
+        </div>
+
+        <div class="editor-actions">
+          <button id="saveTemplateBtn" class="btn btn--primary" type="button" disabled>Save Template HTML</button>
+        </div>
+
+        <p id="editorHint" class="help-text">Select a template from the library to start visual editing.</p>
+
+        <iframe id="editorFrame" class="editor-frame" title="Template editor preview"></iframe>
+      </section>
     </section>
 
     <section class="grid">
       <section class="card">
         <div class="row">
           <div>
-            <h2 class="h2">📦 Catalogue Items</h2>
-            <p class="muted-small">Edit website templates, prices, and descriptions</p>
+            <h2 class="h2">Catalogue JSON</h2>
+            <p class="muted-small">Edit catalogue items, prices, descriptions, and metadata.</p>
           </div>
           <div class="row__actions">
             <button id="reloadBtn" class="btn btn--ghost" type="button" disabled>Reload</button>
             <button id="saveBtn" class="btn btn--primary" type="button" disabled>Save Changes</button>
           </div>
         </div>
-        <textarea id="catalogueJson" class="textarea" spellcheck="false" disabled></textarea>
-        <p class="help-text">Edit JSON directly. Make changes to items, prices, categories, and styles.</p>
+        <label class="field field--full" for="catalogueJson">
+          <span class="field__label">Catalogue payload</span>
+        </label>
+        <textarea id="catalogueJson" class="textarea" spellcheck="false" title="Catalogue payload" disabled></textarea>
+        <p class="help-text">Use with care: this edits full backend catalogue payload.</p>
       </section>
 
       <section class="card">
         <div class="row">
           <div>
-            <h2 class="h2">⚙️ Website Config</h2>
-            <p class="muted-small">Contact info, branding, and settings</p>
+            <h2 class="h2">Website Config JSON</h2>
+            <p class="muted-small">Contact info, branding, and sales settings.</p>
           </div>
           <div class="row__actions">
             <button id="reloadCfgBtn" class="btn btn--ghost" type="button" disabled>Reload</button>
             <button id="saveCfgBtn" class="btn btn--primary" type="button" disabled>Save Changes</button>
           </div>
         </div>
-        <textarea id="configJson" class="textarea" spellcheck="false" disabled></textarea>
-        <p class="help-text">Update backend config like contact info, WhatsApp numbers, email addresses.</p>
+        <label class="field field--full" for="configJson">
+          <span class="field__label">Config payload</span>
+        </label>
+        <textarea id="configJson" class="textarea" spellcheck="false" title="Config payload" disabled></textarea>
+        <p class="help-text">This controls shared business details shown across the site.</p>
       </section>
     </section>
 
     <section class="card card--info">
-      <h2 class="h2">📋 First-time Setup</h2>
+      <h2 class="h2">First-time Setup</h2>
       <ol class="setup-steps">
         <li><strong>Start backend:</strong> <code>cd server</code> → <code>npm install</code> → <code>npm run dev</code></li>
         <li><strong>Open this page via:</strong> <code>http://localhost:5174/admin/</code></li>
         <li><strong>Request login link</strong> with your admin email</li>
         <li><strong>Check backend console</strong> for the magic link (dev mode)</li>
-        <li><strong>Edit & save</strong> catalogue items and config</li>
+        <li><strong>Open a template</strong> and use click-to-edit directly in the preview</li>
       </ol>
     </section>
 
     <section class="card card--info">
-      <h2 class="h2">💡 Quick Tips</h2>
+      <h2 class="h2">Quick Tips</h2>
       <ul class="tips">
-        <li><strong>Catalogue structure:</strong> Each item needs id, name, category, price, and other fields</li>
-        <li><strong>Config structure:</strong> Add contact URLs, WhatsApp links, email addresses</li>
-        <li><strong>Validation:</strong> Check browser console for JSON errors</li>
-        <li><strong>Backup:</strong> Save your JSON changes locally before committing</li>
+        <li><strong>Text editing:</strong> Click headings, paragraphs, links, or list items in preview and type directly.</li>
+        <li><strong>Image insertion:</strong> Select an image or container, paste URL, then use Insert / Replace Image.</li>
+        <li><strong>Layout modules:</strong> Add hero, feature, or cards blocks and customize their copy afterward.</li>
+        <li><strong>Save shortcut:</strong> Press Ctrl+S or Cmd+S to save the active template.</li>
       </ul>
     </section>
   </main>

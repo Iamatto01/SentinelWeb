@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Office Space Pro — Commercial Real Estate Excellence</title>
+  <meta name="description" content="A corporate, minimal template for commercial real estate with professional design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Serif:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #002244;
+      --blue: #0066CC;
+      --light-blue: #E6F0FA;
+      --gray: #4A5568;
+      --light-gray: #E2E8F0;
+      --white: #FFFFFF;
+      --cream: #FAFBFC;
+      --accent: #0099FF;
+      --shadow: 0 10px 40px rgba(0, 34, 68, 0.1);
+      --transition: 0.3s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'IBM Plex Sans', sans-serif;
+      background: var(--cream);
+      color: var(--gray);
+      line-height: 1.6;
+    }
+
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 3rem;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 1px solid var(--light-gray);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: var(--transition);
+    }
+
+    .nav a:hover { color: var(--blue); }
+
+    .btn-contact {
+      background: var(--blue);
+      color: white;
+      padding: 0.75rem 1.75rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-contact:hover { background: var(--navy); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 120px 3rem 4rem;
+      background: var(--white);
+    }
+
+    .hero-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .hero-label {
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: clamp(2.5rem, 5vw, 4rem);
+      line-height: 1.2;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 550px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.25rem;
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      padding: 1.1rem 2.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-primary:hover { background: var(--navy); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--navy);
+      padding: 1.1rem 2.25rem;
+      border-radius: 4px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: 2px solid var(--navy);
+      transition: var(--transition);
+    }
+
+    .btn-secondary:hover {
+      background: var(--navy);
+      color: white;
+    }
+
+    .hero-visual {
+      background: var(--light-blue);
+      aspect-ratio: 4/3;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      box-shadow: var(--shadow);
+    }
+
+    .listings {
+      padding: 6rem 3rem;
+      background: var(--cream);
+    }
+
+    .listings-inner {
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--navy);
+      font-weight: 600;
+    }
+
+    .listings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .listing-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+      transition: var(--transition);
+    }
+
+    .listing-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow);
+    }
+
+    .listing-image {
+      height: 240px;
+      background: var(--light-blue);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+
+    .listing-content { padding: 2rem; }
+
+    .listing-price {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.8rem;
+      color: var(--blue);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .listing-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .listing-location {
+      font-size: 0.9rem;
+      color: var(--gray);
+      margin-bottom: 1.25rem;
+    }
+
+    .listing-specs {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: var(--gray);
+      font-weight: 500;
+    }
+
+    .features {
+      padding: 6rem 3rem;
+      background: white;
+    }
+
+    .features-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .feature-icon {
+      font-size: 3rem;
+      margin-bottom: 1.25rem;
+      display: block;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-desc {
+      font-size: 0.9rem;
+      color: var(--gray);
+    }
+
+    .testimonials {
+      padding: 6rem 3rem;
+      background: var(--cream);
+    }
+
+    .testimonials-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 2.5rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    }
+
+    .testimonial-stars {
+      color: var(--blue);
+      font-size: 1rem;
+      margin-bottom: 1.25rem;
+      letter-spacing: 3px;
+    }
+
+    .testimonial-text {
+      font-size: 0.95rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.75rem;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--navy);
+    }
+
+    .cta {
+      padding: 6rem 3rem;
+      background: var(--navy);
+      text-align: center;
+      color: white;
+    }
+
+    .cta-inner {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cta-title {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      margin-bottom: 1.25rem;
+      font-weight: 600;
+    }
+
+    .cta-desc {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+
+    .cta .btn-primary {
+      background: white;
+      color: var(--navy);
+    }
+
+    .cta .btn-primary:hover { background: var(--light-gray); }
+
+    .footer {
+      background: var(--navy);
+      color: var(--light-gray);
+      padding: 4rem 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-logo {
+      font-family: 'IBM Plex Serif', serif;
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+
+    .footer-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    .footer-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      color: white;
+      margin-bottom: 1.5rem;
+      letter-spacing: 1px;
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 0.75rem; }
+
+    .footer-links a {
+      color: var(--light-gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    .footer-bottom {
+      padding-top: 2rem;
+      border-top: 1px solid rgba(226, 232, 240, 0.2);
+      text-align: center;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 1100px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .listings-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .header { padding: 1rem; }
+      .nav { display: none; }
+      .features-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Office Space Pro</a>
+      <nav class="nav">
+        <a href="#listings">Listings</a>
+        <a href="#features">Services</a>
+        <a href="#testimonials">Clients</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <a href="#contact" class="btn-contact">Get Started</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-label">Commercial Real Estate</div>
+        <h1 class="hero-title">Premium Office Spaces for Your Business</h1>
+        <p class="hero-desc">Find the perfect commercial space for your growing business. From modern co-working spaces to Class A office buildings, we have the expertise to meet your needs.</p>
+        <div class="hero-actions">
+          <a href="#listings" class="btn-primary">View Listings</a>
+          <a href="#contact" class="btn-secondary">Schedule Tour</a>
+        </div>
+      </div>
+      <div class="hero-visual">🏢</div>
+    </div>
+  </section>
+
+  <section class="listings" id="listings">
+    <div class="listings-inner">
+      <div class="section-header">
+        <div class="section-label">Available Now</div>
+        <h2 class="section-title">Featured Office Spaces</h2>
+      </div>
+      <div class="listings-grid">
+        <div class="listing-card">
+          <div class="listing-image">🏢</div>
+          <div class="listing-content">
+            <div class="listing-price">$8,500/mo</div>
+            <h3 class="listing-name">Class A Office Suite</h3>
+            <p class="listing-location">📍 Downtown Financial District</p>
+            <div class="listing-specs">
+              <span>📐 2,500 sqft</span>
+              <span>🚗 Parking</span>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-image">🏙️</div>
+          <div class="listing-content">
+            <div class="listing-price">$12,000/mo</div>
+            <h3 class="listing-name">Executive Office Floor</h3>
+            <p class="listing-location">📍 Midtown Business Center</p>
+            <div class="listing-specs">
+              <span>📐 4,200 sqft</span>
+              <span>🚗 Parking</span>
+            </div>
+          </div>
+        </div>
+        <div class="listing-card">
+          <div class="listing-image">💼</div>
+          <div class="listing-content">
+            <div class="listing-price">$3,800/mo</div>
+            <h3 class="listing-name">Co-Working Space</h3>
+            <p class="listing-location">📍 Tech District</p>
+            <div class="listing-specs">
+              <span>📐 1,200 sqft</span>
+              <span>☕ Amenities</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="features-inner">
+      <div class="section-header">
+        <div class="section-label">Why Choose Us</div>
+        <h2 class="section-title">Professional Service</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="feature-icon">🔍</span>
+          <h3 class="feature-title">Market Expertise</h3>
+          <p class="feature-desc">20+ years commercial experience</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">📊</span>
+          <h3 class="feature-title">Data-Driven</h3>
+          <p class="feature-desc">Market analytics and insights</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">🤝</span>
+          <h3 class="feature-title">Tenant Representation</h3>
+          <p class="feature-desc">Your interests first</p>
+        </div>
+        <div class="feature-card">
+          <span class="feature-icon">⚡</span>
+          <h3 class="feature-title">Quick Turnaround</h3>
+          <p class="feature-desc">Fast deal closure</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="testimonials-inner">
+      <div class="section-header">
+        <div class="section-label">Client Success</div>
+        <h2 class="section-title">What Our Clients Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Office Space Pro found us the perfect location for our tech startup. Their market knowledge and professionalism made the process seamless."</p>
+          <div class="testimonial-author">David Chen, CEO TechFlow</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Exceptional service from start to finish. They negotiated a great lease for our expanding law firm in the financial district."</p>
+          <div class="testimonial-author">Sarah Martinez, Partner</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="testimonial-stars">★★★★★</div>
+          <p class="testimonial-text">"Their commercial expertise saved us thousands on our office lease. Highly recommend for any business looking for space."</p>
+          <div class="testimonial-author">Michael Roberts, CFO</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="cta-inner">
+      <h2 class="cta-title">Ready to Find Your Office Space?</h2>
+      <p class="cta-desc">Contact our commercial real estate experts today for a personalized consultation.</p>
+      <a href="#" class="btn-primary">Contact Us Today</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-logo">Office Space Pro</div>
+          <p class="footer-desc">Professional commercial real estate services. Connecting businesses with premium office spaces since 2005.</p>
+        </div>
+        <div>
+          <h4 class="footer-title">Spaces</h4>
+          <ul class="footer-links">
+            <li><a href="#">Office Suites</a></li>
+            <li><a href="#">Co-Working</a></li>
+            <li><a href="#">Retail</a></li>
+            <li><a href="#">Industrial</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#">Tenant Rep</a></li>
+            <li><a href="#">Landlord Rep</a></li>
+            <li><a href="#">Consulting</a></li>
+            <li><a href="#">Market Reports</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="footer-title">Contact</h4>
+          <ul class="footer-links">
+            <li>789 Business Blvd, Suite 500</li>
+            <li>Commercial District</li>
+            <li>(555) 234-5678</li>
+            <li>info@officespacepro.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2024 Office Space Pro. All rights reserved. Licensed Commercial Real Estate Broker.</span>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

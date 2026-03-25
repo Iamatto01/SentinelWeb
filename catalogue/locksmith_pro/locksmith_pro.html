@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SecureLock Pro — 24/7 Locksmith Services</title>
+  <meta name="description" content="Professional locksmith services available 24/7. Emergency lockouts, rekeying, security upgrades.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500;600;700&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #1E3A5F;
+      --dark-navy: #162D47;
+      --orange: #FF6B2C;
+      --yellow: #FFB52E;
+      --white: #FFFFFF;
+      --light: #F5F7FA;
+      --gray: #6B7280;
+      --dark: #1F2937;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      background: var(--white);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.25rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.98);
+      border-bottom: 2px solid var(--orange);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    }
+
+    .header-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .logo span { color: var(--orange); }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 700;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--orange); }
+
+    .btn-call {
+      background: var(--orange);
+      color: var(--white);
+      padding: 1rem 2rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 900;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .btn-call:hover {
+      background: var(--navy);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--dark-navy) 100%);
+      color: var(--white);
+    }
+
+    .hero-content {
+      max-width: 700px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: var(--orange);
+      color: var(--white);
+      padding: 0.6rem 1.5rem;
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+      border-radius: 4px;
+    }
+
+    .hero-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: clamp(3.5rem, 8vw, 6rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-title span {
+      color: var(--yellow);
+    }
+
+    .hero-desc {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      opacity: 0.95;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      padding: 1.35rem 3rem;
+      text-decoration: none;
+      font-weight: 900;
+      font-size: 1.1rem;
+      border-radius: 4px;
+      transition: all 0.3s;
+      text-transform: uppercase;
+    }
+
+    .btn-primary:hover {
+      background: var(--yellow);
+      color: var(--dark);
+      transform: translateY(-3px);
+    }
+
+    /* SERVICES */
+    .services {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 1rem;
+    }
+
+    .section-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .service-card {
+      background: var(--light);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border: 2px solid transparent;
+      transition: all 0.3s;
+    }
+
+    .service-card:hover {
+      border-color: var(--orange);
+      transform: translateY(-5px);
+      box-shadow: 0 10px 30px rgba(255, 107, 44, 0.2);
+    }
+
+    .service-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .service-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .service-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.7;
+    }
+
+    /* EMERGENCY */
+    .emergency {
+      padding: 5rem 0;
+      background: var(--orange);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .emergency-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .emergency-phone {
+      font-family: 'Roboto Slab', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .emergency-desc {
+      font-size: 1.15rem;
+      opacity: 0.95;
+    }
+
+    /* FEATURES */
+    .features {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .feature-card {
+      text-align: center;
+    }
+
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      margin: 0 auto 1.5rem;
+    }
+
+    .feature-name {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.75rem;
+    }
+
+    .feature-desc {
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--light);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      margin-top: 4rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 8px;
+      border-left: 4px solid var(--orange);
+    }
+
+    .testimonial-text {
+      font-size: 1.05rem;
+      color: var(--gray);
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-weight: 700;
+      color: var(--navy);
+    }
+
+    .testimonial-service {
+      color: var(--orange);
+      font-size: 0.85rem;
+      margin-top: 0.25rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Roboto Slab', serif;
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-desc {
+      font-size: 1.25rem;
+      margin-bottom: 3rem;
+      opacity: 0.95;
+    }
+
+    .cta .btn-primary {
+      background: var(--orange);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--yellow);
+      color: var(--dark);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Roboto Slab', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+
+    .footer-logo span { color: var(--orange); }
+
+    .footer-text {
+      opacity: 0.8;
+      font-size: 0.9rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .testimonials-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary { width: 100%; text-align: center; }
+      .features-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Secure<span>Lock</span></a>
+      <nav class="nav">
+        <a href="#services">Services</a>
+        <a href="#features">Why Us</a>
+        <a href="#testimonials">Reviews</a>
+      </nav>
+      <a href="tel:555-911-LOCK" class="btn-call">🔒 Call Now!</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-tag">24/7 EMERGENCY SERVICE</div>
+        <h1 class="hero-title">Fast & Reliable <span>Locksmith</span></h1>
+        <p class="hero-desc">Professional locksmith services available 24/7. Emergency lockouts, rekeying, security upgrades. Licensed, bonded, and insured.</p>
+        <div class="hero-actions">
+          <a href="tel:555-911-LOCK" class="btn-primary">📞 (555) 911-LOCK</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">WHAT WE DO</div>
+        <h2 class="section-title">Locksmith Services</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🚪</div>
+          <h3 class="service-name">Emergency Lockout</h3>
+          <p class="service-desc">Locked out? We arrive fast—typically 15-30 minutes. Home, car, or business lockouts resolved quickly.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔑</div>
+          <h3 class="service-name">Rekeying</h3>
+          <p class="service-desc">Change locks without replacement. Perfect for new homes, lost keys, or security updates.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔒</div>
+          <h3 class="service-name">Lock Installation</h3>
+          <p class="service-desc">Deadbolts, smart locks, high-security systems. Professional installation for all lock types.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🚗</div>
+          <h3 class="service-name">Automotive</h3>
+          <p class="service-desc">Car key replacement, ignition repair, transponder programming. All makes and models.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏢</div>
+          <h3 class="service-name">Commercial</h3>
+          <p class="service-desc">Master key systems, access control, panic bars. Complete commercial security solutions.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛡️</div>
+          <h3 class="service-name">Security Upgrades</h3>
+          <p class="service-desc">Assess and upgrade your security. Deadbolts, strike plates, reinforced frames.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="emergency">
+    <div class="container">
+      <h2 class="emergency-title">Locked Out? Call Now!</h2>
+      <div class="emergency-phone">📞 (555) 911-LOCK</div>
+      <p class="emergency-desc">24/7 Emergency Service • Fast Response • Professional Service</p>
+    </div>
+  </section>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">WHY CHOOSE US</div>
+        <h2 class="section-title">Why SecureLock Pro?</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3 class="feature-name">Fast Response</h3>
+          <p class="feature-desc">Average 20-minute arrival time for emergencies</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👨‍🔧</div>
+          <h3 class="feature-name">Licensed & Insured</h3>
+          <p class="feature-desc">Fully licensed, bonded, and insured professionals</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">💰</div>
+          <h3 class="feature-name">Upfront Pricing</h3>
+          <p class="feature-desc">No hidden fees. Know the cost before we start</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🕐</div>
+          <h3 class="feature-name">24/7 Available</h3>
+          <p class="feature-desc">Round-the-clock service, every day of the year</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">REVIEWS</div>
+        <h2 class="section-title">What Customers Say</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Locked out at 2 AM and they arrived in 15 minutes! Professional, friendly, and got me back inside quickly. Fair pricing and excellent service."</p>
+          <div class="testimonial-author">David Martinez</div>
+          <div class="testimonial-service">Emergency Lockout Service</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Needed locks rekeyed after buying our house. They came same day, did great work, and explained everything clearly. Highly recommend for any locksmith needs!"</p>
+          <div class="testimonial-author">Jennifer Kim</div>
+          <div class="testimonial-service">Residential Rekeying</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="container">
+      <h2 class="cta-title">Need a Locksmith Now?</h2>
+      <p class="cta-desc">Fast, professional service 24/7. We're always ready to help!</p>
+      <a href="tel:555-911-LOCK" class="btn-primary">📞 CALL (555) 911-LOCK</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Secure<span>Lock</span> Pro</div>
+        <div class="footer-text">24/7 Locksmith Services • Licensed & Insured • (555) 911-LOCK • info@securelockpro.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

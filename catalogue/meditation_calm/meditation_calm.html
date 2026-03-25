@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inner Peace Meditation — Find Your Calm</title>
+  <meta name="description" content="Minimal meditation center for mindfulness and peace. Classes, workshops, and private sessions.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #FAF8F5;
+      --sand: #E8DCC8;
+      --sage: #A5B5A3;
+      --earth: #8B7355;
+      --dark: #3E3E3E;
+      --white: #FFFFFF;
+      --gray: #7A7A7A;
+      --light-sage: #D4DED3;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Noto Sans', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.8;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* HEADER */
+    .header {
+      padding: 1.5rem 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: rgba(250, 248, 245, 0.95);
+      backdrop-filter: blur(10px);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--earth);
+      text-decoration: none;
+      letter-spacing: 1px;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2.5rem;
+    }
+
+    .nav a {
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .nav a:hover { color: var(--sage); }
+
+    .btn-book {
+      background: var(--sage);
+      color: var(--white);
+      padding: 0.75rem 1.75rem;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-book:hover {
+      background: var(--earth);
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 100px;
+      background: var(--cream);
+    }
+
+    .hero-content {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .hero-icon {
+      font-size: 4rem;
+      margin-bottom: 2rem;
+      opacity: 0.8;
+    }
+
+    .hero-title {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--earth);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-desc {
+      font-size: 1.1rem;
+      color: var(--gray);
+      max-width: 600px;
+      margin: 0 auto 3rem;
+      font-weight: 300;
+      line-height: 2;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .btn-primary {
+      background: var(--sage);
+      color: var(--white);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--earth);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--sage);
+      color: var(--sage);
+      padding: 1.15rem 2.5rem;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--sage);
+      color: var(--white);
+    }
+
+    /* OFFERINGS */
+    .offerings {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      opacity: 0.7;
+    }
+
+    .section-title {
+      font-family: 'Crimson Text', serif;
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: var(--earth);
+    }
+
+    .offerings-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+
+    .offering-card {
+      text-align: center;
+      padding: 2rem;
+    }
+
+    .offering-icon {
+      font-size: 3rem;
+      margin-bottom: 1.5rem;
+      opacity: 0.8;
+    }
+
+    .offering-name {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 1rem;
+    }
+
+    .offering-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* CLASSES */
+    .classes {
+      padding: 6rem 0;
+      background: var(--cream);
+    }
+
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .class-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-radius: 2px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+      transition: all 0.3s;
+    }
+
+    .class-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    }
+
+    .class-name {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 0.75rem;
+    }
+
+    .class-time {
+      color: var(--sage);
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .class-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* BENEFITS */
+    .benefits {
+      padding: 6rem 0;
+      background: var(--light-sage);
+    }
+
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 3rem;
+      margin-top: 3rem;
+    }
+
+    .benefit-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+    }
+
+    .benefit-icon {
+      font-size: 2.5rem;
+      flex-shrink: 0;
+    }
+
+    .benefit-content { }
+
+    .benefit-name {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--earth);
+      margin-bottom: 0.5rem;
+    }
+
+    .benefit-desc {
+      color: var(--gray);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      font-weight: 300;
+    }
+
+    /* TESTIMONIALS */
+    .testimonials {
+      padding: 6rem 0;
+      background: var(--white);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      text-align: center;
+      padding: 3rem;
+      background: var(--cream);
+      border-radius: 2px;
+    }
+
+    .testimonial-text {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.25rem;
+      color: var(--dark);
+      line-height: 1.9;
+      margin-bottom: 2rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      font-weight: 500;
+      color: var(--earth);
+    }
+
+    .testimonial-location {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+      font-weight: 300;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 6rem 0;
+      background: var(--sage);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-title {
+      font-family: 'Crimson Text', serif;
+      font-size: 2.75rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-desc {
+      font-size: 1.1rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.95;
+      font-weight: 300;
+    }
+
+    .cta .btn-primary {
+      background: var(--white);
+      color: var(--sage);
+    }
+
+    .cta .btn-primary:hover {
+      background: var(--earth);
+      color: var(--white);
+    }
+
+    /* FOOTER */
+    .footer {
+      padding: 3rem 0;
+      background: var(--cream);
+      border-top: 1px solid var(--sand);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-logo {
+      font-family: 'Crimson Text', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--earth);
+    }
+
+    .footer-text {
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 300;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 1024px) {
+      .offerings-grid { grid-template-columns: 1fr; }
+      .classes-grid { grid-template-columns: 1fr; }
+      .benefits-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav { display: none; }
+      .hero-actions { flex-direction: column; width: 100%; }
+      .btn-primary, .btn-outline { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-inner">
+      <a href="#" class="logo">Inner Peace</a>
+      <nav class="nav">
+        <a href="#offerings">Offerings</a>
+        <a href="#classes">Classes</a>
+        <a href="#testimonials">Stories</a>
+      </nav>
+      <a href="#contact" class="btn-book">Book Session</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-icon">🧘</div>
+        <h1 class="hero-title">Find Your Inner Calm</h1>
+        <p class="hero-desc">A peaceful sanctuary for meditation and mindfulness. Discover tranquility through guided practice, breathwork, and conscious presence.</p>
+        <div class="hero-actions">
+          <a href="#classes" class="btn-primary">View Classes</a>
+          <a href="#contact" class="btn-outline">Free Intro Session</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="offerings" id="offerings">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-icon">🕉️</div>
+        <h2 class="section-title">What We Offer</h2>
+      </div>
+      <div class="offerings-grid">
+        <div class="offering-card">
+          <div class="offering-icon">🧘‍♀️</div>
+          <h3 class="offering-name">Guided Meditation</h3>
+          <p class="offering-desc">Group sessions led by experienced instructors. Learn various meditation techniques in a supportive environment.</p>
+        </div>
+        <div class="offering-card">
+          <div class="offering-icon">🌬️</div>
+          <h3 class="offering-name">Breathwork</h3>
+          <p class="offering-desc">Harness the power of breath to reduce stress and increase vitality. Ancient practices for modern life.</p>
+        </div>
+        <div class="offering-card">
+          <div class="offering-icon">🙏</div>
+          <h3 class="offering-name">Private Sessions</h3>
+          <p class="offering-desc">One-on-one guidance tailored to your needs. Personalized meditation and mindfulness coaching.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="classes" id="classes">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-icon">🌸</div>
+        <h2 class="section-title">Weekly Classes</h2>
+      </div>
+      <div class="classes-grid">
+        <div class="class-card">
+          <h3 class="class-name">Morning Mindfulness</h3>
+          <div class="class-time">Monday & Wednesday • 7:00 AM</div>
+          <p class="class-desc">Start your day with clarity and intention. Gentle meditation and breathing exercises to center yourself.</p>
+        </div>
+        <div class="class-card">
+          <h3 class="class-name">Lunch Break Reset</h3>
+          <div class="class-time">Tuesday & Thursday • 12:30 PM</div>
+          <p class="class-desc">Mid-day pause to release stress and recharge. 30-minute guided meditation for busy schedules.</p>
+        </div>
+        <div class="class-card">
+          <h3 class="class-name">Evening Unwind</h3>
+          <div class="class-time">Monday-Thursday • 6:30 PM</div>
+          <p class="class-desc">Release the day's tensions and prepare for restful sleep. Deep relaxation and body scan meditation.</p>
+        </div>
+        <div class="class-card">
+          <h3 class="class-name">Weekend Deep Dive</h3>
+          <div class="class-time">Saturday • 10:00 AM</div>
+          <p class="class-desc">Extended 90-minute session exploring advanced meditation techniques and philosophy.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="benefits">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-icon">✨</div>
+        <h2 class="section-title">Benefits of Practice</h2>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">💭</div>
+          <div class="benefit-content">
+            <h3 class="benefit-name">Reduced Stress</h3>
+            <p class="benefit-desc">Lower cortisol levels and activate your body's relaxation response through regular practice.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🧠</div>
+          <div class="benefit-content">
+            <h3 class="benefit-name">Improved Focus</h3>
+            <p class="benefit-desc">Enhance concentration and mental clarity with mindfulness training and meditation techniques.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">❤️</div>
+          <div class="benefit-content">
+            <h3 class="benefit-name">Emotional Balance</h3>
+            <p class="benefit-desc">Develop greater awareness and regulation of emotions for improved well-being.</p>
+          </div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">😌</div>
+          <div class="benefit-content">
+            <h3 class="benefit-name">Better Sleep</h3>
+            <p class="benefit-desc">Calm your mind and body for deeper, more restorative sleep each night.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-icon">🌟</div>
+        <h2 class="section-title">Student Experiences</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-text">"Inner Peace has transformed how I handle stress. The morning sessions give me a foundation of calm that carries through my entire day. I'm more present with my family and more focused at work."</p>
+          <div class="testimonial-author">Sarah Mitchell</div>
+          <div class="testimonial-location">Practicing since 2022</div>
+        </div>
+        <div class="testimonial-card">
+          <p class="testimonial-text">"After years of struggling with anxiety, I finally found relief through the practices taught here. The instructors are knowledgeable and compassionate. This place is a true sanctuary."</p>
+          <div class="testimonial-author">David Chen</div>
+          <div class="testimonial-location">Practicing since 2021</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta" id="contact">
+    <div class="container">
+      <h2 class="cta-title">Begin Your Journey</h2>
+      <p class="cta-desc">Experience the transformative power of meditation. Join us for a complimentary introduction session.</p>
+      <a href="#" class="btn-primary">Schedule Free Session</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-logo">Inner Peace Meditation</div>
+        <div class="footer-text">123 Serenity Lane • (555) 321-7890 • peace@innerpeace.com</div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

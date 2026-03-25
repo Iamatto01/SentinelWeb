@@ -4,10 +4,11 @@ A polished catalogue for selling small website templates online.
 
 - 10 categories
 - 50 products (5 per category)
+- 31 unique live template pages (30+ target exceeded)
 - Search / filter / sort
 - Product detail modal
 - Admin backend with email magic-link login
-- Client-ready editing dashboard
+- Visual WYSIWYG template editor (click-to-edit + modules + image insertion)
 
 ## Run the catalogue (simple)
 
@@ -90,6 +91,15 @@ Admin UI:
 
 - `http://localhost:5174/admin/`
 
+### Visual template editor workflow
+
+1) Login in admin dashboard
+2) Open a template from the template library panel
+3) Click text directly inside the preview iframe to edit copy
+4) Insert image URL into selected element
+5) Add modular layout boxes (hero, feature, cards)
+6) Save template HTML back to file
+
 ### Gmail setup (send login link to your inbox)
 
 1) Turn on Google 2-Step Verification
@@ -108,6 +118,22 @@ SMTP_FROM=SentinalWeb <yourgmail@gmail.com>
 ```
 
 If SMTP is not set, the backend prints the login link to the console (dev mode).
+
+## Optional: Turso database backend
+
+By default, catalogue/config are saved in `server/data/*.json`.
+
+To use Turso key-value storage instead:
+
+1) Create a Turso database
+2) Add these env vars in `server/.env`:
+
+```env
+TURSO_DATABASE_URL=libsql://your-db-name.turso.io
+TURSO_AUTH_TOKEN=your_turso_auth_token
+```
+
+When `TURSO_DATABASE_URL` is set, the backend stores catalogue/config in Turso and auto-creates the table.
 
 ## Deploy on Render
 
