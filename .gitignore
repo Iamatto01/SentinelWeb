@@ -11,3 +11,6 @@ server/.env
 # Nested repository metadata inside server folder
 server/.git/
 server/.git_backup_local/
+
+# Catalogue templates (generated from data)
+/catalogue
