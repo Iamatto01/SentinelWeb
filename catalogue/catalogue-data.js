@@ -19,7 +19,7 @@ export const CATEGORIES = [
   { id: "services", name: "Local Services", blurb: "Handyman, cleaning, HVAC, quick quotes." },
 ];
 
-const money = (n) => Math.round(n);
+const money = (n) => Math.min(89, Math.max(49, Math.round(n)));
 
 const baseIncludes = [
   "Responsive layout (mobile-first)",

@@ -6,8 +6,12 @@
   <meta name="color-scheme" content="light dark" />
   <title>SentinalWeb — Small Websites for Sale</title>
   <meta name="description" content="Browse small, ready-to-customize website templates. 10 categories, 50 products, multiple styles." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='20' font-size='20'>🏪</text></svg>">
   <link rel="stylesheet" href="./catalogue/store.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -15,14 +19,26 @@
   <header class="topbar" role="banner">
     <div class="topbar__inner">
       <div class="brand" aria-label="Brand">
-        <div class="brand__mark" aria-hidden="true"></div>
+        <div class="brand__mark" aria-hidden="true">
+          <svg class="brand__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 10.5 12 4l9 6.5"></path>
+            <path d="M5.5 9.8V20h13V9.8"></path>
+            <path d="M9.2 20v-5.8h5.6V20"></path>
+          </svg>
+        </div>
         <div class="brand__text">
           <div class="brand__name">SentinalWeb</div>
-          <div class="brand__tagline">Small websites people actually want to buy</div>
         </div>
+        <div class="brand__slogan">Small websites people actually want to buy</div>
       </div>
 
       <div class="topbar__actions">
+        <button id="searchToggle" class="iconBtn iconBtn--topbar" type="button" aria-label="Toggle search">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
         <button id="themeToggle" class="themeToggleBtn" type="button" aria-label="Toggle theme">
           <svg class="themeToggleBtn__icon themeToggleBtn__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="12" cy="12" r="5"></circle>
@@ -46,37 +62,19 @@
           </svg>
         </a>
         <button id="contactBtn" class="btn btn--primary btn--icon-text" type="button">
-          <span class="btn__label">How to buy</span>
+          <span class="btn__label">How to launch free</span>
         </button>
       </div>
     </div>
 
     <div class="topbar__controls" role="navigation" aria-label="Catalogue controls">
-      <div class="controls">
-        <label class="field">
-          <span class="field__label">Search</span>
-          <input id="searchInput" class="field__input" type="search" placeholder="Search templates, niches, styles…" autocomplete="off" />
-        </label>
+      <div id="searchWrap" class="searchWrap" hidden>
+        <input id="searchInput" class="searchInput" type="search" placeholder="Search templates, niches, styles..." autocomplete="off" />
+      </div>
 
-        <label class="field">
-          <span class="field__label">Category</span>
-          <select id="categorySelect" class="field__input"></select>
-        </label>
-
-        <label class="field">
-          <span class="field__label">Sort</span>
-          <select id="sortSelect" class="field__input">
-            <option value="featured">Featured</option>
-            <option value="newest">Newest</option>
-            <option value="price-asc">Price: Low → High</option>
-            <option value="price-desc">Price: High → Low</option>
-          </select>
-        </label>
-
-        <div class="stylebar" aria-label="Style filters">
-          <div class="stylebar__label">Style</div>
-          <div id="styleChips" class="stylebar__chips" role="list"></div>
-        </div>
+      <div class="quickFilters">
+        <button id="favoritesToggle" class="btn btn--ghost" type="button" aria-pressed="false">Favorites</button>
+        <button id="compareToggle" class="btn btn--ghost" type="button">Compare (0)</button>
       </div>
 
       <div class="stats" aria-live="polite">
@@ -92,29 +90,22 @@
       <div class="hero__inner">
         <div class="hero__copy">
           <h1 class="hero__title">Pick a niche. Pick a style. Sell fast.</h1>
-          <p class="hero__subtitle">
-            A curated catalogue of small website templates you can sell online. Each template is designed with a distinct vibe so you can attract more buyers.
-          </p>
-          <div class="hero__badges" aria-label="Highlights">
-            <span class="pill">Responsive</span>
-            <span class="pill">Modern UI</span>
-            <span class="pill">Easy to customize</span>
-            <span class="pill">No backend</span>
-          </div>
-        </div>
-        <div class="hero__card" aria-hidden="true">
-          <div class="hero__cardTop"></div>
-          <div class="hero__cardBody">
-            <div class="skeleton skeleton--title"></div>
-            <div class="skeleton skeleton--line"></div>
-            <div class="skeleton skeleton--line"></div>
-            <div class="skeleton skeleton--chips"></div>
-          </div>
         </div>
       </div>
     </section>
 
     <section class="catalogue" aria-label="Website catalogue">
+      <section id="comparePanel" class="comparePanel" hidden aria-live="polite">
+        <div class="comparePanel__head">
+          <h3 class="comparePanel__title">Quick Compare</h3>
+          <div class="comparePanel__actions">
+            <button id="clearCompareBtn" class="btn btn--ghost" type="button">Clear</button>
+            <button id="closeCompareBtn" class="btn btn--ghost" type="button">Hide</button>
+          </div>
+        </div>
+        <div id="compareList" class="comparePanel__list"></div>
+      </section>
+
       <div class="catalogue__header">
         <h2 class="catalogue__title">Catalogue</h2>
         <p class="catalogue__desc">Open any product for details, pages included, and a clean buyer-ready pitch.</p>
@@ -131,17 +122,6 @@
       </div>
     </section>
 
-    <footer class="footer" role="contentinfo">
-      <div class="footer__inner">
-        <div class="footer__left">
-          <div class="footer__brand">SentinalWeb</div>
-          <div class="footer__muted">Static catalogue demo (no backend). Customize items/prices in <span class="mono">catalogue.js</span>.</div>
-        </div>
-        <div class="footer__right">
-          <a class="link" href="#" id="openContactLink">Buying & delivery</a>
-        </div>
-      </div>
-    </footer>
   </main>
 
   <dialog id="productDialog" class="dialog" aria-label="Product details">
@@ -166,13 +146,21 @@
               <span class="priceRow__note">One-time template</span>
             </div>
             <div class="priceRow__actions">
-              <button id="buyBtn" class="btn" type="button">
-                <span class="btn__label">Buy this template</span>
-                <span class="btn__icon" aria-hidden="true">→</span>
+              <button id="buyBtn" class="btn btn--primary" type="button">
+                <span class="btn__label">Get this website</span>
+                <span class="btn__icon" aria-hidden="true">></span>
               </button>
-              <button id="copySkuBtn" class="btn btn--ghost" type="button">
-                <span class="btn__label">Copy code</span>
+              <button id="openPreviewBtn" class="btn btn--ghost" type="button">
+                <span class="btn__label">Open preview</span>
+                <span class="btn__icon" aria-hidden="true">></span>
               </button>
+              <button id="copyUrlBtn" class="btn btn--ghost" type="button">
+                <span class="btn__label">Copy URL</span>
+              </button>
+              <button id="downloadQrBtn" class="btn btn--ghost" type="button">
+                <span class="btn__label">Download QR</span>
+              </button>
+              <button id="contactFromProductBtn" class="btn btn--ghost" type="button">Contact me</button>
             </div>
           </div>
 
@@ -216,30 +204,41 @@
     </form>
   </dialog>
 
-  <dialog id="contactDialog" class="dialog" aria-label="Buying and delivery">
+  <dialog id="contactDialog" class="dialog" aria-label="Free launch workflow">
     <form method="dialog" class="dialog__panel dialog__panel--narrow">
       <div class="dialog__head">
         <div>
-          <div class="dialog__title">How to buy (no backend)</div>
-          <div class="dialog__subtitle">Simple workflow for your first sales</div>
+          <div class="dialog__title">Launch for free (URL + QR)</div>
+          <div class="dialog__subtitle">Simple workflow to deliver client websites with zero hosting cost</div>
         </div>
         <button class="iconBtn" type="submit" value="close" aria-label="Close">✕</button>
       </div>
 
       <div class="dialog__content">
         <div class="panel">
-          <div class="panel__title">Recommended flow</div>
+          <div class="panel__title">Recommended free workflow</div>
           <ol class="ol">
-            <li>Customer picks a template and sends the template code (SKU) via WhatsApp/Email/DM.</li>
-            <li>You confirm price + delivery time (example: 24 hours).</li>
-            <li>Customer pays (bank transfer / e-wallet / PayPal link).</li>
-            <li>You deliver a ZIP file + quick edit guide (logo, colors, text).</li>
+            <li>Client picks a template and sends the template code (SKU) via WhatsApp/Email/DM.</li>
+            <li>You customize logo, text, colors, and contact details.</li>
+            <li>Deploy free on Cloudflare Pages, Netlify, or GitHub Pages.</li>
+            <li>Use a clean URL format like brandname-city.pages.dev or brandname.netlify.app.</li>
+            <li>Generate a QR from the final URL and share it for flyers, cards, and storefront stickers.</li>
           </ol>
         </div>
 
         <div class="panel">
+          <div class="panel__title">Good URL + QR tips</div>
+          <ul class="ol">
+            <li>Keep URL short: businessname + area (example: zencafe-jb.pages.dev).</li>
+            <li>Avoid numbers and long words so clients can type it easily.</li>
+            <li>Use qr-code-generator.com or canva.com/qr-code-generator for branded QR.</li>
+            <li>Always test QR on iPhone + Android before sending to client.</li>
+          </ul>
+        </div>
+
+        <div class="panel">
           <div class="panel__title">Your contact links</div>
-          <p class="panel__text">Edit these in <span class="mono">config.js</span> (search <span class="mono">CONTACT</span>) so the Buy button sends people to you.</p>
+          <p class="panel__text">Edit these in <span class="mono">catalogue/config.js</span> (search <span class="mono">CONTACT</span>) so the Get this website button sends clients to you.</p>
           <div class="contactRow">
             <button id="copyContactBtn" class="btn" type="button">Copy contact message</button>
             <button class="btn btn--ghost" value="close" type="submit">Close</button>
@@ -247,8 +246,8 @@
         </div>
 
         <div class="panel panel--muted">
-          <div class="panel__title">Next step later</div>
-          <div class="panel__text">When you’re ready, we can add checkout + auto delivery (backend) without changing the design much.</div>
+          <div class="panel__title">Optional upgrade later</div>
+          <div class="panel__text">When you are ready, add custom domains and analytics while keeping the same design and flow.</div>
         </div>
       </div>
     </form>

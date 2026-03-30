@@ -1,4 +1,4 @@
-import { CATEGORIES, ITEMS, STYLES } from "./catalogue-data.js";
+import { CATEGORIES, ITEMS } from "./catalogue-data.js";
 import { CONTACT } from "./config.js";
 
 function slugify(name) {
@@ -16,19 +16,24 @@ const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
 
 const els = {
   themeToggle: $("#themeToggle"),
+  searchToggle: $("#searchToggle"),
+  searchWrap: $("#searchWrap"),
+  favoritesToggle: $("#favoritesToggle"),
+  compareToggle: $("#compareToggle"),
   contactBtn: $("#contactBtn"),
   openContactLink: $("#openContactLink"),
 
   searchInput: $("#searchInput"),
-  categorySelect: $("#categorySelect"),
-  sortSelect: $("#sortSelect"),
-  styleChips: $("#styleChips"),
 
   resultsCount: $("#resultsCount"),
   resultsHint: $("#resultsHint"),
 
   categoryNav: $("#categoryNav"),
   catalogueRoot: $("#catalogueRoot"),
+  comparePanel: $("#comparePanel"),
+  compareList: $("#compareList"),
+  clearCompareBtn: $("#clearCompareBtn"),
+  closeCompareBtn: $("#closeCompareBtn"),
   emptyState: $("#emptyState"),
   resetBtn: $("#resetBtn"),
 
@@ -48,19 +53,39 @@ const els = {
   previewFrame: $("#previewFrame"),
 
   buyBtn: $("#buyBtn"),
-  openPreviewBtn: null,
-  copySkuBtn: $("#copySkuBtn"),
+  openPreviewBtn: $("#openPreviewBtn"),
+  copyUrlBtn: $("#copyUrlBtn"),
+  downloadQrBtn: $("#downloadQrBtn"),
+  contactFromProductBtn: $("#contactFromProductBtn"),
   copyContactBtn: $("#copyContactBtn"),
 };
 
 const state = {
   q: "",
-  categoryId: "all",
-  styles: new Set(),
-  sort: "featured",
   theme: null,
+  isSearchOpen: false,
+  focusedCategoryId: null,
+  lastFocusedCategoryId: null,
+  showFavoritesOnly: false,
+  showComparePanel: false,
+  favorites: new Set(),
+  compare: new Set(),
   availableTemplateSlugs: null,
 };
+
+function loadSet(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    const arr = raw ? JSON.parse(raw) : [];
+    return new Set(Array.isArray(arr) ? arr : []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveSet(key, setRef) {
+  localStorage.setItem(key, JSON.stringify([...setRef]));
+}
 
 function getThemePref() {
   const saved = localStorage.getItem("hwc-theme");
@@ -86,7 +111,7 @@ function toggleTheme() {
 }
 
 function formatPrice(n) {
-  return `$${n}`;
+  return `RM${n}`;
 }
 
 function byId(list, id) {
@@ -99,12 +124,8 @@ function normalize(s) {
 
 function itemMatches(item) {
   const q = normalize(state.q);
-  if (state.categoryId !== "all" && item.categoryId !== state.categoryId) return false;
 
-  if (state.styles.size > 0) {
-    const hasAny = item.style.some((s) => state.styles.has(s));
-    if (!hasAny) return false;
-  }
+  if (state.showFavoritesOnly && !state.favorites.has(item.sku)) return false;
 
   if (!q) return true;
 
@@ -118,21 +139,7 @@ function itemMatches(item) {
 
 function sortItems(items) {
   const sorted = [...items];
-  switch (state.sort) {
-    case "price-asc":
-      sorted.sort((a, b) => (a.price ?? 0) - (b.price ?? 0));
-      break;
-    case "price-desc":
-      sorted.sort((a, b) => (b.price ?? 0) - (a.price ?? 0));
-      break;
-    case "newest":
-      sorted.sort((a, b) => new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime());
-      break;
-    case "featured":
-    default:
-      sorted.sort((a, b) => (a.featuredRank ?? 999) - (b.featuredRank ?? 999));
-      break;
-  }
+  sorted.sort((a, b) => (a.featuredRank ?? 999) - (b.featuredRank ?? 999));
   return sorted;
 }
 
@@ -212,9 +219,9 @@ async function loadAvailableTemplates() {
 }
 
 function buildThumbNode(item) {
-  const thumb = el("div", { class: "card__thumb" });
+  const thumb = el("div", { class: "card-bg" });
   const frame = el("iframe", {
-    class: "card__iframe",
+    class: "card-bg__iframe",
     title: `${item.name} preview`,
     loading: "lazy",
     tabindex: "-1",
@@ -231,6 +238,38 @@ function buildThumbNode(item) {
   thumb.append(frame);
 
   return thumb;
+}
+
+function bindCardTilt(cardWrap) {
+  const card = $(".card", cardWrap);
+  if (!card) return;
+
+  let mouseLeaveDelay = null;
+
+  cardWrap.addEventListener("mousemove", (e) => {
+    const rect = cardWrap.getBoundingClientRect();
+    const mouseX = e.clientX - rect.left - rect.width / 2;
+    const mouseY = e.clientY - rect.top - rect.height / 2;
+
+    const px = mouseX / (rect.width / 2);
+    const py = mouseY / (rect.height / 2);
+
+    const rY = px * 16;
+    const rX = py * -16;
+    card.style.setProperty("--card-rotate-x", `${rX}deg`);
+    card.style.setProperty("--card-rotate-y", `${rY}deg`);
+  });
+
+  cardWrap.addEventListener("mouseenter", () => {
+    if (mouseLeaveDelay) clearTimeout(mouseLeaveDelay);
+  });
+
+  cardWrap.addEventListener("mouseleave", () => {
+    mouseLeaveDelay = setTimeout(() => {
+      card.style.setProperty("--card-rotate-x", "0deg");
+      card.style.setProperty("--card-rotate-y", "0deg");
+    }, 300);
+  });
 }
 
 function buildFallbackPreviewDoc(item) {
@@ -352,48 +391,36 @@ function buildFallbackPreviewDoc(item) {
 </html>`;
 }
 
-function renderCategorySelect() {
-  els.categorySelect.innerHTML = "";
-  els.categorySelect.append(
-    el("option", { value: "all", text: "All categories" }),
-    ...CATEGORIES.map((c) => el("option", { value: c.id, text: c.name }))
-  );
-}
+function renderCategoryNav() {
+  els.categoryNav.innerHTML = "";
 
-function renderStyleChips() {
-  els.styleChips.innerHTML = "";
-  for (const style of STYLES) {
-    const chip = el("button", {
-      class: "chip",
+  const allBtn = el("button", {
+    class: `categoryLink${state.focusedCategoryId === null ? " is-active" : ""}`,
+    type: "button",
+    text: "All",
+    onclick: () => {
+      state.focusedCategoryId = null;
+      render();
+    },
+  });
+  els.categoryNav.append(allBtn);
+
+  for (const cat of CATEGORIES) {
+    const btn = el("button", {
+      class: `categoryLink${state.focusedCategoryId === cat.id ? " is-active" : ""}`,
       type: "button",
-      role: "listitem",
-      "aria-pressed": "false",
-      text: style,
+      text: cat.name,
       onclick: () => {
-        if (state.styles.has(style)) state.styles.delete(style);
-        else state.styles.add(style);
+        state.focusedCategoryId = state.focusedCategoryId === cat.id ? null : cat.id;
         render();
       },
     });
-    els.styleChips.append(chip);
-  }
-}
-
-function renderCategoryNav() {
-  els.categoryNav.innerHTML = "";
-  for (const cat of CATEGORIES) {
-    els.categoryNav.append(
-      el("a", {
-        class: "categoryLink",
-        href: `#cat-${cat.id}`,
-        text: cat.name,
-      })
-    );
+    els.categoryNav.append(btn);
   }
 }
 
 function renderCardsForCategory(cat, items) {
-  const section = el("section", { class: "section", id: `cat-${cat.id}` });
+  const section = el("section", { class: "section", id: `cat-${cat.id}`, "data-category": cat.id });
 
   const head = el("div", { class: "section__head" }, [
     el("div", {}, [
@@ -406,68 +433,128 @@ function renderCardsForCategory(cat, items) {
   const grid = el("div", { class: "grid" });
 
   for (const item of items) {
-    const thumb = buildThumbNode(item);
-
-    const badges = el("div", { class: "badges" }, [
-      ...item.style.slice(0, 2).map((s) => el("span", { class: "badge", text: s })),
-      el("span", { class: "badge", text: item.sku }),
-    ]);
-
-    const card = el("article", { class: "card" }, [
-      thumb,
-      el("div", { class: "card__body" }, [
-        el("h4", { class: "card__title", text: item.name }),
-        el("p", { class: "card__desc", text: item.short }),
-        el("div", { class: "card__row" }, [
-          badges,
-          el("div", { class: "price", text: formatPrice(item.price) }),
-        ]),
-        el("div", { class: "card__actions" }, [
-          el("button", {
-            class: "btn",
-            type: "button",
-            onclick: () => openProduct(item.sku),
-          }, [
-            el("span", { class: "btn__label", text: "View details" }),
-            el("span", { class: "btn__icon", "aria-hidden": "true", text: ">" }),
-          ]),
-          el("button", {
-            class: "linkBtn",
-            type: "button",
-            onclick: async () => {
-              await copyText(item.sku);
-              toast(`Copied ${item.sku}`);
-            },
-            "aria-label": `Copy code ${item.sku}`,
-            text: "Copy code",
-          }),
-        ]),
-      ]),
-    ]);
-
-    grid.append(card);
+    grid.append(buildTemplateCard(item));
   }
 
   section.append(head, grid);
   return section;
 }
 
-function render() {
-  // controls state
-  const chips = $$(".chip", els.styleChips);
-  for (const chip of chips) {
-    const label = chip.textContent;
-    chip.setAttribute("aria-pressed", state.styles.has(label) ? "true" : "false");
+function toggleFavorite(sku) {
+  if (state.favorites.has(sku)) state.favorites.delete(sku);
+  else state.favorites.add(sku);
+  saveSet("hwc-favorites", state.favorites);
+}
+
+function toggleCompare(sku) {
+  if (state.compare.has(sku)) state.compare.delete(sku);
+  else {
+    if (state.compare.size >= 3) {
+      toast("You can compare up to 3 templates");
+      return false;
+    }
+    state.compare.add(sku);
+  }
+  saveSet("hwc-compare", state.compare);
+  return true;
+}
+
+function buildTemplateCard(item, { fromCompare = false } = {}) {
+  const thumb = buildThumbNode(item);
+
+  const badges = el("div", { class: "badges" }, [
+    ...item.style.slice(0, 2).map((s) => el("span", { class: "badge", text: s })),
+    el("span", { class: "badge", text: item.sku }),
+  ]);
+
+  const favoriteBtn = el("button", {
+    class: `favoriteBtn${state.favorites.has(item.sku) ? " is-active" : ""}`,
+    type: "button",
+    "aria-label": state.favorites.has(item.sku) ? "Remove from favorites" : "Add to favorites",
+    onclick: () => {
+      toggleFavorite(item.sku);
+      render();
+    },
+  }, [el("span", { text: "❤" })]);
+
+  const compareBtn = el("button", {
+    class: `linkBtn cardActionToggle${state.compare.has(item.sku) ? " is-active" : ""}`,
+    type: "button",
+    text: state.compare.has(item.sku) ? "Compared" : "Compare",
+    onclick: () => {
+      const changed = toggleCompare(item.sku);
+      if (!changed) return;
+      state.showComparePanel = state.compare.size > 0;
+      renderComparePanel();
+      render();
+    },
+  });
+
+  const card = el("article", { class: "card" }, [
+    thumb,
+    el("div", { class: "card-info" }, [
+      el("h4", { class: "card__title", text: item.name }),
+      el("p", { class: "card__desc", text: item.short }),
+      el("div", { class: "card__row" }, [
+        badges,
+        el("div", { class: "price", text: formatPrice(item.price) }),
+      ]),
+      el("div", { class: "card__actions" }, [
+        el("button", {
+          class: "btn",
+          type: "button",
+          onclick: () => openProduct(item.sku),
+        }, [
+          el("span", { class: "btn__label", text: "View details" }),
+          el("span", { class: "btn__icon", "aria-hidden": "true", text: ">" }),
+        ]),
+        compareBtn,
+        favoriteBtn,
+      ]),
+    ]),
+  ]);
+
+  const wrapClass = fromCompare ? "card-wrap card-wrap--compare" : "card-wrap";
+  const cardWrap = el("div", { class: wrapClass }, [card]);
+  bindCardTilt(cardWrap);
+  return cardWrap;
+}
+
+function renderComparePanel() {
+  if (!els.compareToggle || !els.comparePanel || !els.compareList) return;
+
+  const count = state.compare.size;
+  els.compareToggle.textContent = `Compare (${count})`;
+
+  if (count === 0) {
+    els.comparePanel.hidden = true;
+    els.compareList.innerHTML = "";
+    return;
   }
 
+  els.comparePanel.hidden = !state.showComparePanel;
+  if (!state.showComparePanel) return;
+
+  const items = [...state.compare]
+    .map((sku) => ITEMS.find((item) => item.sku === sku))
+    .filter(Boolean);
+
+  els.compareList.innerHTML = "";
+  const grid = el("div", { class: "comparePanel__grid" });
+  for (const item of items) {
+    grid.append(buildTemplateCard(item, { fromCompare: true }));
+  }
+  els.compareList.append(grid);
+}
+
+function render() {
   const visible = computeVisibleItems();
   els.resultsCount.textContent = String(visible.length);
 
   const hintBits = [];
-  if (state.categoryId !== "all") hintBits.push(byId(CATEGORIES, state.categoryId)?.name || state.categoryId);
-  if (state.styles.size > 0) hintBits.push([...state.styles].join(", "));
+  if (state.focusedCategoryId) hintBits.push(byId(CATEGORIES, state.focusedCategoryId)?.name || state.focusedCategoryId);
   if (state.q) hintBits.push(`"${state.q}"`);
-  els.resultsHint.textContent = hintBits.length ? hintBits.join(" - ") : "All templates";
+  els.resultsHint.textContent = hintBits.length ? hintBits.join(" - ") : "Showing all";
 
   const grouped = groupByCategory(visible);
 
@@ -475,10 +562,53 @@ function render() {
   let renderedSections = 0;
 
   for (const cat of CATEGORIES) {
+    if (state.focusedCategoryId && cat.id !== state.focusedCategoryId) continue;
     const items = grouped.get(cat.id) || [];
     if (items.length === 0) continue;
     els.catalogueRoot.append(renderCardsForCategory(cat, items));
     renderedSections++;
+  }
+
+  renderCategoryNav();
+
+  // Smooth collapse/restore transition for focused sections.
+  const sections = $$(".section", els.catalogueRoot);
+  if (state.focusedCategoryId) {
+    for (const section of sections) {
+      const isFocused = section.getAttribute("data-category") === state.focusedCategoryId;
+      section.classList.toggle("section--focused", isFocused);
+      if (!isFocused) {
+        section.classList.add("section--minimized-pre");
+      }
+    }
+    requestAnimationFrame(() => {
+      for (const section of sections) {
+        const isFocused = section.getAttribute("data-category") === state.focusedCategoryId;
+        if (!isFocused) {
+          section.classList.remove("section--minimized-pre");
+          section.classList.add("section--minimized");
+        }
+      }
+    });
+  } else if (state.lastFocusedCategoryId) {
+    for (const section of sections) {
+      section.classList.remove("section--focused");
+      section.classList.add("section--restore");
+    }
+    requestAnimationFrame(() => {
+      for (const section of sections) {
+        section.classList.remove("section--minimized");
+        section.classList.remove("section--restore");
+      }
+    });
+  }
+
+  state.lastFocusedCategoryId = state.focusedCategoryId;
+  renderComparePanel();
+
+  if (els.favoritesToggle) {
+    els.favoritesToggle.setAttribute("aria-pressed", state.showFavoritesOnly ? "true" : "false");
+    els.favoritesToggle.textContent = state.showFavoritesOnly ? "Favorites on" : "Favorites";
   }
 
   const isEmpty = visible.length === 0;
@@ -562,20 +692,6 @@ function openProduct(sku) {
     els.dlgPreview.style.cssText = "";
   }
 
-  // Lazily inject a preview button next to Buy/Copy
-  if (!els.openPreviewBtn) {
-    const actions = document.querySelector(".priceRow__actions");
-    if (actions) {
-      const btn = document.createElement("button");
-      btn.className = "btn btn--ghost";
-      btn.type = "button";
-      btn.id = "openPreviewBtn";
-      btn.innerHTML = '<span class="btn__label">Open preview</span><span class="btn__icon" aria-hidden="true">></span>';
-      actions.insertBefore(btn, els.copySkuBtn);
-      els.openPreviewBtn = btn;
-    }
-  }
-
   if (els.openPreviewBtn) {
     // Store the URL on the button to avoid closure issues
     els.openPreviewBtn.dataset.previewUrl = previewUrl;
@@ -589,6 +705,11 @@ function openProduct(sku) {
       window.open(els.openPreviewBtn.dataset.previewUrl, "_blank", "noopener,noreferrer");
     };
   }
+
+  // Store preview URL for copy/QR buttons
+  els.productDialog.dataset.previewUrl = previewUrl;
+  els.productDialog.dataset.templateName = item.name;
+  els.productDialog.dataset.templateSku = item.sku;
 
   openDialog(els.productDialog);
 }
@@ -655,31 +776,67 @@ function makePurchaseUrl(sku) {
   return "#";
 }
 
+function generateAndDownloadQR(url, filename) {
+  const container = el("div", { style: "display:none" });
+  const qrElement = el("div");
+  container.append(qrElement);
+  document.body.append(container);
+
+  try {
+    const qr = new QRCode(qrElement, {
+      text: url,
+      width: 300,
+      height: 300,
+      colorDark: "#000000",
+      colorLight: "#ffffff",
+      correctLevel: QRCode.CorrectLevel.H
+    });
+
+    setTimeout(() => {
+      const canvas = qrElement.querySelector("canvas");
+      if (canvas) {
+        canvas.toBlob((blob) => {
+          const link = el("a", {
+            href: URL.createObjectURL(blob),
+            download: filename || "qr-code.png"
+          });
+          link.click();
+          URL.revokeObjectURL(link.href);
+          container.remove();
+        });
+      } else {
+        container.remove();
+        toast("Failed to generate QR code");
+      }
+    }, 100);
+  } catch (err) {
+    container.remove();
+    toast("Error generating QR code");
+    console.error(err);
+  }
+}
+
 function wireEvents() {
   els.searchInput.addEventListener("input", (e) => {
     state.q = e.target.value;
     render();
   });
 
-  els.categorySelect.addEventListener("change", (e) => {
-    state.categoryId = e.target.value;
-    render();
-  });
-
-  els.sortSelect.addEventListener("change", (e) => {
-    state.sort = e.target.value;
-    render();
+  els.searchToggle?.addEventListener("click", () => {
+    state.isSearchOpen = !state.isSearchOpen;
+    if (els.searchWrap) els.searchWrap.hidden = !state.isSearchOpen;
+    if (state.isSearchOpen) els.searchInput?.focus();
+    if (!state.isSearchOpen && els.searchInput?.value) {
+      els.searchInput.value = "";
+      state.q = "";
+      render();
+    }
   });
 
   els.resetBtn.addEventListener("click", () => {
     state.q = "";
-    state.categoryId = "all";
-    state.styles = new Set();
-    state.sort = "featured";
 
     els.searchInput.value = "";
-    els.categorySelect.value = "all";
-    els.sortSelect.value = "featured";
 
     render();
   });
@@ -688,26 +845,70 @@ function wireEvents() {
 
   const openContact = () => openDialog(els.contactDialog);
   els.contactBtn.addEventListener("click", openContact);
-  els.openContactLink.addEventListener("click", (e) => {
+  els.contactFromProductBtn?.addEventListener("click", openContact);
+  els.openContactLink?.addEventListener("click", (e) => {
     e.preventDefault();
     openContact();
+  });
+
+  els.favoritesToggle?.addEventListener("click", () => {
+    state.showFavoritesOnly = !state.showFavoritesOnly;
+    render();
+  });
+
+  els.compareToggle?.addEventListener("click", () => {
+    if (state.compare.size === 0) {
+      toast("Add templates to compare first");
+      return;
+    }
+    state.showComparePanel = !state.showComparePanel;
+    renderComparePanel();
+  });
+
+  els.clearCompareBtn?.addEventListener("click", () => {
+    state.compare = new Set();
+    saveSet("hwc-compare", state.compare);
+    state.showComparePanel = false;
+    renderComparePanel();
+    render();
+  });
+
+  els.closeCompareBtn?.addEventListener("click", () => {
+    state.showComparePanel = false;
+    renderComparePanel();
   });
 
   els.buyBtn.addEventListener("click", async () => {
     const sku = els.dlgSku.value;
     const url = makePurchaseUrl(sku);
     if (url === "#") {
-      toast("Set CONTACT info in app.js first");
+      toast("Set CONTACT info in catalogue/config.js first");
       openDialog(els.contactDialog);
       return;
     }
     window.open(url, "_blank", "noopener,noreferrer");
   });
 
-  els.copySkuBtn.addEventListener("click", async () => {
-    const sku = els.dlgSku.value;
-    await copyText(sku);
-    toast(`Copied ${sku}`);
+  els.copyUrlBtn?.addEventListener("click", async () => {
+    const url = els.productDialog.dataset.previewUrl;
+    if (!url) {
+      toast("No preview URL available");
+      return;
+    }
+    await copyText(url);
+    toast("Preview URL copied to clipboard");
+  });
+
+  els.downloadQrBtn?.addEventListener("click", () => {
+    const url = els.productDialog.dataset.previewUrl;
+    const templateName = els.productDialog.dataset.templateName || "template";
+    if (!url) {
+      toast("No preview URL available for QR");
+      return;
+    }
+    const filename = `${slugify(templateName)}-qr.png`;
+    generateAndDownloadQR(url, filename);
+    toast("QR code downloading...");
   });
 
   els.copyContactBtn.addEventListener("click", async () => {
@@ -728,9 +929,9 @@ function wireEvents() {
 }
 
 function init() {
+  state.favorites = loadSet("hwc-favorites");
+  state.compare = loadSet("hwc-compare");
   setTheme(getThemePref());
-  renderCategorySelect();
-  renderStyleChips();
   renderCategoryNav();
   wireEvents();
   render();
