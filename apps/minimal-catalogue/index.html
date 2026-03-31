@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SentinalWeb Minimal App</title>
+  <meta name="description" content="Minimal catalogue app with larger controls and faster browsing." />
+  <link rel="stylesheet" href="./app.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar__inner">
+      <div class="brand">
+        <div class="brand__dot" aria-hidden="true"></div>
+        <div>
+          <h1 class="brand__name">SentinalWeb App</h1>
+          <p class="brand__sub">Minimal catalogue for quick browsing</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button id="searchToggle" class="iconBtn" type="button" aria-label="Toggle search">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <line x1="16.65" y1="16.65" x2="21" y2="21"></line>
+          </svg>
+        </button>
+        <button id="themeToggle" class="iconBtn" type="button" aria-label="Toggle theme">
+          <svg class="iconSun" viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <svg class="iconMoon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="searchWrap" class="searchWrap" hidden>
+      <input id="searchInput" class="searchInput" type="search" placeholder="Search template name, style, or niche" autocomplete="off" />
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="categories" aria-label="Category filter">
+      <button class="chip is-active" data-category="all" type="button">All</button>
+      <div id="categoryChips" class="categories__list"></div>
+    </section>
+
+    <section class="summary" aria-live="polite">
+      <span id="resultCount">0</span>
+      <span class="summary__dot">•</span>
+      <span id="resultHint">Loading templates</span>
+    </section>
+
+    <section>
+      <div id="cardGrid" class="grid"></div>
+    </section>
+  </main>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

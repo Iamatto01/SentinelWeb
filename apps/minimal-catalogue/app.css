@@ -1,0 +1,273 @@
+:root {
+  --bg: #f7f6f2;
+  --surface: #ffffff;
+  --ink: #181818;
+  --muted: #636363;
+  --line: #dddddd;
+  --brand: #146f62;
+  --brand-soft: #d5ece8;
+  --ring: 0 0 0 3px rgba(20, 111, 98, 0.22);
+}
+
+:root[data-theme="dark"] {
+  --bg: #121313;
+  --surface: #1b1d1d;
+  --ink: #f2f2f2;
+  --muted: #c8c8c8;
+  --line: #353838;
+  --brand: #53d4be;
+  --brand-soft: #12362f;
+  --ring: 0 0 0 3px rgba(83, 212, 190, 0.35);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Poppins", "Segoe UI", "Trebuchet MS", sans-serif;
+  background: radial-gradient(circle at 10% -10%, #efe8dc, transparent 38%), var(--bg);
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1.5;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in oklab, var(--bg) 92%, white 8%);
+  backdrop-filter: blur(10px);
+}
+
+.topbar__inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 16px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+
+.brand__dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 99px;
+  background: var(--brand);
+  box-shadow: 0 0 0 7px var(--brand-soft);
+}
+
+.brand__name {
+  margin: 0;
+  font-size: clamp(1.1rem, 2.2vw, 1.5rem);
+  letter-spacing: 0.2px;
+}
+
+.brand__sub {
+  margin: 3px 0 0;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+}
+
+.iconBtn {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.iconBtn svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.iconMoon {
+  display: none;
+}
+
+:root[data-theme="dark"] .iconSun {
+  display: none;
+}
+
+:root[data-theme="dark"] .iconMoon {
+  display: block;
+}
+
+.iconBtn:focus,
+.searchInput:focus,
+.chip:focus,
+.card__link:focus {
+  outline: none;
+  box-shadow: var(--ring);
+}
+
+.searchWrap {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 18px 16px;
+}
+
+.searchInput {
+  width: 100%;
+  height: 54px;
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 0 18px;
+  font-size: 1rem;
+}
+
+.main {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 18px 34px;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.categories__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.chip {
+  height: 46px;
+  padding: 0 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.97rem;
+  cursor: pointer;
+}
+
+.chip.is-active {
+  border-color: var(--brand);
+  background: var(--brand-soft);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.summary {
+  margin: 18px 0 14px;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+.summary__dot {
+  margin: 0 8px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.card__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.card__sku {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.card__price {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.card__desc {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.96rem;
+}
+
+.card__style {
+  margin: 0;
+  color: var(--ink);
+  font-size: 0.9rem;
+}
+
+.card__link {
+  height: 46px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+}
+
+.card__link:hover,
+.iconBtn:hover,
+.chip:hover {
+  border-color: var(--brand);
+}
+
+@media (max-width: 680px) {
+  body {
+    font-size: 16px;
+  }
+
+  .brand__sub {
+    display: none;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
