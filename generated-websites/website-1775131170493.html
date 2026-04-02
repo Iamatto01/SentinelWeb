@@ -1,0 +1,155 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern SaaS Platform</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff5722;
+        }
+        main {
+            padding: 50px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .feature-card {
+            background: #202020;
+            border-radius: 8px;
+            padding: 20px;
+            width: 300px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+        }
+        .feature-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        .feature-card p {
+            font-size: 16px;
+            color: #b3b3b3;
+        }
+        footer {
+            background: #1a1a1a;
+            padding: 20px 50px;
+            text-align: center;
+            color: #b3b3b3;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 15px;
+            }
+            main {
+                padding: 30px;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature-card {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Modern SaaS</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Streamline Your Workflow with Modern SaaS</h1>
+        <p>Effortlessly manage your projects, collaborate with your team, and stay organized with our cutting-edge SaaS platform.</p>
+        <section id="features">
+            <div class="features">
+                <div class="feature-card">
+                    <h2>Real-Time Collaboration</h2>
+                    <p>Work together with your team in real-time, no matter where you are located.</p>
+                </div>
+                <div class="feature-card">
+                    <h2>Customizable Dashboards</h2>
+                    <p>Create personalized dashboards to track your projects and tasks.</p>
+                </div>
+                <div class="feature-card">
+                    <h2>Advanced Analytics</h2>
+                    <p>Gain insights into your project performance with detailed analytics and reports.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Modern SaaS. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'translateY(-10px)';
+                card.style.boxShadow = '0 8px 12px rgba(0, 0, 0, 0.2)';
+            });
+            card.addEventListener('mouseout', () => {
+                card.style.transform = 'translateY(0)';
+                card.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            });
+        });
+    </script>
+</body>
+</html>
+```
