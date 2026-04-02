@@ -46,6 +46,7 @@ async function generateAndQueue() {
     console.log("🔄 Generating new website...");
     const generated = await generateWebsite();
     const saved = await saveGeneratedWebsite(generated.html, "pending");
+    await commitApprovedWebsite(saved.id, generated.html);
     console.log(`✓ Website queued: ${saved.filename}`);
     return saved;
   } catch (error) {
@@ -58,7 +59,7 @@ async function generateAndQueue() {
 export async function approveAndCommit(websiteId, htmlContent) {
   try {
     await commitApprovedWebsite(websiteId, htmlContent);
-    return { success: true, message: "Website approved and committed to GitHub" };
+    return { success: true, message: "Website committed to GitHub" };
   } catch (error) {
     console.error("Approval error:", error);
     return { success: false, error: error.message };

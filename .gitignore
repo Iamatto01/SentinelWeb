@@ -12,3 +12,6 @@ server/.env
 server/.git/
 server/.git_backup_local/
 
+# Runtime generated website previews
+server/data/generated/
+

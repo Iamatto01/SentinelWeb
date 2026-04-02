@@ -119,21 +119,12 @@ SMTP_FROM=SentinalWeb <yourgmail@gmail.com>
 
 If SMTP is not set, the backend prints the login link to the console (dev mode).
 
-## Optional: Turso database backend
+## Storage and publishing
 
-By default, catalogue/config are saved in `server/data/*.json`.
+Catalogue/config are saved in `server/data/*.json`.
 
-To use Turso key-value storage instead:
-
-1) Create a Turso database
-2) Add these env vars in `server/.env`:
-
-```env
-TURSO_DATABASE_URL=libsql://your-db-name.turso.io
-TURSO_AUTH_TOKEN=your_turso_auth_token
-```
-
-When `TURSO_DATABASE_URL` is set, the backend stores catalogue/config in Turso and auto-creates the table.
+Generated websites are saved locally first and then published to GitHub immediately.
+Template edits are written locally and pushed to GitHub immediately.
 
 ## Deploy on Render
 

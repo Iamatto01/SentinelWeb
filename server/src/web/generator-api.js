@@ -6,6 +6,7 @@ import {
   getWebsiteContent,
   moveWebsite,
 } from "./claude-agent.js";
+import { commitApprovedWebsite } from "./github-sync.js";
 
 export function createWebsiteGeneratorRouter() {
   const router = express.Router();
@@ -15,6 +16,7 @@ export function createWebsiteGeneratorRouter() {
     try {
       const generated = await generateWebsite();
       const saved = await saveGeneratedWebsite(generated.html, "pending");
+      await commitApprovedWebsite(saved.id, generated.html);
 
       res.json({
         success: true,
