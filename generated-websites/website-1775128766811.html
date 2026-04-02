@@ -1,0 +1,164 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ModernTech</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #333;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff6b6b;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            cursor: pointer;
+        }
+        nav ul li:hover {
+            color: #ff6b6b;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 100px;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+        }
+        .hero-text {
+            max-width: 500px;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero-btn {
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .hero-btn:hover {
+            background-color: #ff4d4d;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            padding: 50px 100px;
+        }
+        .feature-card {
+            background-color: #2a2a2a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 16px;
+            color: #cccccc;
+        }
+        .footer {
+            background-color: #1a1a1a;
+            color: #cccccc;
+            text-align: center;
+            padding: 20px 0;
+        }
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+            .hero {
+                padding: 30px 20px;
+                flex-direction: column;
+                text-align: center;
+            }
+            .features {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">ModernTech</div>
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Features</li>
+                <li>Pricing</li>
+                <li>Contact</li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Build Your Digital Future</h1>
+            <p>ModernTech is a powerful platform for building, deploying, and scaling your applications with ease.</p>
+            <button class="hero-btn">Get Started</button>
+        </div>
+        <img src="https://via.placeholder.com/500x500" alt="ModernTech Platform" style="max-width: 500px; border-radius: 10px;">
+    </section>
+    <section class="features">
+        <div class="feature-card">
+            <h2>Seamless Integration</h2>
+            <p>Integrate with your existing tools and workflows effortlessly.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Scalable Architecture</h2>
+            <p>Scale your application as your user base grows without any hassle.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Advanced Security</h2>
+            <p>Protect your data with state-of-the-art security measures.</p>
+        </div>
+    </section>
+    <footer class="footer">
+        <p>&copy; 2023 ModernTech. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            card.addEventListener('mouseout', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
+```
