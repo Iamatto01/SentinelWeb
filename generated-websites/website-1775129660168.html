@@ -1,0 +1,192 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Platform</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+            transition: background 0.3s ease;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #1f1f1f;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff5722;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff5722;
+        }
+        main {
+            padding: 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px;
+        }
+        .hero-content {
+            max-width: 500px;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            margin: 0;
+            line-height: 1.2;
+            color: #ff5722;
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .hero-content button {
+            background: #ff5722;
+            color: #121212;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .hero-content button:hover {
+            background: #e64a19;
+        }
+        .hero-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            gap: 40px;
+            margin: 40px 0;
+            flex-wrap: wrap;
+        }
+        .feature {
+            max-width: 300px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: scale(1.05);
+        }
+        .feature h2 {
+            font-size: 24px;
+            margin: 10px 0;
+        }
+        .feature p {
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        footer {
+            padding: 40px;
+            background: #1f1f1f;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero-image {
+                order: 2;
+                margin-top: 20px;
+            }
+            .features {
+                flex-direction: column;
+                align-items: center;
+            }
+            .feature {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TechSphere</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Empower Your Projects with Modern Technology</h1>
+                <p>Experience seamless integration and powerful tools designed to help you build and deploy your applications faster and more efficiently.</p>
+                <button onclick="alert('Get Started!')">Get Started</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/500x300.png?text=Modern+Tech" alt="Modern Tech">
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <h2>Fast Deployment</h2>
+                <p>Deploy your applications in seconds with our intuitive and powerful deployment platform.</p>
+            </div>
+            <div class="feature">
+                <h2>Collaborative Design</h2>
+                <p>Work together with your team in real-time to create and refine your designs.</p>
+            </div>
+            <div class="feature">
+                <h2>Secure Payments</h2>
+                <p>Process payments securely and efficiently with our state-of-the-art payment gateway.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 TechSphere. All rights reserved.</p>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```
