@@ -1,0 +1,179 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Platform</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+        }
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: linear-gradient(135deg, #1a1a1a, #2c2c2c);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #e0e0e0;
+            margin-left: 20px;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #ff5722;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 100px;
+            background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+        }
+        .hero-text {
+            max-width: 500px;
+        }
+        .hero-text h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+        .cta-button {
+            background: #ff5722;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #e64a19;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px 100px;
+            background: #1a1a1a;
+        }
+        .feature-card {
+            background: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+        .feature-card h2 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+        .feature-card p {
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            background: #1a1a1a;
+        }
+        .footer p {
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header, .hero, .features {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+            .hero-text {
+                max-width: 100%;
+            }
+            .feature-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+            .nav-links a {
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">TechFlow</div>
+        <nav class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Seamless Technology Solutions</h1>
+            <p>Empower your business with our cutting-edge technology platform. Simplify your workflows and boost productivity.</p>
+            <button class="cta-button">Get Started</button>
+        </div>
+        <img src="https://via.placeholder.com/500x500" alt="Hero Image" style="max-width: 500px; border-radius: 10px;">
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <h2>Advanced Analytics</h2>
+            <p>Gain deep insights into your business performance with our advanced analytics tools. Make data-driven decisions with ease.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Scalable Infrastructure</h2>
+            <p>Our platform is built to scale with your business. Whether you're a startup or an enterprise, we have you covered.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Collaborative Workflows</h2>
+            <p>Collaborate seamlessly with your team. Our platform supports real-time collaboration and project management.</p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2023 TechFlow. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.addEventListener('mouseover', () => {
+                card.style.transform = 'translateY(-10px)';
+            });
+            card.addEventListener('mouseout', () => {
+                card.style.transform = 'translateY(0)';
+            });
+        });
+
+        document.querySelector('.cta-button').addEventListener('click', () => {
+            alert('Thank you for getting started with TechFlow!');
+        });
+    </script>
+</body>
+</html>
+```
