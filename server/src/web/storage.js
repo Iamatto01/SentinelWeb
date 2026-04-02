@@ -12,12 +12,13 @@ function resolveDataDir() {
 
 const dataDir = resolveDataDir();
 const TURSO_DATABASE_URL = process.env.TURSO_DATABASE_URL || "";
-const TURSO_AUTH_TOKEN = process.env.TURSO_AUTH_TOKEN || "";
+const TURSO_AUTH_TOKEN = process.env.TURSO_AUTH_TOKEN || process.env.TURSO_API_KEY || "";
 
 let tursoClient = null;
+let tursoDisabled = false;
 
 function hasTursoConfig() {
-  return Boolean(TURSO_DATABASE_URL);
+  return Boolean(TURSO_DATABASE_URL) && !tursoDisabled;
 }
 
 function getTursoClient() {
@@ -31,38 +32,76 @@ function getTursoClient() {
   return tursoClient;
 }
 
+function isTursoAuthError(error) {
+  const status = error?.status || error?.cause?.status;
+  const message = String(error?.message || "");
+  return (
+    status === 401 ||
+    status === 403 ||
+    /401|403|unauthorized|forbidden/i.test(message)
+  );
+}
+
+function disableTursoStorage(error) {
+  if (!tursoDisabled) {
+    console.warn(
+      "Turso unavailable, falling back to local JSON storage:",
+      error?.message || error
+    );
+  }
+  tursoDisabled = true;
+  tursoClient = null;
+}
+
 async function ensureTursoSchema() {
   const client = getTursoClient();
-  if (!client) return;
-  await client.execute(`
-    CREATE TABLE IF NOT EXISTS kv_store (
-      k TEXT PRIMARY KEY,
-      v TEXT NOT NULL,
-      updated_at INTEGER NOT NULL
-    )
-  `);
+  if (!client) return false;
+  try {
+    await client.execute(`
+      CREATE TABLE IF NOT EXISTS kv_store (
+        k TEXT PRIMARY KEY,
+        v TEXT NOT NULL,
+        updated_at INTEGER NOT NULL
+      )
+    `);
+    return true;
+  } catch (error) {
+    if (isTursoAuthError(error)) disableTursoStorage(error);
+    return false;
+  }
 }
 
 async function getKv(key) {
   const client = getTursoClient();
   if (!client) return null;
-  const rs = await client.execute({ sql: "SELECT v FROM kv_store WHERE k = ?", args: [key] });
-  return rs.rows?.[0]?.v ?? null;
+  try {
+    const rs = await client.execute({ sql: "SELECT v FROM kv_store WHERE k = ?", args: [key] });
+    return rs.rows?.[0]?.v ?? null;
+  } catch (error) {
+    if (isTursoAuthError(error)) disableTursoStorage(error);
+    return null;
+  }
 }
 
 async function setKv(key, valueObj) {
   const client = getTursoClient();
-  if (!client) return;
-  await client.execute({
-    sql: `
-      INSERT INTO kv_store (k, v, updated_at)
-      VALUES (?, ?, ?)
-      ON CONFLICT(k) DO UPDATE SET
-        v = excluded.v,
-        updated_at = excluded.updated_at
-    `,
-    args: [key, JSON.stringify(valueObj), Date.now()],
-  });
+  if (!client) return false;
+  try {
+    await client.execute({
+      sql: `
+        INSERT INTO kv_store (k, v, updated_at)
+        VALUES (?, ?, ?)
+        ON CONFLICT(k) DO UPDATE SET
+          v = excluded.v,
+          updated_at = excluded.updated_at
+      `,
+      args: [key, JSON.stringify(valueObj), Date.now()],
+    });
+    return true;
+  } catch (error) {
+    if (isTursoAuthError(error)) disableTursoStorage(error);
+    return false;
+  }
 }
 
 async function readJson(fileName, fallback) {
@@ -137,12 +176,18 @@ async function readFrontendDefaults() {
 
 export async function ensureSeedData() {
   if (hasTursoConfig()) {
-    await ensureTursoSchema();
-    const defaults = await readFrontendDefaults();
-    const [catRaw, cfgRaw] = await Promise.all([getKv("catalogue"), getKv("config")]);
-    if (!catRaw) await setKv("catalogue", defaults.catalogue || { CATEGORIES: [], STYLES: [], ITEMS: [] });
-    if (!cfgRaw) await setKv("config", defaults.config || {});
-    return;
+    const schemaReady = await ensureTursoSchema();
+    if (schemaReady) {
+      try {
+        const defaults = await readFrontendDefaults();
+        const [catRaw, cfgRaw] = await Promise.all([getKv("catalogue"), getKv("config")]);
+        if (!catRaw) await setKv("catalogue", defaults.catalogue || { CATEGORIES: [], STYLES: [], ITEMS: [] });
+        if (!cfgRaw) await setKv("config", defaults.config || {});
+        return;
+      } catch (error) {
+        if (isTursoAuthError(error)) disableTursoStorage(error);
+      }
+    }
   }
 
   await fs.mkdir(dataDir, { recursive: true });
@@ -174,11 +219,13 @@ export async function ensureSeedData() {
 export async function getCatalogue() {
   if (hasTursoConfig()) {
     try {
-      await ensureTursoSchema();
+      const schemaReady = await ensureTursoSchema();
+      if (!schemaReady) return readJson("catalogue.json", { CATEGORIES: [], STYLES: [], ITEMS: [] });
       const raw = await getKv("catalogue");
       return raw ? JSON.parse(raw) : { CATEGORIES: [], STYLES: [], ITEMS: [] };
-    } catch {
-      return { CATEGORIES: [], STYLES: [], ITEMS: [] };
+    } catch (error) {
+      if (isTursoAuthError(error)) disableTursoStorage(error);
+      return readJson("catalogue.json", { CATEGORIES: [], STYLES: [], ITEMS: [] });
     }
   }
   return readJson("catalogue.json", { CATEGORIES: [], STYLES: [], ITEMS: [] });
@@ -186,9 +233,15 @@ export async function getCatalogue() {
 
 export async function setCatalogue(payload) {
   if (hasTursoConfig()) {
-    await ensureTursoSchema();
-    await setKv("catalogue", payload);
-    return;
+    try {
+      const schemaReady = await ensureTursoSchema();
+      if (schemaReady) {
+        const saved = await setKv("catalogue", payload);
+        if (saved) return;
+      }
+    } catch (error) {
+      if (isTursoAuthError(error)) disableTursoStorage(error);
+    }
   }
   await writeJson("catalogue.json", payload);
 }
@@ -196,11 +249,13 @@ export async function setCatalogue(payload) {
 export async function getConfig() {
   if (hasTursoConfig()) {
     try {
-      await ensureTursoSchema();
+      const schemaReady = await ensureTursoSchema();
+      if (!schemaReady) return readJson("config.json", {});
       const raw = await getKv("config");
       return raw ? JSON.parse(raw) : {};
-    } catch {
-      return {};
+    } catch (error) {
+      if (isTursoAuthError(error)) disableTursoStorage(error);
+      return readJson("config.json", {});
     }
   }
   return readJson("config.json", {});
@@ -208,9 +263,15 @@ export async function getConfig() {
 
 export async function setConfig(payload) {
   if (hasTursoConfig()) {
-    await ensureTursoSchema();
-    await setKv("config", payload);
-    return;
+    try {
+      const schemaReady = await ensureTursoSchema();
+      if (schemaReady) {
+        const saved = await setKv("config", payload);
+        if (saved) return;
+      }
+    } catch (error) {
+      if (isTursoAuthError(error)) disableTursoStorage(error);
+    }
   }
   await writeJson("config.json", payload);
 }
