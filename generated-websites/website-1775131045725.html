@@ -1,0 +1,175 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern SaaS Platform</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #e0e0e0;
+            transition: background 0.3s ease;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: #2a2a2a;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #e0e0e0;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff5722;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 100vh;
+            padding: 0 50px;
+            background: linear-gradient(135deg, #1a1a1a, #3a3a3a);
+        }
+        .hero-content {
+            max-width: 500px;
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero-button {
+            background: #ff5722;
+            color: #fff;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .hero-button:hover {
+            background: #e64a19;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 50px;
+            background: #2a2a2a;
+        }
+        .feature-card {
+            background: #3a3a3a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .feature-card h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .feature-card p {
+            font-size: 16px;
+            color: #d3d3d3;
+        }
+        footer {
+            padding: 20px 50px;
+            background: #2a2a2a;
+            text-align: center;
+        }
+        footer p {
+            font-size: 14px;
+            color: #d3d3d3;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 10px 20px;
+            }
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                padding: 0 20px;
+            }
+            .hero-content {
+                max-width: 100%;
+            }
+            .features {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .feature-card {
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">SaaS Platform</div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Features</a></li>
+                <li><a href="#">Pricing</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Modern SaaS Platform</h1>
+            <p>Streamline your business processes with our cutting-edge SaaS solution.</p>
+            <button class="hero-button">Get Started</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/500x500" alt="SaaS Platform">
+        </div>
+    </section>
+    <section class="features">
+        <div class="feature-card">
+            <h2>Seamless Integration</h2>
+            <p>Integrate with your existing tools and workflows effortlessly.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Real-Time Collaboration</h2>
+            <p>Work together in real-time with your team members.</p>
+        </div>
+        <div class="feature-card">
+            <h2>Scalable Solutions</h2>
+            <p>Grow with us as your business expands.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 SaaS Platform. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelector('.hero-button').addEventListener('click', () => {
+            alert('Thank you for getting started with our SaaS platform!');
+        });
+    </script>
+</body>
+</html>
+```
