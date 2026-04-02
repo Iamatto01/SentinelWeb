@@ -1,0 +1,155 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Platform</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #121212;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            margin: 0.5rem 0 1.5rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        .section {
+            padding: 3rem 0;
+            text-align: center;
+        }
+        .section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .section p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 2rem;
+        }
+        .feature {
+            background: #1a1a1a;
+            border-radius: 10px;
+            padding: 2rem;
+            width: 30%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        .feature p {
+            font-size: 1rem;
+        }
+        .cta-button {
+            display: inline-block;
+            background: #ff4d4d;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        .cta-button:hover {
+            background: #ff1a1a;
+        }
+        footer {
+            background: #1a1a1a;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        footer p {
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .feature {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Modern Tech Platform</h1>
+            <p>Empowering developers to build faster and better.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <h2>Welcome to the Future of Development</h2>
+            <p>Our platform provides cutting-edge tools and services to streamline your development process. From deployment to collaboration, we've got you covered.</p>
+        </div>
+    </section>
+
+    <section class="section features">
+        <div class="container">
+            <div class="feature">
+                <h3>Seamless Deployment</h3>
+                <p>Deploy your applications with ease using our intuitive and powerful deployment tools. No more complex configurations or manual setups.</p>
+            </div>
+            <div class="feature">
+                <h3>Collaborative Design</h3>
+                <p>Work together with your team in real-time. Our design tools allow for seamless collaboration and version control.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure Payments</h3>
+                <p>Process payments securely and efficiently. Our payment gateway is designed to handle high volumes and ensure data security.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <a href="#" class="cta-button">Get Started Today</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Modern Tech Platform. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseover', () => {
+                feature.style.transform = 'translateY(-10px)';
+            });
+            feature.addEventListener('mouseout', () => {
+                feature.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
+```
