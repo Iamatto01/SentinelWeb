@@ -170,9 +170,9 @@ export async function moveWebsite(fromFolder, toFolder, timestamp) {
     const content = await fs.readFile(fromPath, "utf-8");
     await fs.mkdir(path.join(dataDir, toFolder), { recursive: true });
     await fs.writeFile(toPath, content, "utf-8");
-    await fs.unlink(fromPath);
 
-    return { success: true, from: fromFolder, to: toFolder };
+    // Keep the original in pending so items are not removed automatically.
+    return { success: true, from: fromFolder, to: toFolder, copied: true };
   } catch (error) {
     console.error("Error moving website:", error);
     throw error;
