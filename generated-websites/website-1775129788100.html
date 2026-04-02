@@ -1,0 +1,142 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innovate Hub</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            transition: background 0.3s ease;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #1e1e1e;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6c63ff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #6c63ff;
+        }
+        main {
+            padding: 80px 40px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            padding: 40px;
+        }
+        .feature {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 16px;
+            color: #d4d4d4;
+        }
+        footer {
+            background: #1e1e1e;
+            padding: 40px;
+            text-align: center;
+            color: #888888;
+        }
+        @media (max-width: 768px) {
+            header, main, footer {
+                padding: 20px;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Innovate Hub</div>
+        <nav>
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to Innovate Hub</h1>
+        <p>Your one-stop solution for modern, efficient, and innovative software development.</p>
+        <div class="features">
+            <div class="feature">
+                <h2>Seamless Integration</h2>
+                <p>Integrate seamlessly with your existing tools and workflows to enhance productivity.</p>
+            </div>
+            <div class="feature">
+                <h2>Real-Time Collaboration</h2>
+                <p>Collaborate in real-time with your team members to ensure smooth project management.</p>
+            </div>
+            <div class="feature">
+                <h2>Advanced Analytics</h2>
+                <p>Gain insights into your project's performance with advanced analytics and reporting.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2023 Innovate Hub. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseover', () => {
+                feature.style.transform = 'translateY(-10px)';
+            });
+            feature.addEventListener('mouseout', () => {
+                feature.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
+```
