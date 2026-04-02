@@ -1,0 +1,174 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovateHub - The Future of Collaboration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1f1f1f, #3c3c3c);
+            padding: 2rem 0;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #ffffff;
+        }
+        header p {
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+        }
+        .hero-image {
+            width: 50%;
+            max-width: 600px;
+        }
+        .hero-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .hero-content {
+            width: 50%;
+            max-width: 600px;
+        }
+        .hero-content h2 {
+            font-size: 2.5rem;
+            margin: 0 0 1rem;
+            color: #ffffff;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        .feature {
+            flex: 1 1 300px;
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature h3 {
+            font-size: 1.8rem;
+            margin: 0 0 1rem;
+            color: #ffffff;
+        }
+        .feature p {
+            font-size: 1rem;
+            color: #cccccc;
+        }
+        .cta {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .cta button {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease-in-out;
+        }
+        .cta button:hover {
+            background: linear-gradient(135deg, #ff6e40, #ff9800);
+        }
+        footer {
+            background: #1f1f1f;
+            padding: 2rem 0;
+            text-align: center;
+            color: #cccccc;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+            }
+            .hero-image, .hero-content {
+                width: 100%;
+                max-width: 100%;
+            }
+            .features {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>InnovateHub</h1>
+        <p>The Future of Collaboration and Innovation</p>
+    </header>
+    <div class="container">
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Transform Your Workflow</h2>
+                <p>Experience seamless collaboration and innovation with InnovateHub. Our platform is designed to streamline your projects and enhance productivity.</p>
+            </div>
+            <div class="hero-image">
+                <img src="https://via.placeholder.com/600x400/333333/ffffff?text=InnovateHub+Hero+Image" alt="InnovateHub Hero Image">
+            </div>
+        </section>
+        <section class="features">
+            <div class="feature">
+                <h3>Real-Time Collaboration</h3>
+                <p>Work together in real-time with our intuitive interface. No more waiting for updates or dealing with version control issues.</p>
+            </div>
+            <div class="feature">
+                <h3>Advanced Project Management</h3>
+                <p>Manage your projects with ease using our advanced tools. Track progress, set milestones, and stay organized.</p>
+            </div>
+            <div class="feature">
+                <h3>Secure and Reliable</h3>
+                <p>Your data is safe with us. We use state-of-the-art security measures to protect your information and ensure reliability.</p>
+            </div>
+        </section>
+        <section class="cta">
+            <button onclick="location.href='#'">Get Started Today</button>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2023 InnovateHub. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseover', () => {
+                feature.style.transform = 'translateY(-10px)';
+            });
+            feature.addEventListener('mouseout', () => {
+                feature.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
+```
