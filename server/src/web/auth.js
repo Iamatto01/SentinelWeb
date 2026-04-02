@@ -25,6 +25,10 @@ function getAllowedEmails() {
   );
 }
 
+function getAdminRecipients() {
+  return [...getAllowedEmails()];
+}
+
 function getPublicBaseUrl(req) {
   return process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get("host")}`;
 }
@@ -150,4 +154,31 @@ export function createAuthRouter() {
   });
 
   return router;
+}
+
+export async function sendAdminNotificationEmail(subject, text) {
+  const transport = getTransport();
+  const recipients = getAdminRecipients();
+
+  if (!transport || recipients.length === 0) {
+    console.log("\n[DEV MODE] Notification email not sent.");
+    console.log(`Subject: ${subject}`);
+    console.log(text);
+    console.log();
+    return { sent: false, dev: true };
+  }
+
+  const from = process.env.SMTP_FROM || process.env.SMTP_USER;
+  await Promise.all(
+    recipients.map((email) =>
+      transport.sendMail({
+        from,
+        to: email,
+        subject,
+        text,
+      })
+    )
+  );
+
+  return { sent: true, recipients };
 }
