@@ -1,0 +1,215 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CloudFlow - Modern Cloud Solutions</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #1a1b1e;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: #2a2b30;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #6200ea;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #6200ea;
+        }
+        .hero {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 100px 40px;
+            background: linear-gradient(135deg, #2a2b30, #1a1b1e);
+        }
+        .hero-content {
+            max-width: 500px;
+        }
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+        .hero-content button {
+            background: #6200ea;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .hero-content button:hover {
+            background: #4d00b3;
+        }
+        .hero-image img {
+            max-width: 500px;
+            height: auto;
+        }
+        .features {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 80px 40px;
+            background: #1a1b1e;
+        }
+        .feature {
+            text-align: center;
+            max-width: 300px;
+        }
+        .feature h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        .cta {
+            text-align: center;
+            padding: 80px 40px;
+            background: linear-gradient(135deg, #6200ea, #4d00b3);
+        }
+        .cta h2 {
+            font-size: 36px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .cta p {
+            font-size: 18px;
+            color: white;
+            margin-bottom: 30px;
+        }
+        .cta button {
+            background: #1a1b1e;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+        .cta button:hover {
+            background: #4d00b3;
+        }
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #2a2b30;
+        }
+        footer p {
+            font-size: 14px;
+            color: #e0e0e0;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                padding: 60px 20px;
+            }
+            .hero-content, .hero-image {
+                max-width: 100%;
+            }
+            .features {
+                flex-direction: column;
+                padding: 60px 20px;
+            }
+            .feature {
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">CloudFlow</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Seamless Cloud Solutions for Your Business</h1>
+            <p>Experience the power of cloud computing with our cutting-edge technology and intuitive interface.</p>
+            <button>Get Started</button>
+        </div>
+        <div class="hero-image">
+            <img src="https://via.placeholder.com/500x300.png?text=Cloud+Flow" alt="Cloud Flow Image">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature">
+            <h2>Scalable Infrastructure</h2>
+            <p>Our platform automatically scales to meet your growing needs, ensuring optimal performance at all times.</p>
+        </div>
+        <div class="feature">
+            <h2>Secure Data Management</h2>
+            <p>Protect your data with advanced security measures and compliance certifications.</p>
+        </div>
+        <div class="feature">
+            <h2>User-Friendly Interface</h2>
+            <p>Manage your cloud resources with ease using our intuitive and user-friendly dashboard.</p>
+        </div>
+    </section>
+
+    <section class="cta" id="pricing">
+        <h2>Affordable Pricing Plans</h2>
+        <p>Choose the plan that best fits your business needs and budget.</p>
+        <button>View Pricing</button>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 CloudFlow. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('button').forEach(button => {
+            button.addEventListener('mouseover', () => {
+                button.style.transform = 'scale(1.05)';
+            });
+            button.addEventListener('mouseout', () => {
+                button.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
+```
