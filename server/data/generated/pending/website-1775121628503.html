@@ -1,0 +1,158 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovateHub - The Future of Collaboration</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif;
+            color: #ffffff;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #444;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        .hero {
+            text-align: center;
+            padding: 5rem 0;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 4rem 0;
+        }
+        .feature {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .feature h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1rem 0;
+        }
+        .feature p {
+            font-size: 1rem;
+            color: #d3d3d3;
+        }
+        .cta {
+            text-align: center;
+            padding: 3rem 0;
+        }
+        .cta button {
+            background: #ff6b6b;
+            color: #ffffff;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .cta button:hover {
+            background: #ff4c4c;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid #444;
+        }
+        @media (max-width: 768px) {
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">InnovateHub</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero container">
+        <h1>Collaborate, Innovate, Thrive</h1>
+        <p>Unlock the power of teamwork with our advanced collaboration tools.</p>
+        <button onclick="scrollToSection('features')">Get Started</button>
+    </section>
+
+    <section id="features" class="features container">
+        <div class="feature">
+            <h2>Real-Time Collaboration</h2>
+            <p>Work together seamlessly with real-time updates and version control.</p>
+        </div>
+        <div class="feature">
+            <h2>Secure Environment</h2>
+            <p>Protect your data with enterprise-grade security and compliance.</p>
+        </div>
+        <div class="feature">
+            <h2>Customizable Workflows</h2>
+            <p>Tailor your workflows to fit your team's needs with flexible settings.</p>
+        </div>
+        <div class="feature">
+            <h2>Integrations</h2>
+            <p>Integrate with your favorite tools to streamline your processes.</p>
+        </div>
+    </section>
+
+    <section class="cta container">
+        <button onclick="scrollToSection('contact')">Contact Us</button>
+    </section>
+
+    <footer class="container">
+        <p>&copy; 2023 InnovateHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function scrollToSection(sectionId) {
+            document.querySelector(`#${sectionId}`).scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
+```

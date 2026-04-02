@@ -1,0 +1,164 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InnovateHub</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            transition: background-color 0.3s ease;
+        }
+        header {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1a1a1a, #333333);
+            padding: 100px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 4em;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.5em;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .features {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 40px;
+        }
+        .feature {
+            background: #1e1e1e;
+            border-radius: 8px;
+            padding: 20px;
+            width: calc(33.333% - 20px);
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature h2 {
+            margin-bottom: 10px;
+        }
+        .feature p {
+            font-size: 1em;
+        }
+        .cta {
+            text-align: center;
+            margin-top: 40px;
+        }
+        .cta button {
+            background: linear-gradient(135deg, #ff6b6b, #ff9f1c);
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        .cta button:hover {
+            background: linear-gradient(135deg, #ff9f1c, #ff6b6b);
+        }
+        footer {
+            background: #1a1a1a;
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+        }
+        @media (max-width: 768px) {
+            .feature {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>InnovateHub</h1>
+            <p>Your one-stop solution for innovative projects</p>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Empowering Creators, Innovators, and Entrepreneurs</h1>
+            <p>Join our community to collaborate, share ideas, and bring your projects to life.</p>
+        </div>
+    </section>
+    <section class="features">
+        <div class="feature">
+            <h2>Collaborative Workspace</h2>
+            <p>Seamlessly work together with your team on projects, tasks, and ideas.</p>
+        </div>
+        <div class="feature">
+            <h2>Project Management</h2>
+            <p>Efficiently manage your projects with our intuitive tools and workflows.</p>
+        </div>
+        <div class="feature">
+            <h2>Community Support</h2>
+            <p>Connect with like-minded individuals and get feedback on your projects.</p>
+        </div>
+    </section>
+    <section class="cta">
+        <div class="container">
+            <button onclick="window.location.href='#'">Get Started Today</button>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 InnovateHub. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const features = document.querySelectorAll('.feature');
+            features.forEach(feature => {
+                feature.addEventListener('mouseover', () => {
+                    feature.style.transform = 'translateY(-10px)';
+                });
+                feature.addEventListener('mouseout', () => {
+                    feature.style.transform = 'translateY(0)';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```

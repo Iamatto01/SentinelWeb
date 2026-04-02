@@ -1,0 +1,190 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern SaaS Platform</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(135deg, #1e1e1e, #333333);
+            padding: 20px 0;
+            position: relative;
+        }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        .hero {
+            background: linear-gradient(135deg, #1e1e1e, #333333);
+            padding: 100px 0;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: -1;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+        .hero button {
+            background: #ff6b6b;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+        .hero button:hover {
+            background: #ff4c4c;
+        }
+        .features {
+            padding: 80px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .feature {
+            background: #2a2a2a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        .feature h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        .feature p {
+            font-size: 1rem;
+        }
+        footer {
+            background: #1e1e1e;
+            padding: 40px 0;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .features {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Modern SaaS</div>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="hero">
+        <div class="container">
+            <h1>Streamline Your Workflow</h1>
+            <p>Experience the power of modern technology with our cutting-edge SaaS platform. Boost productivity and efficiency like never before.</p>
+            <button onclick="alert('Get Started button clicked!')">Get Started</button>
+        </div>
+    </section>
+    <section id="features" class="features">
+        <div class="container">
+            <div class="feature">
+                <h2>Seamless Integration</h2>
+                <p>Integrate with your existing tools and workflows effortlessly. Our platform is designed to work seamlessly with popular services.</p>
+            </div>
+            <div class="feature">
+                <h2>Real-Time Collaboration</h2>
+                <p>Collaborate with your team in real-time. Share projects, track progress, and communicate without leaving the platform.</p>
+            </div>
+            <div class="feature">
+                <h2>Advanced Analytics</h2>
+                <p>Gain valuable insights with our advanced analytics dashboard. Track key metrics and optimize your processes.</p>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Modern SaaS Platform. All rights reserved.</p>
+        </div>
+    </footer>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```

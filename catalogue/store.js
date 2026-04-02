@@ -191,6 +191,10 @@ function getTemplateUrl(item) {
   return `./catalogue/${slug}/${slug}.html`;
 }
 
+function getLocalTemplateSlugSet() {
+  return new Set(ITEMS.map((item) => getTemplateSlug(item)).filter(Boolean));
+}
+
 function canRenderTemplatePreview(item) {
   if (!state.availableTemplateSlugs) return false;
   return state.availableTemplateSlugs.has(getTemplateSlug(item));
@@ -199,7 +203,10 @@ function canRenderTemplatePreview(item) {
 async function loadAvailableTemplates() {
   try {
     const res = await fetch("/api/templates/");
-    if (!res.ok) return;
+    if (!res.ok) {
+      state.availableTemplateSlugs = getLocalTemplateSlugSet();
+      return;
+    }
     const payload = await res.json();
     const records = Array.isArray(payload?.items)
       ? payload.items
@@ -211,10 +218,10 @@ async function loadAvailableTemplates() {
       .map((t) => (typeof t === "string" ? t : t?.slug))
       .filter(Boolean);
 
-    state.availableTemplateSlugs = new Set(slugs);
+    state.availableTemplateSlugs = slugs.length ? new Set(slugs) : getLocalTemplateSlugSet();
   } catch {
-    // Keep catalogue resilient if template API is unavailable.
-    state.availableTemplateSlugs = new Set();
+    // Static hosts (e.g. Cloudflare Pages) don't have /api/templates.
+    state.availableTemplateSlugs = getLocalTemplateSlugSet();
   }
 }
 
