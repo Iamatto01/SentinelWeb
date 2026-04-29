@@ -8,6 +8,11 @@
   "scripts": {
     "build": "npm --prefix server install --production",
     "start": "npm --prefix server run start",
-    "dev": "npm --prefix server run dev"
+    "dev": "npm --prefix server run dev",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4.86.0"
   }
 }
