@@ -4,7 +4,6 @@ import path from "node:path";
 
 import { requireAdmin } from "./auth.js";
 import { getProjectRoot } from "./storage.js";
-import { commitFileToGitHub } from "./github-sync.js";
 
 function titleFromSlug(slug) {
   return slug
@@ -100,11 +99,6 @@ export function createTemplateRouter() {
     }
 
     await fs.writeFile(resolved.filePath, `${html}\n`, "utf8");
-    await commitFileToGitHub(
-      `catalogue/${resolved.slug}/${resolved.slug}.html`,
-      `${html}\n`,
-      `Update template ${resolved.slug}`
-    );
     return res.json({ ok: true, slug: resolved.slug });
   });
 
