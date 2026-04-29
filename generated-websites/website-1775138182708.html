@@ -1,0 +1,170 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Web Platform</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #121212;
+            color: #f1f1f1;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+            padding: 2rem 1rem;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            color: #fff;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            background: #222;
+        }
+        nav a {
+            color: #f1f1f1;
+            text-decoration: none;
+            margin: 0 1rem;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ff6b6b;
+        }
+        .hero {
+            background: url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem 1rem;
+        }
+        .feature {
+            background: #1a1a1a;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .feature:hover {
+            transform: translateY(-10px);
+        }
+        .feature h3 {
+            font-size: 1.8rem;
+            margin: 0 0 1rem;
+        }
+        .feature p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        .cta {
+            background: #ff6b6b;
+            color: #fff;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-align: center;
+            margin: 2rem auto;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+        .cta:hover {
+            background: #ff4d4d;
+        }
+        footer {
+            background: #1a1a1a;
+            padding: 1rem;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+            .hero h2 {
+                font-size: 2.5rem;
+            }
+            .hero p {
+                font-size: 1rem;
+            }
+            .feature h3 {
+                font-size: 1.5rem;
+            }
+            .feature p {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Modern Web Platform</h1>
+    </header>
+    <nav>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <section class="hero">
+        <h2>Empower Your Web Projects</h2>
+        <p>Build, deploy, and manage your applications with ease.</p>
+        <a href="#features" class="cta">Get Started</a>
+    </section>
+    <section id="features" class="features">
+        <div class="feature">
+            <h3>Seamless Integration</h3>
+            <p>Integrate with popular tools and services effortlessly.</p>
+        </div>
+        <div class="feature">
+            <h3>Real-Time Collaboration</h3>
+            <p>Work together with your team in real-time.</p>
+        </div>
+        <div class="feature">
+            <h3>Scalable Infrastructure</h3>
+            <p>Scale your applications to handle any load.</p>
+        </div>
+        <div class="feature">
+            <h3>Advanced Security</h3>
+            <p>Protect your data with industry-leading security measures.</p>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2023 Modern Web Platform. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('.feature').forEach(feature => {
+            feature.addEventListener('mouseover', () => {
+                feature.style.transform = 'translateY(-10px)';
+            });
+            feature.addEventListener('mouseout', () => {
+                feature.style.transform = 'translateY(0)';
+            });
+        });
+    </script>
+</body>
+</html>
+```

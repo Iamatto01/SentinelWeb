@@ -1,0 +1,185 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Platform</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background: #1a1a1a;
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            background: #1a1a1a;
+            z-index: 1000;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #ffffff;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff6b6b;
+        }
+        main {
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #2c2c2c 0%, #4d4d4d 100%);
+            padding: 100px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .hero h1 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: 900;
+        }
+        .hero p {
+            font-size: 20px;
+            margin: 20px 0;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+        }
+        .feature-card {
+            background: #2c2c2c;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+        }
+        .feature-card h2 {
+            font-size: 24px;
+            margin: 0 0 10px;
+            font-weight: 700;
+        }
+        .feature-card p {
+            font-size: 16px;
+            margin: 0;
+        }
+        footer {
+            background: #1a1a1a;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 768px) {
+            header {
+                height: 60px;
+                padding: 0 10px;
+            }
+            .logo {
+                font-size: 20px;
+            }
+            nav ul {
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 14px;
+            }
+            .hero {
+                padding: 50px 10px;
+            }
+            .hero h1 {
+                font-size: 36px;
+            }
+            .hero p {
+                font-size: 16px;
+            }
+            .features {
+                padding: 30px 10px;
+            }
+            .feature-card {
+                padding: 20px;
+            }
+            .feature-card h2 {
+                font-size: 20px;
+            }
+            .feature-card p {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TechHub</div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="hero" class="hero">
+            <h1>Build Your Next Big Thing</h1>
+            <p>Modern tools for modern developers. Seamless integration, powerful features, and intuitive design.</p>
+        </section>
+        <section id="features" class="features">
+            <div class="feature-card">
+                <h2>Seamless Integration</h2>
+                <p>Easily integrate with your existing tools and workflows. Our platform is designed to work seamlessly with your team's needs.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Powerful Features</h2>
+                <p>Access a wide range of powerful features that will help you build, deploy, and manage your applications with ease.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Intuitive Design</h2>
+                <p>User-friendly interfaces and intuitive design make our platform accessible to developers of all skill levels.</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 TechHub. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+```

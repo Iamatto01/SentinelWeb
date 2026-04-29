@@ -1,0 +1,161 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Tech Platform</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            background: #121212;
+            color: #e0e0e0;
+            transition: background 0.3s ease;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+            border-bottom: 1px solid #333;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 1.5rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #e0e0e0;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        nav ul li a:hover {
+            color: #ff5f5f;
+        }
+        .hero {
+            min-height: 50vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #ff5f5f;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin: 1rem 0 2rem;
+        }
+        .hero img {
+            max-width: 400px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+        .feature-card {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+        .feature-card h2 {
+            font-size: 1.5rem;
+            margin: 0 0 1rem;
+            color: #ff5f5f;
+        }
+        .feature-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        footer {
+            background: #1a1a1a;
+            padding: 2rem;
+            text-align: center;
+        }
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+            .hero img {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <div class="logo">
+            <h1>Modern Tech</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#pricing">Pricing</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero container">
+        <div class="content">
+            <h1>Build, Deploy, Collaborate</h1>
+            <p>A modern platform for your next big project. Streamline your workflow with powerful tools and seamless integration.</p>
+            <button class="btn-primary">Get Started</button>
+        </div>
+        <img src="https://via.placeholder.com/400x300/1a1a1a/ffffff?text=Tech+Image" alt="Tech Image">
+    </section>
+    <section id="features" class="container">
+        <h2 class="section-title">Key Features</h2>
+        <div class="features">
+            <div class="feature-card">
+                <h2>Fast Deployment</h2>
+                <p>Deploy your applications with just a few clicks. Our platform is optimized for speed and reliability.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Collaborative Workflows</h2>
+                <p>Work together with your team in real-time. Share projects, track progress, and collaborate seamlessly.</p>
+            </div>
+            <div class="feature-card">
+                <h2>Customizable Solutions</h2>
+                <p>Tailor our platform to fit your specific needs. From small startups to large enterprises, we have you covered.</p>
+            </div>
+        </div>
+    </section>
+    <footer class="container">
+        <p>&copy; 2023 Modern Tech Platform. All rights reserved.</p>
+    </footer>
+    <script>
+        document.querySelector('.btn-primary').addEventListener('click', () => {
+            alert('Thank you for choosing Modern Tech! We will contact you soon.');
+        });
+    </script>
+</body>
+</html>
+```
