@@ -1,6 +1,5 @@
 import express from "express";
 import crypto from "node:crypto";
-import nodemailer from "nodemailer";
 import { SignJWT, jwtVerify } from "jose";
 
 const encoder = new TextEncoder();
@@ -33,13 +32,22 @@ function getPublicBaseUrl(req) {
   return process.env.PUBLIC_BASE_URL || `${req.protocol}://${req.get("host")}`;
 }
 
-function getTransport() {
+async function getTransport() {
   // If SMTP is not configured, we run in "dev mode" and print links to console.
   const host = process.env.SMTP_HOST;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASS;
 
   if (!host || !user || !pass) return null;
+
+  // Try to load nodemailer dynamically
+  let nodemailer;
+  try {
+    nodemailer = (await import("nodemailer")).default;
+  } catch {
+    console.warn("⚠️  nodemailer not installed - SMTP email disabled. Magic links will print to console.");
+    return null;
+  }
 
   return nodemailer.createTransport({
     host,
@@ -102,7 +110,7 @@ export function createAuthRouter() {
     const base = getPublicBaseUrl(req);
     const link = `${base}/api/auth/verify?token=${encodeURIComponent(token)}`;
 
-    const transport = getTransport();
+    const transport = await getTransport();
     if (!transport) {
       console.log("\n[DEV MODE] SMTP not configured. Use this admin login link:");
       console.log(link);
@@ -157,7 +165,7 @@ export function createAuthRouter() {
 }
 
 export async function sendAdminNotificationEmail(subject, text) {
-  const transport = getTransport();
+  const transport = await getTransport();
   const recipients = getAdminRecipients();
 
   if (!transport || recipients.length === 0) {
