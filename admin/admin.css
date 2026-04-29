@@ -26,8 +26,7 @@ body {
   font-family: var(--font);
   color: var(--text);
   background:
-    radial-gradient(1000px 520px at 0% 0%, rgba(100, 181, 246, 0.12), transparent 60%),
-    radial-gradient(1100px 580px at 100% 0%, rgba(66, 165, 245, 0.10), transparent 60%),
+    linear-gradient(135deg, #0a0a0a 0%, #0a0a0a 100%),
     var(--bg);
 }
 
@@ -37,8 +36,8 @@ body {
   z-index: 10;
   border-bottom: 1px solid var(--border);
   background: rgba(10, 10, 10, 0.85);
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .top__inner {
@@ -75,7 +74,7 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--panel);
-  box-shadow: var(--shadow);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.10);
   padding: 16px;
   margin-top: 12px;
 }
@@ -138,7 +137,7 @@ body {
   font-size: 13px;
   font-weight: 700;
   cursor: pointer;
-  transition: 200ms ease;
+  transition: 120ms ease;
 }
 
 .btn:hover {

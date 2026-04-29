@@ -27,7 +27,7 @@
 body {
   margin: 0;
   font-family: "Poppins", "Segoe UI", "Trebuchet MS", sans-serif;
-  background: radial-gradient(circle at 10% -10%, #efe8dc, transparent 38%), var(--bg);
+  background: var(--bg);
   color: var(--ink);
   font-size: 17px;
   line-height: 1.5;
@@ -39,7 +39,7 @@ body {
   z-index: 20;
   border-bottom: 1px solid var(--line);
   background: color-mix(in oklab, var(--bg) 92%, white 8%);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(4px);
 }
 
 .topbar__inner {
