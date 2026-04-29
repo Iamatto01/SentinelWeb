@@ -472,6 +472,30 @@
       .btn-primary, .btn-outline { width: 100%; text-align: center; }
       .results-grid { grid-template-columns: 1fr; }
     }
+    /* Reduced motion and simpler glass controls */
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; }
+    .hero::before,
+    .hero::after,
+    .grain,
+    [class*="float"],
+    [class*="pulse"],
+    [class*="ticker"],
+    [class*="marquee"] { animation: none !important; }
+    a[class*="btn"], button[class*="btn"], .btn, .btn-primary, .btn-secondary, .btn-order, .btn-book, .btn-join, .btn-call, .btn-quote, .btn-contact, .btn-reserve, .btn-outline, .btn-outline-white, .menu-card-btn, .nav-toggle {
+      transform: none !important;
+      border-radius: 14px;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.14);
+      transition: background 120ms ease, border-color 120ms ease, color 120ms ease, box-shadow 120ms ease;
+    }
+    a[class*="btn"]:hover, button[class*="btn"]:hover, .btn:hover, .btn-primary:hover, .btn-secondary:hover, .btn-order:hover, .btn-book:hover, .btn-join:hover, .btn-call:hover, .btn-quote:hover, .btn-contact:hover, .btn-reserve:hover, .btn-outline:hover, .btn-outline-white:hover, .menu-card-btn:hover, .nav-toggle:hover {
+      transform: none !important;
+      box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+    }
+    [class*="card"], [class*="card"]:hover { transform: none !important; transition: background 120ms ease, border-color 120ms ease, box-shadow 120ms ease, color 120ms ease !important; }
+    [class*="card"]:hover { box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12) !important; }
   </style>
 </head>
 <body>
