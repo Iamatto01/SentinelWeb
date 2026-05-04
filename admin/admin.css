@@ -19,6 +19,7 @@
 }
 
 * { box-sizing: border-box; }
+html { overflow-x: clip; }
 html, body { height: 100%; }
 
 body {
@@ -187,6 +188,7 @@ body {
 }
 
 .field__input {
+  width: 100%;
   height: 42px;
   border-radius: 10px;
   border: 1px solid var(--border);
@@ -252,6 +254,11 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   align-items: flex-end;
+}
+
+.auth .field {
+  flex: 1 1 280px;
+  min-width: 0;
 }
 
 .auth__msg {
